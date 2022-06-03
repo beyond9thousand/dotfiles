@@ -1,0 +1,12 @@
+Restart BSPWM,bspc wm -r 
+Restart Polybar,sh ~/.config/bspwm/polybar/launch.sh && notify-send "Polybar has been restarted"
+Restart SXHKD,pkill -USR1 -x sxhkd && notify-send "Keyboard daemon has been restarted"
+Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && notify-send "Pipewire has been restarted" && polybar-msg cmd restart 
+^sep()
+Find Window Class,notify-send "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)"
+Randomize Wallpaper,feh --bg-fill --randomize "$HOME/Pictures/Wallpapers"
+^sep()
+Terminal,xfce4-terminal,utilities-terminal
+Browser,firefox,firefox
+File manager,thunar,system-file-manager
+^sep()
