@@ -1,0 +1,155 @@
+#! /bin/sh
+
+# Restore wallpaper
+bash "$HOME"/.config/bspwm/.fehbg
+
+# xrdb -merge ~/.Xresources
+
+# Launching polybar
+"$HOME"/.config/bspwm/polybar/launch.sh
+
+#Starting SXHKD Keyboard Daemon
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# xmodmap ~/.xmodmap
+
+# pgrep -x screensaver > /dev/null || screensaver &
+
+# pgrep -x keyled > /dev/null || keyled &
+
+workspaces() {
+	name=1
+        for monitor in $(bspc query -M); do
+		bspc monitor "${monitor}" -n "$name" -d '' '' '' '' '' '' ''
+		let name++
+	done
+}
+workspaces
+
+bspc config border_width         3
+bspc config window_gap           10
+bspc config split_ratio          0.50
+
+bspc config focused_border_color "#7aa2f7"
+bspc config normal_border_color "#32344a"
+bspc config active_border_color "#444b6a"
+
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+# bspc config paddingless_monocle true
+bspc config single_monocle false
+bspc config focus_follows_pointer true
+
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_corner
+
+# fix pointer
+xsetroot -cursor_name left_ptr
+
+# workspace 1 (Terminals)
+declare -a terminal=(discord)
+for i in ${terminal[@]}; do
+    bspc rule -a $i desktop='^1' follow=on focus=on; done
+
+# workspace 2 (Internet Browser)
+declare -a web=(firefox)
+for i in "${web[@]}"; do
+    bspc rule -a $i desktop='^2' follow=on focus=on; done
+
+# workspace 3 (Files)
+declare -a filem=(Thunar Pcmanfm qBittorrent)
+for i in "${filem[@]}"; do
+    bspc rule -a $i desktop='^3' follow=on focus=on; done
+
+# workspace 4 (Text Editor)
+declare -a office=(Code Geany Blender)
+for i in "${office[@]}"; do
+    bspc rule -a $i desktop='^4' follow=on focus=on; done
+
+# workspace 5 (Media)
+declare -a media=(vlc obs SimpleScreenRecorder mpv mplayer \
+lxmusic Gimp Gimp-2.10 "VirtualBox Manager")
+for i in "${media[@]}"; do
+    bspc rule -a $i desktop='^5' follow=on focus=on; done
+
+# workspace 7 (Settings)
+declare -a settings=(GParted Lxappearance Lxtask Lxrandr Arandr \
+Xfce4-settings-manager Xfce4-power-manager-settings \
+octopi)
+for i in "${settings[@]}"; do
+    bspc rule -a $i desktop='^7' follow=on focus=on; done
+
+# floating windows
+declare -a floats=(Alafloat Lxappearance Arandr \
+Viewnior Pcmanfm feh Nm-connection-editor Matplotlib \
+Yad ColorPicker Gnome-disks PeekSimpleScreenRecorder \
+Pavucontrol Font-manager)
+for i in "${floats[@]}"; do
+  bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
+
+## Autostart
+
+# Kill if already running
+killall -9 picom sxhkd dunst xfce4-power-manager ksuperkey \
+eww copyq flameshot playerctld jgmenu plank touchegg screensaver \
+
+# Launch Conkeww
+#sed -i "s/colors\/color-.*/colors\/color-tokyo.yuck\")/g" "$HOME"/.config/conkeww/eww.yuck
+#eww --config "$HOME"/.config/conkeww/ open conkeww-main
+
+# Keep plank above all windows 
+bspc rule -a Plank manage=on locked=on border=off
+plank &
+
+# Launch notification daemon
+dunst -config "$HOME"/.config/bspwm/dunstrc &
+
+# Enable Super Keys For Menu
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &
+
+# polkit agent
+if [[ ! `pidof xfce-polkit` ]]; then
+    /usr/lib/xfce-polkit/xfce-polkit &
+fi
+
+# Launch keybindings daemon
+sxhkd &
+
+# Enable power management
+xfce4-power-manager &
+
+# Start copyq and flameshot
+copyq --start-server & 
+flameshot & 
+
+# Start playerctld daemon to monitor playback
+playerctld daemon &
+
+# Begin touchpad swipe control
+touchegg & disown
+
+# start compositor
+while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
+picom --config "$HOME"/.config/bspwm/picom.conf &
+
+# replace neovim colorscheme
+sed -i "s/theme =.*$/theme = \"tokyonight\",/g" "$HOME"/.config/nvim/lua/custom/chadrc.lua
+
+# change xfce4-terminal colorscheme
+XFCE_TERM_PATH="$HOME/.config/xfce4/terminal"
+cp "$XFCE_TERM_PATH"/colorschemes/tokyo-night "$XFCE_TERM_PATH"/terminalrc
+
+# change cava colorscheme
+# CAVA_PATH=""$HOME"/.config/cava"
+# cp "$CAVA_PATH"/colorschemes/tokyo-night "$CAVA_PATH"/config
+
+# Delete existing hooks and restart them
+for i in "$HOME"/.config/bspwm/hooks/*.sh; do {
+  pkill -9 -f "$i" 
+  eval "$i" &
+} 
+done
+
+# sleep 5 && xmodmap ~/xmodmap.old

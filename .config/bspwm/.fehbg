@@ -1,0 +1,4 @@
+#!/bin/sh
+#feh --no-fehbg --bg-scale "$HOME/.config/bspwm/wallpaper.jpg"
+feh --bg-fill --randomize "/home/beyond9thousand/Pictures/Wallpapers"
+
