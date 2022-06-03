@@ -55,9 +55,6 @@ if [[ ! `pidof xfce-polkit` ]]; then
     /usr/lib/xfce-polkit/xfce-polkit &
 fi
 
-# Launch keybindings daemon
-sxhkd &
-
 # Enable power management
 xfce4-power-manager &
 
