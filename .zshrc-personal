@@ -1,14 +1,14 @@
-#aliases
-alias pl="pwd | tr -d '\n' | xsel -b | notify-send 'Copied current directory path'"
-#Copy last used command to clipboard 
-alias cl="fc -ln -1 | sed 's/^\s*//' | tr -d '\n' | xsel -b | notify-send 'Copied last command to clipboard'"
+# aliases
+alias pl="pwd | tr -d '\n' | xclip -selection 'clipboard' -f | notify-send 'Copied current directory path'"
+# Copy last used command to clipboard
+alias cl="fc -ln -1 | sed 's/^\s*//' | tr -d '\n' | xclip -selection 'clipboard' -f | notify-send 'Copied last command to clipboard'"
 #Open dmenu scripts directory
 alias ds="notify-send 'Opening custom scripts directory' | z /usr/local/bin"
 
-#Checking script for potential errors
-#alias sc="notify-send 'Checking script for potential errors' | shellcheck"
+# Checking script for potential errors
+# alias sc="notify-send 'Checking script for potential errors' | shellcheck"
 
-#Dotfiles management commands using bare repo method
+# Dotfiles management commands using bare repo method
 alias gg='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ggr='gg rm --cached'
 
