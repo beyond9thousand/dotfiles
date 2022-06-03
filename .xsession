@@ -1,0 +1,1 @@
+export XCURSOR_SIZE=32
