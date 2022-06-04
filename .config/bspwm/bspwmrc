@@ -1,12 +1,12 @@
 #! /bin/sh
 
 # Restore wallpaper
-bash "$HOME"/.config/bspwm/.fehbg
+bash "$HOME"/.config/bspwm/.fehbg &
 
 # xrdb -merge ~/.Xresources
 
 # Launching polybar
-"$HOME"/.config/bspwm/polybar/launch.sh
+"$HOME"/.config/bspwm/polybar/launch.sh &
 
 # Starting SXHKD Keyboard Daemon
 pgrep -x sxhkd > /dev/null || sxhkd &
@@ -19,16 +19,16 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Set configurations
 for i in "$HOME"/.config/bspwm/configs/*.sh; do {
-  eval "$i" &
+  eval "$i" & 
 } 
 done
 
 # fix pointer
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
 
 # Set rules
 for i in "$HOME"/.config/bspwm/rules/*.sh; do {
-  eval "$i" &
+  eval "$i" & 
 } 
 done
 
