@@ -1,11 +1,11 @@
 #!/bin/bash
 
 idle1=false
-idleAfter=30000
+idleAfter=60000
 
 while true; do
   idleTimeMillis=$(xprintidle)
-  echo "$idleTimeMillis"  # just for debug purposes.
+  # echo "$idleTimeMillis"  # just for debug purposes.
   if [[ $idle1 = false && $idleTimeMillis -gt $idleAfter ]] ; then
     msi-perkeyrgb -s 000000
     idle1=true
