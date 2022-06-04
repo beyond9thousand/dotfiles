@@ -19,7 +19,7 @@ for i in "${office[@]}"; do
     bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 # workspace 5 (Media)
-declare -a media=(vlc obs SimpleScreenRecorder mpv mplayer \
+declare -a media=(vlc obs mpv mplayer \
 lxmusic Gimp Gimp-2.10 "VirtualBox Manager")
 for i in "${media[@]}"; do
     bspc rule -a $i desktop='^5' follow=on focus=on; done
@@ -34,7 +34,7 @@ for i in "${settings[@]}"; do
 # floating windows
 declare -a floats=(Alafloat Lxappearance Arandr \
 Viewnior Pcmanfm feh Nm-connection-editor Matplotlib \
-Yad ColorPicker Gnome-disks PeekSimpleScreenRecorder \
+Yad ColorPicker Gnome-disks SimpleScreenRecorder \
 Font-manager)
 for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
