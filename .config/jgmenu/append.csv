@@ -2,7 +2,7 @@
 Edit Config,^checkout(edit)
 ^sep()
 
-Lock,i3lock -c 000000,system-lock-screen
+Lock,lock
 Logout,pkill -KILL -u "$USER" &
 Exit,^checkout(exit),system-shutdown
 
