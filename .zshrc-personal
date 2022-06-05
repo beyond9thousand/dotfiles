@@ -14,7 +14,11 @@ alias ggr='gg rm --cached'
 
 alias god="bash ~/Scripts/Backup/githubgod.sh"
 
+# Quick open neovim
 alias n='nvim'
+
+# Quick open ranger file manager
+alias rr='ranger'
 
 alias cat='bat'
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq);yay -c' #Cleanup orphaned packages

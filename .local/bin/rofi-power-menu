@@ -38,10 +38,10 @@ icons[shutdown]=" "
 icons[cancel]=" "
 
 declare -A actions
-actions[lockscreen]='lock'
+actions[lockscreen]="rofilock"
 #actions[switchuser]="???"
 actions[logout]="pkill -KILL -u $USER"
-actions[suspend]="systemctl suspend && lock"
+actions[suspend]="rofi-suspend"
 # actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
 actions[shutdown]="systemctl poweroff"
