@@ -20,7 +20,7 @@ show=("${all[@]}")
 
 declare -A texts
 texts[lockscreen]="lock screen"
-texts[switchuser]="switch user"
+# texts[switchuser]="switch user"
 texts[logout]="log out"
 texts[suspend]="suspend"
 # texts[hibernate]="hibernate"
@@ -29,7 +29,7 @@ texts[shutdown]="shut down"
 
 declare -A icons
 icons[lockscreen]="\uf023 "
-icons[switchuser]="\uf518"
+# icons[switchuser]="\uf518"
 icons[logout]=" "
 icons[suspend]="\uf9b1 "
 # icons[hibernate]="\uf7c9"
@@ -38,7 +38,7 @@ icons[shutdown]=" "
 icons[cancel]=" "
 
 declare -A actions
-actions[lockscreen]="rofilock"
+actions[lockscreen]="rofi-lock"
 #actions[switchuser]="???"
 actions[logout]="pkill -KILL -u $USER"
 actions[suspend]="rofi-suspend"

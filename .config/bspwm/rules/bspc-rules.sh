@@ -40,7 +40,7 @@ for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
 
 # Keep plank above all windows 
-bspc rule -a Plank manage=on locked=on border=off
+bspc rule -a Plank manage=on locked=on border=off layer=above
 plank &
 
 # Special rule for pavucontrol

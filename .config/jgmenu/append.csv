@@ -7,7 +7,7 @@ Logout,pkill -KILL -u "$USER" &
 Exit,^checkout(exit),system-shutdown
 
 ^tag(exit)
-Suspend,systemctl suspend && lock
+Suspend,lock | systemctl suspend
 Reboot,reboot
 Poweroff,poweroff
 
