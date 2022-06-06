@@ -66,10 +66,14 @@ flameshot &
 playerctld daemon &
 
 # Begin touchpad swipe control
-touchegg & disown
+touchegg --daemon 
 
 # Launch pavucontrol
 pavucontrol & disown
+
+# Active green-tunnel
+pkill -9 -f "green-tunnel"
+green-tunnel & disown
 
 # start compositor
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done

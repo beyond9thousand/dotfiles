@@ -5,6 +5,9 @@ alias cl="fc -ln -1 | sed 's/^\s*//' | tr -d '\n' | xclip -selection 'clipboard'
 #Open dmenu scripts directory
 alias ds="notify-send 'Opening custom scripts directory' | z /usr/local/bin"
 
+# Cheat sheet
+alias cheat="navi --cheatsh"
+
 # Checking script for potential errors
 # alias sc="notify-send 'Checking script for potential errors' | shellcheck"
 
