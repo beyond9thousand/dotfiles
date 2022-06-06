@@ -26,7 +26,7 @@ get_url() {
 ##########
 
 stream() {
-	peerflix -k "${magnet}"
+	devour peerflix -k "${magnet}"
 }
 
 download() {

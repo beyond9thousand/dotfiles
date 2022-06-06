@@ -20,7 +20,6 @@ bspc config gapless_monocle      true
 # bspc config paddingless_monocle true
 bspc config single_monocle false
 bspc config focus_follows_pointer true
-bspc config ignore_ewmh_focus on
 
 bspc config pointer_modifier mod4
 bspc config pointer_action1 move
