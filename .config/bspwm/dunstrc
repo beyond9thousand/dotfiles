@@ -1,5 +1,5 @@
 [global]
-font = JetBrainsMono Nerd Font 10
+font = Roboto 12
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -64,7 +64,11 @@ hide_duplicate_count = yes
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
 #geometry = "250x50-40+40"
-geometry = "280x50-10+44"
+# geometry = "280x50-10+44"
+
+origin = top-right
+
+offset = 10x56
 
 width = (0,500)
 
@@ -117,10 +121,10 @@ line_height = 4
 separator_height = 4
 
 # Padding between text and separator.
-padding = 20
+padding = 15
 
 # Horizontal padding.
-horizontal_padding = 20
+horizontal_padding = 15
 
 # Define a color for the separator.
 # possible values are:
@@ -146,7 +150,7 @@ class = Dunst
 icon_position = left
 max_icon_size = 48
 
-frame_width = 2
+frame_width = 0
 
 [shortcuts]
 
@@ -179,8 +183,8 @@ timeout = 10
 
 [urgency_normal]
 frame_color = "#7AA2F7"
-foreground = "#a9b1d6"
-background = "#1a1b26"
+foreground = "#7AA2F7"
+background = "#282e49"
 timeout = 10
 
 [urgency_critical]
