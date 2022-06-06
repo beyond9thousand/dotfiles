@@ -1,0 +1,34 @@
+Restart BSPWM,bspc wm -r 
+Restart Polybar,sh ~/.config/bspwm/polybar/launch.sh && notify-send "Polybar has been restarted"
+Restart SXHKD,pkill -USR1 -x sxhkd && notify-send "Keyboard daemon has been restarted"
+Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && notify-send "Pipewire has been restarted" && polybar-msg cmd restart 
+^sep()
+
+Find Window Class,notify-send "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)"
+Randomize Wallpaper,feh --bg-fill --randomize "$HOME/Pictures/Wallpapers"
+^sep()
+
+Terminal,xfce4-terminal,utilities-terminal
+Neovim,xfce4-terminal -x nvim
+Ranger,xfce4-terminal -x ranger
+^sep()
+
+Edit,^checkout(edit)
+^sep()
+Lock,lock
+Logout,pkill -KILL -u "$USER" &
+Exit,^checkout(exit)
+
+^tag(exit)
+Suspend,lock | systemctl suspend
+Reboot,reboot
+Poweroff,poweroff
+
+^tag(edit)
+Edit BSPWM,xfce4-terminal -x nvim ~/.config/bspwm/bspwmrc
+Edit SXHKD,xfce4-terminal -x nvim ~/.config/sxhkd/sxhkdrc
+Edit NVIM plugins,xfce4-terminal -x nvim ~/.config/nvim/lua/custom/plugins/init.lua
+Edit Picom,xfce4-terminal -x nvim ~/.config/bspwm/picom.conf
+Edit JgMenu Upper,xfce4-terminal -x nvim ~/.config/jgmenu/prepend.csv
+Edit JgMenu Lower,xfce4-terminal -x nvim ~/.config/jgmenu/append.csv
+
