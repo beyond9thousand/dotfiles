@@ -7,9 +7,13 @@ while true; do
     sleep 15
     ss=Paused #Initial state provided is 'Paused'
     smeta=Null
+    vc=Null
     ss=$(playerctl status) #Playerctl status is fed
     smeta=$(playerctl metadata album) #Playerctl metadata album info is fed
+    vc=$(pactl list sink-inputs | grep -i webrtc)
       if [[ $ss = Playing && $smeta = "" ]]; then
+        xdg-screensaver reset
+      elif [[ $vc != "" ]]; then
         xdg-screensaver reset
       fi
 done

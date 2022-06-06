@@ -37,7 +37,7 @@ done
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager ksuperkey \
 eww copyq flameshot playerctld jgmenu plank touchegg screensaver \
-pavucontrol
+pavucontrol green-tunnel
 
 # Launch Conkeww
 #sed -i "s/colors\/color-.*/colors\/color-tokyo.yuck\")/g" "$HOME"/.config/conkeww/eww.yuck
@@ -66,7 +66,7 @@ flameshot &
 playerctld daemon &
 
 # Begin touchpad swipe control
-touchegg --daemon 
+touchegg & disown
 
 # Launch pavucontrol
 pavucontrol & disown

@@ -27,6 +27,10 @@ super + shift + t
 super + shift + e
     toggle-conkeww
 
+# GUI System monitor
+ctrl + shift + Escape
+    gnome-system-monitor
+
 # Rofi app launcher
 alt + F1
   $(bash ~/Scripts/Modules/applauncher.sh)    
