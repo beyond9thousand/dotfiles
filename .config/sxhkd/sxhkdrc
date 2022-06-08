@@ -39,6 +39,10 @@ alt + F1
 super + {x,n,d,s,KP_Insert}
     {keypower,def-nmdmenu,$(sh ~/Scripts/Modules/runmenu.sh),winshot,winshot}
 
+# # Record a video
+# super + {KP_Multiply,KP_Subtract}
+#     {record,$(giph --stop && notify-send "Stopped recording video")}
+
 # Lock Screen
 #ctrl + alt + l
 #   lock
