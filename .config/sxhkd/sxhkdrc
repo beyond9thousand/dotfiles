@@ -39,8 +39,8 @@ alt + F1
 super + {x,n,d,s,KP_Insert}
     {keypower,def-nmdmenu,$(sh ~/Scripts/Modules/runmenu.sh),winshot,winshot}
 
-# # Record a video
-# super + {KP_Multiply,KP_Subtract}
+# Record a video
+#super + {KP_Multiply,KP_Subtract}
 #     {record,$(giph --stop && notify-send "Stopped recording video")}
 
 # Lock Screen
@@ -78,14 +78,6 @@ XF86MonBrightness{Up,Down}
 # screenshot
 Print
     flameshot gui
-
-# # screenshot active window
-# ctrl + Print
-#     takeshot --win
-
-# # screenshot selected area
-# ctrl + shift + Print
-#     takeshot --area
 
 #
 #

@@ -6,10 +6,10 @@ bash "$HOME"/.config/bspwm/.fehbg &
 # xrdb -merge ~/.Xresources
 
 # Launching polybar
-"$HOME"/.config/bspwm/polybar/launch.sh &
+bash "$HOME"/.config/bspwm/polybar/launch.sh &
 
 # Starting SXHKD Keyboard Daemon
-pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x sxhkd > /dev/null || sxhkd & 
 
 # xmodmap ~/.xmodmap
 
@@ -36,7 +36,7 @@ done
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager ksuperkey \
-eww copyq flameshot playerctld jgmenu plank touchegg screensaver \
+eww copyq flameshot playerctld plank touchegg \
 pavucontrol green-tunnel
 
 # Launch Conkeww
@@ -44,7 +44,7 @@ pavucontrol green-tunnel
 #eww --config "$HOME"/.config/conkeww/ open conkeww-main
 
 # Launch notification daemon
-dunst -config "$HOME"/.config/bspwm/dunstrc &
+dunst -config "$HOME"/.config/bspwm/dunstrc & 
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -52,11 +52,11 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # polkit agent
 if [[ ! `pidof xfce-polkit` ]]; then
-    /usr/lib/xfce-polkit/xfce-polkit &
+    /usr/lib/xfce-polkit/xfce-polkit & 
 fi
 
 # Enable power management
-xfce4-power-manager &
+xfce4-power-manager & 
 
 # Start copyq and flameshot
 copyq --start-server & 
@@ -66,14 +66,14 @@ flameshot &
 playerctld daemon &
 
 # Begin touchpad swipe control
-touchegg & disown
+touchegg & 
 
 # Launch pavucontrol
-pavucontrol & disown
+pavucontrol & 
 
 # Active green-tunnel
 pkill -9 -f "green-tunnel"
-green-tunnel & disown
+green-tunnel &
 
 # start compositor
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done

@@ -2,9 +2,9 @@
 
 ## Files and Directories
 DIR="$HOME/.config/bspwm/polybar"
-SFILE="$DIR/system.ini"
+SFILE="$DIR/system"
 RFILE="$DIR/.system"
-MFILE="$DIR/modules.ini"
+MFILE="$DIR/.module"
 
 ## Get system variable values for various modules
 get_values() {

@@ -8,6 +8,9 @@ alias ds="notify-send 'Opening custom scripts directory' | z /usr/local/bin"
 # Cheat sheet
 alias cheat="navi --cheatsh"
 
+# Force restart bspwm
+alias fbspc='pkill -9 -f "bspwmrc && bspc wm -r'
+
 # Checking script for potential errors
 # alias sc="notify-send 'Checking script for potential errors' | shellcheck"
 

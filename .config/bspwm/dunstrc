@@ -152,26 +152,26 @@ max_icon_size = 48
 
 frame_width = 0
 
-[shortcuts]
-
-# Shortcuts are specified as [modifier+][modifier+]...key
-# Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-# "mod3" and "mod4" (windows-key).
-# Xev might be helpful to find names for keys.
-
-# Close notification.
-close = ctrl+shift+space
-
-# Close all notifications.
-close_all = ctrl+shift+space
-
-# Redisplay last message(s).
-# On the US keyboard layout "grave" is normally above TAB and left
-# of "1".
-history = ctrl+grave
-
-# Context menu.
-context = ctrl+shift+period
+# [shortcuts]
+#
+# # Shortcuts are specified as [modifier+][modifier+]...key
+# # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+# # "mod3" and "mod4" (windows-key).
+# # Xev might be helpful to find names for keys.
+#
+# # Close notification.
+# close = ctrl+shift+space
+#
+# # Close all notifications.
+# close_all = ctrl+shift+space
+#
+# # Redisplay last message(s).
+# # On the US keyboard layout "grave" is normally above TAB and left
+# # of "1".
+# history = ctrl+grave
+#
+# # Context menu.
+# context = ctrl+shift+period
 
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
@@ -247,5 +247,4 @@ timeout = 10
 #    urgency = normal
 #
 # vim: ft=cfg
-
 
