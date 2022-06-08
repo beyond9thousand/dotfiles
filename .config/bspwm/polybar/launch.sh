@@ -56,16 +56,16 @@ fi
 
 # Dunst Notification state
 notif=$(dunstctl is-paused)
-echo $notif
+# echo $notif
 file="$HOME/.config/bspwm/polybar/modules.ini"
 if [[ $notif = true ]]; then
-    echo entered
+    # echo entered
 		sed -i -e "s/initial=.*/initial=2/g" "$file"
-    echo "changed value to 2 (toggled off)"
+    # echo "changed value to 2 (toggled off)"
 else
 	sed -i -e "s/initial=.*/initial=1/g" "$file"
-  echo "Did not change value to 2 (toggled on)"
-  echo exited
+  # echo "Did not change value to 2 (toggled on)"
+  # echo exited
 fi
 
 launch_bar
