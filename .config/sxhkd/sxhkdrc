@@ -37,7 +37,7 @@ alt + F1
 
 # Launch Menus
 super + {x,n,d,s,KP_Insert}
-    {keypower,def-nmdmenu,$(sh ~/Scripts/Modules/runmenu.sh),$(sh ~/Scripts/Modules/winshot.sh),$(sh ~/Scripts/Modules/winshot.sh)}
+    {keypower,def-nmdmenu,$(sh ~/Scripts/Modules/runmenu.sh),winshot,winshot}
 
 # Lock Screen
 #ctrl + alt + l

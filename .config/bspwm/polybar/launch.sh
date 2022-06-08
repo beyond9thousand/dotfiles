@@ -12,7 +12,6 @@ get_values() {
 	BATTERY=$(basename "$(find /sys/class/power_supply/*BAT* | head -n 1)")
 	ADAPTER=$( "$(find /sys/class/power_supply/*AC* | head -n 1)")
 	INTERFACE=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
-	NOTIF=$(dunstctl is-paused)
 }
 
 ## Write values to `system` file
@@ -30,10 +29,6 @@ set_values() {
 		sed -i -e "s/network_interface = .*/network_interface = $INTERFACE/g" "$SFILE"
 	fi
 }
-
-	if [[ $NOTIF = paused ]]; then
-		sed -i -e "s/initial=2/g" "$MFILE"
-	fi
 
 ## Launch Polybar with selected style
 launch_bar() {
@@ -57,6 +52,20 @@ if [[ ! -f "$RFILE" ]]; then
 	get_values
 	set_values
 	touch "$RFILE"
+fi
+
+# Dunst Notification state
+notif=$(dunstctl is-paused)
+echo $notif
+file="$HOME/.config/bspwm/polybar/modules.ini"
+if [[ $notif = true ]]; then
+    echo entered
+		sed -i -e "s/initial=.*/initial=2/g" "$file"
+    echo "changed value to 2 (toggled off)"
+else
+	sed -i -e "s/initial=.*/initial=1/g" "$file"
+  echo "Did not change value to 2 (toggled on)"
+  echo exited
 fi
 
 launch_bar
