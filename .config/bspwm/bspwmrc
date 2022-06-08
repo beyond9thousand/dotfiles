@@ -44,7 +44,7 @@ pavucontrol green-tunnel
 #eww --config "$HOME"/.config/conkeww/ open conkeww-main
 
 # Launch notification daemon
-dunst -config "$HOME"/.config/bspwm/dunstrc & 
+# dunst -config "$HOME"/.config/bspwm/dunstrc & 
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
