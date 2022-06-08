@@ -5,11 +5,11 @@ bash "$HOME"/.config/bspwm/.fehbg &
 
 # xrdb -merge ~/.Xresources
 
-# Launching polybar
-bash "$HOME"/.config/bspwm/polybar/launch.sh &
-
 # Starting SXHKD Keyboard Daemon
 pgrep -x sxhkd > /dev/null || sxhkd & 
+
+# Launching polybar
+bash "$HOME"/.config/bspwm/polybar/launch.sh &
 
 # xmodmap ~/.xmodmap
 

@@ -19,7 +19,7 @@ for i in "${office[@]}"; do
     bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 # workspace 5 (Media)
-declare -a media=(vlc obs mpv mplayer \
+declare -a media=(vlc obs mplayer \
 lxmusic Gimp Gimp-2.10 "VirtualBox Manager")
 for i in "${media[@]}"; do
     bspc rule -a $i desktop='^5' follow=on focus=on; done
