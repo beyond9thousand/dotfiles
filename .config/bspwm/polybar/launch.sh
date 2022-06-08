@@ -2,9 +2,9 @@
 
 ## Files and Directories
 DIR="$HOME/.config/bspwm/polybar"
-SFILE="$DIR/system"
+SFILE="$DIR/system.ini"
 RFILE="$DIR/.system"
-MFILE="$DIR/.module"
+MFILE="$DIR/modules.ini"
 
 ## Get system variable values for various modules
 get_values() {
@@ -12,6 +12,7 @@ get_values() {
 	BATTERY=$(basename "$(find /sys/class/power_supply/*BAT* | head -n 1)")
 	ADAPTER=$( "$(find /sys/class/power_supply/*AC* | head -n 1)")
 	INTERFACE=$(ip link | awk '/state UP/ {print $2}' | tr -d :)
+	NOTIF=$(dunstctl is-paused)
 }
 
 ## Write values to `system` file
@@ -29,6 +30,10 @@ set_values() {
 		sed -i -e "s/network_interface = .*/network_interface = $INTERFACE/g" "$SFILE"
 	fi
 }
+
+	if [[ $NOTIF = paused ]]; then
+		sed -i -e "s/initial=2/g" "$MFILE"
+	fi
 
 ## Launch Polybar with selected style
 launch_bar() {

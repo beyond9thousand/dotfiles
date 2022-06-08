@@ -16,7 +16,7 @@ configuration{
     sidebar-mode: true;
 }
 
-@theme "onedark"
+@theme "tokyonight"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
