@@ -10,7 +10,7 @@ while true; do
     vc=Null
     ss=$(playerctl status) #Playerctl status is fed
     smeta=$(playerctl metadata album) #Playerctl metadata album info is fed
-    vc=$(pactl list sink-inputs | grep -i webrtc)
+    vc=$(fuser /dev/video0)
       if [[ $ss = Playing && $smeta = "" ]]; then
         xdg-screensaver reset
       elif [[ $vc != "" ]]; then
