@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
@@ -24,20 +31,20 @@ precmd() { vcs_info }
 # Format the vcs_info_msg_0_ variable
 zstyle ':vcs_info:git:*' formats "%b"
 
-ZSH_THEME_GIT_PROMPT_PREFIX=""
-ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY=" ✘"
-ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
-ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
-ZSH_THEME_GIT_PROMPT_MODIFIED=" ✹"
-ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
-ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
-ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
-ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
-
-setopt prompt_subst
-PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
-RPROMPT='%F{060}${vcs_info_msg_0_}`git_prompt_status`'
+# ZSH_THEME_GIT_PROMPT_PREFIX=""
+# ZSH_THEME_GIT_PROMPT_SUFFIX=""
+# ZSH_THEME_GIT_PROMPT_DIRTY=" ✘"
+# ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
+# ZSH_THEME_GIT_PROMPT_ADDED=" ✚"
+# ZSH_THEME_GIT_PROMPT_MODIFIED=" ✹"
+# ZSH_THEME_GIT_PROMPT_DELETED=" ✖"
+# ZSH_THEME_GIT_PROMPT_RENAMED=" ➜"
+# ZSH_THEME_GIT_PROMPT_UNMERGED=" ═"
+# ZSH_THEME_GIT_PROMPT_UNTRACKED=" ✭"
+#
+# setopt prompt_subst
+# PROMPT="%F{011}%~ %F{060}%n@%m%F{010}"$'\n'" ❯ %f"
+# RPROMPT='%F{060}${vcs_info_msg_0_}`git_prompt_status`'
 
 #ZSH_THEME=random
 #ZSH_THEME_RANDOM_CANDIDATES=( "agnoster" "crunch" "fino-time" "funky" "jonathan" "junkfood" )
@@ -208,3 +215,7 @@ fi
 # To initialize zoxide, add this to your configuration (usually ~/.zshrc):
 #
 # eval "$(zoxide init zsh)"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
