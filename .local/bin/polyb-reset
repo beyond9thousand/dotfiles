@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sh ~/.config/bspwm/polybar/launch.sh && dunstify --replace=69 -i /usr/share/icons/Papirus-Dark/symbolic/devices/ram-symbolic.svg "Restarted Polybar"

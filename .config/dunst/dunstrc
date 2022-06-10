@@ -82,7 +82,7 @@ shrink = no
 idle_threshold = 120
 
 # Which monitor should the notifications be displayed on.
-monitor = 0
+# monitor = 0
 
 # Display notification on focused monitor.  Possible modes are:
 #   mouse: follow mouse pointer
@@ -105,7 +105,7 @@ mouse_right_click = close_all
 sticky_history = yes
 
 # Maximum amount of notifications kept in history
-history_length = 20
+history_length = 10
 
 # Display indicators for URLs (U) and actions (A).
 show_indicators = no
@@ -176,9 +176,9 @@ frame_width = 0
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#7aa2f7"
-foreground = "#7aa2f7"
-background = "#1a1b26"
+frame_color = "#7AA2F7"
+foreground = "#7AA2F7"
+background = "#282e49"
 timeout = 10
 
 [urgency_normal]
@@ -190,7 +190,7 @@ timeout = 10
 [urgency_critical]
 frame_color = "#f7768e"
 foreground = "#f7768e"
-background = "#1a1b26"
+background = "#282e49"
 timeout = 10
 
 

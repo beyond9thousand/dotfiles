@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkill -USR1 -x sxhkd && dunstify --replace=69 -i /usr/share/icons/Papirus-Dark/symbolic/devices/input-keyboard-symbolic.svg "Restarted SXHKD"

@@ -4,7 +4,7 @@
 
 # reloads sxhkd configuration:
 super + Escape
-    pkill -USR1 -x sxhkd && notify-send "Keyboard" "Restarted SXHKD"
+    keeb-reset
 
 ~button3
    xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
@@ -37,7 +37,7 @@ alt + F1
 
 # Launch Menus
 super + {x,n,d,s,KP_Insert}
-    {keypower,def-nmdmenu,$(sh ~/Scripts/Modules/runmenu.sh),winshot,winshot}
+    {keypower,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh),winshot,winshot}
 
 # Record a video
 #super + {KP_Multiply,KP_Subtract}
