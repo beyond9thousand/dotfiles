@@ -97,6 +97,10 @@ super + {q,Delete}
 super + space
 	bspc node -t "~"{floating,tiled}
 
+# switch to tiled mode
+super + KP_Subtract
+  bspc node -t {floating}
+
 # send the newest marked node to the newest preselected node
 super + y
 	bspc node newest.marked.local -n newest.!automatic.local

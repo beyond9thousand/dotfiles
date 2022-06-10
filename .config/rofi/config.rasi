@@ -99,8 +99,8 @@ mode-switcher {
 
 button {
     padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
+    background-color: @bg-col;
+    text-color: @empty;
     vertical-align: 0.5; 
     horizontal-align: 0.5;
 }

@@ -87,7 +87,7 @@ element-icon {
 
 element selected {
     background-color:  @selected-col ;
-    text-color: @selected ;
+    text-color: @blue ;
     border-radius: 8px;
 }
 
@@ -102,8 +102,8 @@ mode-switcher {
 
 button {
     padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
+    background-color: @bg-col;
+    text-color: @inactive;
     vertical-align: 0.5; 
     horizontal-align: 0.5;
 }

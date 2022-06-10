@@ -268,9 +268,9 @@
     ###############################################################
     # If you only want to set the default color and a transparent
     # background, uncomment this simplified skin:
-    # skin: {
-    #     default: none none / gray(20) none
-    # }
+     skin: {
+         default: none none 
+     }
     #
     # To experiment with a whole skin, uncomment this one:
     # skin: {
