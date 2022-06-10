@@ -1,7 +1,7 @@
 Restart BSPWM,bspc wm -r 
 Restart Polybar,polyb-reset
 Restart SXHKD,keeb-reset
-Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && notify-send "Pipewire has been restarted" && polybar-msg cmd restart 
+Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && polyb-reset
 ^sep()
 
 Find Window Class,notify-send "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)"

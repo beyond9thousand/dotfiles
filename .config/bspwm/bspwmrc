@@ -37,7 +37,7 @@ done
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager ksuperkey \
 eww copyq flameshot playerctld plank touchegg \
-pavucontrol green-tunnel
+pavucontrol green-tunnel jgmenu
 
 # Launch Conkeww
 #sed -i "s/colors\/color-.*/colors\/color-tokyo.yuck\")/g" "$HOME"/.config/conkeww/eww.yuck
