@@ -8,9 +8,6 @@ alias ds="notify-send 'Opening custom scripts directory' | z /usr/local/bin"
 # Cheat sheet
 alias cheat="navi --cheatsh"
 
-# Force restart bspwm
-alias fbspc='pkill -9 -f "bspwmrc && bspc wm -r'
-
 # Checking script for potential errors
 # alias sc="notify-send 'Checking script for potential errors' | shellcheck"
 
@@ -40,7 +37,6 @@ alias gpgimportkey="gpg --import"
 alias gpglistkeys="gpg --list-keys --keyid-format LONG"
 alias grep='grep --color=auto'
 alias jctl="journalctl -p 3 -xb" #get the error messages from journalctl
-alias killp='killprocess'
 alias kp='killprocess'
 alias l='exa -lahF --color=always --icons --sort=size --group-directories-first'
 alias less='bat'
