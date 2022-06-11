@@ -36,7 +36,7 @@ done
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager ksuperkey \
-eww copyq flameshot playerctld plank touchegg \
+eww copyq flameshot playerctld touchegg \
 pavucontrol green-tunnel jgmenu
 
 # Launch Conkeww

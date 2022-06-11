@@ -7,3 +7,5 @@ export XCURSOR_SIZE=32
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+/usr/bin/plank &

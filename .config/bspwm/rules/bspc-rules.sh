@@ -41,7 +41,6 @@ for i in "${floats[@]}"; do
 
 # Keep plank above all windows 
 bspc rule -a Plank manage=off locked=on border=off layer=above focus=off
-/usr/bin/plank &
 
 # Special rule for pavucontrol
 bspc rule -a Pavucontrol desktop='^6' follow=off focus=on
