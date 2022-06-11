@@ -35,7 +35,7 @@ for i in "${settings[@]}"; do
 declare -a floats=(Alafloat Lxappearance Arandr \
 Viewnior Pcmanfm feh Nm-connection-editor Matplotlib \
 Yad ColorPicker Gnome-disks SimpleScreenRecorder \
-Font-manager Gnome-system-monitor)
+Font-manager Gnome-system-monitor OpenTabletDriver.UX.Gtk)
 for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
 

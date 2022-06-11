@@ -105,7 +105,7 @@ See the above repository for updates as well as full license text. */
   --uc-bm-padding: 4px; /* Vertical padding to be applied to bookmarks */
   --uc-bm-height: calc(20px + 2 * var(--uc-bm-padding)); /* Might need to adjust if the toolbar has other buttons */
   --uc-navbar-height: -40px; /* navbar is main toolbar. Use negative value */
-  --uc-autohide-toolbar-delay: 2s; /* The toolbar is hidden after 0.6s */
+  --uc-autohide-toolbar-delay: 1s; /* The toolbar is hidden after 0.6s */
 }
 
 
