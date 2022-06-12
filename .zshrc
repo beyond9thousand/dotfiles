@@ -19,7 +19,6 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-# fpath=(~/.zsh $fpath)
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -82,6 +81,7 @@ export VISUAL=/usr/bin/nvim
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 HISTSIZE=1000
 SAVEHIST=1000
@@ -97,18 +97,21 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  zsh-interactive-cd
-  zoxide
-  vi-mode
-  zsh-syntax-highlighting
-  safe-paste
-  gitfast
-)
+    git
+    zsh-interactive-cd
+    zoxide
+    vi-mode
+    zsh-syntax-highlighting
+    safe-paste
+    gitfast
+    dirhistory
+  )
 
 source $ZSH/oh-my-zsh.sh
 source /home/beyond9thousand/.config/broot/launcher/bash/br
+
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
+
 # User configuration
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true

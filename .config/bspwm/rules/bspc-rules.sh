@@ -9,7 +9,7 @@ for i in "${web[@]}"; do
     bspc rule -a $i desktop='^2' follow=on focus=on; done
 
 # workspace 3 (Files)
-declare -a filem=(Thunar Pcmanfm qBittorrent)
+declare -a filem=(Pcmanfm qBittorrent)
 for i in "${filem[@]}"; do
     bspc rule -a $i desktop='^3' follow=on focus=on; done
 
@@ -35,7 +35,8 @@ for i in "${settings[@]}"; do
 declare -a floats=(Alafloat Lxappearance Arandr \
 Viewnior Pcmanfm feh Nm-connection-editor Matplotlib \
 Yad ColorPicker Gnome-disks SimpleScreenRecorder \
-Font-manager Gnome-system-monitor OpenTabletDriver.UX.Gtk)
+Font-manager Gnome-system-monitor OpenTabletDriver.UX.Gtk \
+Thunar)
 for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
 

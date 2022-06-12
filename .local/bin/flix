@@ -25,7 +25,7 @@ get_url() {
 ##########
 
 stream() {
-	peerflix -k "${magnet}"
+	peerflix --mpv "${magnet}"
 }
 
 download() {
