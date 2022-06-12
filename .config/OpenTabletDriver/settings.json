@@ -7,7 +7,34 @@
         "Settings": [],
         "Enable": true
       },
-      "Filters": [],
+      "Filters": [
+        {
+          "Path": "RadialFollow.RadialFollowSmoothingScreenSpace",
+          "Settings": [
+            {
+              "Property": "OuterRadius",
+              "Value": 5.0
+            },
+            {
+              "Property": "InnerRadius",
+              "Value": 0.0
+            },
+            {
+              "Property": "SmoothingCoefficient",
+              "Value": 0.95
+            },
+            {
+              "Property": "SoftKneeScale",
+              "Value": 1.0
+            },
+            {
+              "Property": "SmoothingLeakCoefficient",
+              "Value": 0.0
+            }
+          ],
+          "Enable": false
+        }
+      ],
       "AbsoluteModeSettings": {
         "Display": {
           "Width": 1920.0,

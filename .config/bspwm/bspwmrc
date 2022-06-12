@@ -93,8 +93,4 @@ for i in "$HOME"/.config/bspwm/hooks/*.sh; do {
 } 
 done
 
-# change xfce4-terminal colorscheme
-XFCE_TERM_PATH="$HOME/.config/xfce4/terminal"
-cp "$XFCE_TERM_PATH"/colorschemes/tokyo-night "$XFCE_TERM_PATH"/terminalrc
-
 # sleep 5 && xmodmap ~/xmodmap.old

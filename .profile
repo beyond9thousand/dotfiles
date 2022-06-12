@@ -6,6 +6,10 @@ export XCURSOR_SIZE=32
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+# change xfce4-terminal colorscheme
+XFCE_TERM_PATH="$HOME/.config/xfce4/terminal"
+cp "$XFCE_TERM_PATH"/colorschemes/tokyo-night "$XFCE_TERM_PATH"/terminalrc
+
 # set PATH so it includes user's private ~/.local/bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
