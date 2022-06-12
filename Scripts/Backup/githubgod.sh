@@ -21,7 +21,8 @@ fi
 
 #echo "debug stage 1 input1: $input1"
 echo -e "\n${red}${bold}WARNING: ${reset}Entering ${green}${bold}god mode${reset}, force sync is in effect \n"
-$gg pull
+echo "Checking remote repo status: $($gg pull)"
+echo ""
 $gg status
 
 echo -e "\n"
