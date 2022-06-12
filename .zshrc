@@ -102,6 +102,7 @@ plugins=(
     zoxide
     vi-mode
     zsh-syntax-highlighting
+    zsh-autosuggestions
     safe-paste
     gitfast
     dirhistory
