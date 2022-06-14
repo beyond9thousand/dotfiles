@@ -6,4 +6,4 @@
 ![image](https://user-images.githubusercontent.com/77363063/173580016-6eaa8ecb-0fcf-4d89-9b90-38eed9bb77b5.png)
 -
 ### This readme is WIP
-(Heavily modified versions of configs packed inside [axyl-os](https://github.com/axyl-os))
+Massive thanks to [axyl-os](https://github.com/axyl-os) for a starting point. Most of the configurations were derived from its installation.
