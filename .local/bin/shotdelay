@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+icon="/usr/share/icons/Papirus-Dark/symbolic/devices/camera-photo-symbolic.svg"
+
+for i in {10..1}
+do 
+  dunstify --replace=69 -i $icon "Capturing a screenshot in $i"
+  sleep 1
+done
+
+killall dunst 
+
+sleep 0.5
+
+maim -u -f png | xclip -selection clipboard -t image/png
+
+dunstify --replace=69 -i $icon "Screenshot copied to clipboard"
