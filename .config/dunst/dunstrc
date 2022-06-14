@@ -189,10 +189,9 @@ timeout = 10
 
 [urgency_critical]
 frame_color = "#f7768e"
-foreground = "#f7768e"
-background = "#282e49"
+foreground = "#282e49"
+background = "#c45e71"
 timeout = 10
-
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
