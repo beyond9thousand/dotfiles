@@ -84,7 +84,7 @@ element-icon {
 
 element selected {
     background-color:  @selected-col ;
-    text-color: @selected ;
+    text-color: @blue ;
     border-radius: 8px;
 }
 

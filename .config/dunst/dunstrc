@@ -1,5 +1,7 @@
 [global]
 font = Roboto Medium 12
+icon_theme = "Papirus"
+enable_recursive_icon_lookup = true
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -192,6 +194,15 @@ frame_color = "#f7768e"
 foreground = "#282e49"
 background = "#c45e71"
 timeout = 10
+
+[notify_send]
+appname = notify-send
+new_icon = bell
+
+[wireless]
+appname = wireless
+new_icon = 
+format = "<span font_desc='JetBrainsMono Medium Nerd Font'>%b</span>"
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

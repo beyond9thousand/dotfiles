@@ -52,8 +52,8 @@ alias p='devour pcmanfm .'
 alias pipes='pipes -R -t 1'
 alias q='exit'
 alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl" #Recent Installed Packages
-alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -25 | nl" #Recent Installed Packages
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -50 | nl"
 alias rm='rm -i'
 alias sxiv='devour sxiv'
 alias update='sudo pacman -Syyu'

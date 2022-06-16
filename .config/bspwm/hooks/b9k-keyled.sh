@@ -9,7 +9,7 @@ while true; do
   if [[ $idle1 = false && $idleTimeMillis -gt $idleAfter ]] ; then
     msi-perkeyrgb -s 000000
     og=$(xbacklight -get)
-    xbacklight -set 10
+    xbacklight -set 5
     idle1=true
   fi
 

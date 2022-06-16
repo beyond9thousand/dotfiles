@@ -84,7 +84,7 @@ def dmenu_pass(command, color):
     return ["-P"] if dm_patch else ["-nb", color, "-nf", color]
 
 
-def dmenu_cmd(num_lines, prompt="直", active_lines=None):
+def dmenu_cmd(num_lines, prompt="", active_lines=None):
     """Parse config.ini for menu options
 
     Args: args - num_lines: number of lines to display
@@ -108,10 +108,10 @@ def dmenu_cmd(num_lines, prompt="直", active_lines=None):
         command.extend(["-a", ",".join([str(num) for num in active_lines])])
     # Passphrase prompts
     obscure = CONF.getboolean('dmenu_passphrase', 'obscure', fallback=False)
-    if prompt == "Password" and obscure is True:
+    if prompt == "" and obscure is True:
         obscure_color = CONF.get('dmenu_passphrase', 'obscure_color', fallback='#222222')
         pass_prompts = {"dmenu": dmenu_pass(command[0], obscure_color),
-                        "rofi": ['-password'],
+                        "rofi": ['-theme ~/.config/rofi/rofi-dnet.rasi -password'],
                         "bemenu": ['-x'],
                         "wofi": ['-P']}
         command.extend(pass_prompts.get(command[0], []))
@@ -665,7 +665,7 @@ def get_passphrase():
             if res.startswith("D "):
                 pin = res.split("D ")[1]
         return pin
-    return subprocess.run(dmenu_cmd(0, "Password"),
+    return subprocess.run(dmenu_cmd(0, ""),
                           capture_output=True,
                           check=False,
                           encoding=ENC).stdout
@@ -677,7 +677,7 @@ def delete_connection():
     """
     conn_acts = [Action(i.get_id(), i.delete_async, args=[None, delete_cb, None]) for i in CONNS]
     conn_names = "\n".join([str(i) for i in conn_acts])
-    sel = subprocess.run(dmenu_cmd(len(conn_acts), "Delete Connection"),
+    sel = subprocess.run(dmenu_cmd(len(conn_acts), ""),
                          capture_output=True,
                          check=False,
                          input=conn_names,
