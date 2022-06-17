@@ -33,11 +33,11 @@ ctrl + shift + Escape
 
 # Rofi app launcher
 alt + F1
-  $(bash ~/Scripts/Modules/applauncher.sh)    
+  key-menu    
 
 # Launch Menus
 super + {x,n,d,s,KP_Insert,KP_Multiply}
-    {keypower,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh),winshot,winshot,shotdelay}
+    {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh),winshot,win-shot,shot-delay}
 
 # Record a video
 #super + {KP_Multiply,KP_Subtract}

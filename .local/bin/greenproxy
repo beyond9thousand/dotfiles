@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Create a lock file to detect if dunstspeed is running 
+lockfile="/tmp/greenproxy.lock"
+dir="$HOME/.config/bspwm/polybar/modules.ini"
+
+# If lock file exists, remove it, kill the notif, kill dunstspeed; exit the script
+if [ -e "$lockfile" ]; then
+	rm -f "$lockfile"
+	pkill -9 -f "green-tunnel"
+	sed -i -e "399s/.*/initial=1/g" "$dir"
+	polybar-msg hook greentunnel 1
+else
+	touch "$lockfile" # Delete lock file
+	green-tunnel &
+	polybar-msg hook greentunnel 2
+	sed -i -e "399s/.*/initial=2/g" "$dir"
+fi
+

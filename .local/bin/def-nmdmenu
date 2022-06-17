@@ -1,0 +1,8 @@
+#!/bin/env bash
+
+source colors
+
+FONT="JetBrainsMono Nerd Font:size=12"
+
+# configuration of networkmanager-dmenu
+networkmanager_dmenu -c -i -l 10 -nb "$bg" -nf "$fg" -sb "$altbg" -sf "$fg" -fn "$FONT"

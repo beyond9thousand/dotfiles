@@ -1,5 +1,5 @@
 Restart BSPWM,bspc wm -r 
-Restart Polybar,polyb-reset
+Restart Polybar,poly-reset
 Restart SXHKD,keeb-reset
 Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && polyb-reset
 ^sep()

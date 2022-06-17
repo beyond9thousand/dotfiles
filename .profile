@@ -16,3 +16,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 /usr/bin/plank &
+
+mkdir /tmp/torrent-stream
+mkdir /tmp/Recordings
