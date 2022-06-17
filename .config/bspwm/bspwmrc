@@ -72,8 +72,8 @@ touchegg &
 pavucontrol & 
 
 # Active green-tunnel
-pkill -9 -f "green-tunnel"
-green-tunnel &
+# pkill -9 -f "green-tunnel"
+# green-tunnel &
 
 # start compositor
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done

@@ -60,10 +60,10 @@ notif=$(dunstctl is-paused)
 file="$HOME/.config/bspwm/polybar/modules.ini"
 if [[ $notif = true ]]; then
     # echo entered
-		sed -i -e "s/initial=.*/initial=2/g" "$file"
+		sed -i -e "385s/.*/initial=2/g" "$file"
     # echo "changed value to 2 (toggled off)"
 else
-	sed -i -e "s/initial=.*/initial=1/g" "$file"
+	sed -i -e "385s/.*/initial=1/g" "$file"
   # echo "Did not change value to 2 (toggled on)"
   # echo exited
 fi
