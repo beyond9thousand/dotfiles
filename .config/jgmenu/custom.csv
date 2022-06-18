@@ -1,34 +1,24 @@
 Restart BSPWM,bspc wm -r 
-Restart Polybar,poly-reset
-Restart SXHKD,keeb-reset
-Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && polyb-reset
+Restart Polybar,poly-reset,xfce4-systray
+Restart SXHKD,keeb-reset,input-keyboard
+Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && polyb-reset,audio-speakers
 ^sep()
 
-Find Window Class,notify-send "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)"
-Randomize Wallpaper,feh --bg-fill --randomize "$HOME/Pictures/Wallpapers"
+Find Window Class,notify-send "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
+Randomize Wallpaper,feh --bg-fill --randomize "$HOME/Pictures/Wallpapers",phototonic
 ^sep()
 
 Terminal,xfce4-terminal,utilities-terminal
-Neovim,xfce4-terminal -x nvim
-Ranger,xfce4-terminal -x ranger
+Neovim,xfce4-terminal -x nvim,nvim
+Ranger,xfce4-terminal -x ranger,stock_folder
 ^sep()
 
-Edit,^checkout(edit)
-^sep()
-Lock,lock
-Logout,pkill -KILL -u "$USER" &
+Lock,lock,system-lock-screen
+Logout,pkill -KILL -u "$USER" &,system-log-out
 Exit,^checkout(exit)
 
 ^tag(exit)
-Suspend,lock | systemctl suspend
-Reboot,reboot
-Poweroff,poweroff
-
-^tag(edit)
-Edit BSPWM,xfce4-terminal -x nvim ~/.config/bspwm/bspwmrc
-Edit SXHKD,xfce4-terminal -x nvim ~/.config/sxhkd/sxhkdrc
-Edit NVIM plugins,xfce4-terminal -x nvim ~/.config/nvim/lua/custom/plugins/init.lua
-Edit Picom,xfce4-terminal -x nvim ~/.config/bspwm/picom.conf
-Edit JgMenu Upper,xfce4-terminal -x nvim ~/.config/jgmenu/prepend.csv
-Edit JgMenu Lower,xfce4-terminal -x nvim ~/.config/jgmenu/append.csv
+Suspend,lock | systemctl suspend,system-suspend
+Reboot,reboot,system-reboot
+Poweroff,poweroff,system-shutdown
 

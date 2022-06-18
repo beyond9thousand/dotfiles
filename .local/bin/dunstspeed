@@ -10,6 +10,7 @@ if [ -e "$lockfile" ]; then
 	pkill -9 -f "dunstspeed"
 	exit
 else
+	dunstify -t 1000 "Checking network speed"
 	touch "$lockfile" # Delete lock file
 fi
 

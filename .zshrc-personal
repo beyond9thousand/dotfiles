@@ -31,7 +31,6 @@ alias df='df -h'
 alias e='exit'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
-alias g='gotop'
 alias gpgexportprivkey="gpg --export-secret-keys --armor"
 alias gpgimportkey="gpg --import"
 alias gpglistkeys="gpg --list-keys --keyid-format LONG"
@@ -48,7 +47,6 @@ alias mem="ps axch -o cmd:15,%mem --sort=-%mem | head"
 alias merge="xrdb -merge ~/.Xresources"
 alias mpv='devour mpv'
 alias mv='mv -i'
-alias p='devour pcmanfm .'
 alias pipes='pipes -R -t 1'
 alias q='exit'
 alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep

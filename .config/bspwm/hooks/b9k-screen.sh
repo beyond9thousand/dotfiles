@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Script starts running
-notify-send "Screensaver" "Script is running now"
+notify-send "Screensaver activated"
 
 while true; do
     sleep 15
