@@ -3,19 +3,11 @@
 # Restore wallpaper
 bash "$HOME"/.config/bspwm/.fehbg &
 
-# xrdb -merge ~/.Xresources
-
 # Starting SXHKD Keyboard Daemon
 pgrep -x sxhkd > /dev/null || sxhkd & 
 
 # Launching polybar
 bash "$HOME"/.config/bspwm/polybar/launch.sh &
-
-# xmodmap ~/.xmodmap
-
-# pgrep -x screensaver > /dev/null || screensaver &
-
-# pgrep -x keyled > /dev/null || keyled &
 
 # Set configurations
 for i in "$HOME"/.config/bspwm/configs/*.sh; do {
@@ -42,9 +34,6 @@ pavucontrol green-tunnel jgmenu
 # Launch Conkeww
 #sed -i "s/colors\/color-.*/colors\/color-tokyo.yuck\")/g" "$HOME"/.config/conkeww/eww.yuck
 #eww --config "$HOME"/.config/conkeww/ open conkeww-main
-
-# Launch notification daemon
-# dunst -config "$HOME"/.config/bspwm/dunstrc & 
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -75,12 +64,9 @@ pavucontrol &
 # pkill -9 -f "green-tunnel"
 # green-tunnel &
 
-# start compositor
+# Start compositor
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 picom --config "$HOME"/.config/bspwm/picom.conf &
-
-# replace neovim colorscheme
-sed -i "s/theme =.*$/theme = \"tokyonight\",/g" "$HOME"/.config/nvim/lua/custom/chadrc.lua
 
 # change cava colorscheme
 # CAVA_PATH=""$HOME"/.config/cava"
@@ -92,5 +78,3 @@ for i in "$HOME"/.config/bspwm/hooks/*.sh; do {
   eval "$i" &
 } 
 done
-
-# sleep 5 && xmodmap ~/xmodmap.old
