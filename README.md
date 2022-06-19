@@ -40,7 +40,6 @@ My workflow is personalized to utilize keyboard shortcuts as well as mouse opera
 | [`Roboto`](https://github.com/googlefonts/roboto) | Main Font |
 | [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome) | Main Icon Font |
 | [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont) | Main UI Font |
-| [`Icomoon`](https://icomoon.io/) | Secondary Icon Font |
 
 ## ✨ Credits
 - Neovim config by [NvChad](https://github.com/NvChad/NvChad)
