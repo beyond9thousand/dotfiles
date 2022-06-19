@@ -1,9 +1,21 @@
-# My BSPWM rice
-## Screenshots
-![image](https://user-images.githubusercontent.com/77363063/174495256-fe599e01-a32d-400f-83c9-a767bdab796b.png)
-![image](https://user-images.githubusercontent.com/77363063/174493120-3f193e4b-abdf-4a95-904c-b82462f619fe.png)
-![image](https://user-images.githubusercontent.com/77363063/174495351-3a478c0b-7cd4-4cc4-a96a-a83edafbe3f9.png)
-![image](https://user-images.githubusercontent.com/77363063/174494286-b96b0e9c-416e-4c78-b3a2-8f6e8345d23d.png)
--
-### This readme is WIP
-Massive thanks to [axyl-os](https://github.com/axyl-os) for a starting point. Most of the configurations were derived from its installation.
+# BSPWM
+<!-- Information -->
+## <span>Information</span> <img alt="" align="right" src="https://badges.pufler.dev/visits/beyond9thousand/dotfiles?style=for-the-badge&color=A7D9B2&logoColor=white&labelColor=1C2325"/>
+
+<img src="assets/result-sprite.png" alt="Rice Showcase" align="right" width="400px">
+
+- **Window Manager:** [bspwm](https://github.com/baskerville/bspwm)
+- **Terminal:** [xfce4-terminal](https://gitlab.xfce.org/apps/xfce4-terminal)
+- **Shell:** [zsh](https://www.zsh.org/)
+- **Panel:** [polybar](https://github.com/polybar/polybar)
+- **Compositor:** [picom-ibhagwan-git](https://github.com/ibhagwan/picom-ibhagwan-git)
+- **Editor:** [neovim](https://github.com/neovim/neovim)
+- **Notification Manager:** [dunst](https://github.com/dunst-project/dunst)
+- **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
+
+## Credits
+- Wallpaper artwork created by [BisBiswas](https://www.deviantart.com/bisbiswas/art/Scattered-Lights-898482741)
+- Gundam 3D model created by [Jeff Allen](https://mjeff3d.gumroad.com/l/MSA0011M)
+- Some configurations have been derived from [axyl-os](https://github.com/axyl-os)
+### NOTE: This readme is still a WIP
+
