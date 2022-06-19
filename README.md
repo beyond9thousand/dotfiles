@@ -1,4 +1,20 @@
-# BSPWM
+<h2 align="center"> BSPWM </h2>
+
+<!-- BADGES -->
+<div align="center">
+   <p></p>
+   <a href="">
+      <img src="https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=ffb29b&labelColor=1C2325&style=for-the-badge">
+   </a>
+   <a href="https://github.com/janleigh/dotfiles/stargazers">
+      <img src="https://img.shields.io/github/stars/beyond9thousand/dotfiles?color=C9CBFF&labelColor=1C2325&style=for-the-badge">
+   </a>
+   <a href="https://github.com/janleigh/dotfiles/">
+      <img src="https://img.shields.io/github/repo-size/beyond9thousand/dotfiles?color=FCA2AA&labelColor=1C2325&style=for-the-badge">
+   </a>
+   <br>
+</div>
+
 <!-- Information -->
 ## 📝 <span>Information</span> <img alt="" align="right" src="https://badges.pufler.dev/visits/beyond9thousand/dotfiles?style=for-the-badge&color=A7D9B2&logoColor=white&labelColor=1C2325"/>
 
