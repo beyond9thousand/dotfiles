@@ -1,5 +1,5 @@
 #
-# wm independent hotkeys
+ wm independent hotkeys
 #
 
 # reloads sxhkd configuration:
@@ -36,23 +36,12 @@ alt + F1
   key-menu    
 
 # Launch Menus
-super + {x,n,d,s,KP_Insert,KP_Multiply}
-    {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh),winshot,win-shot,shot-delay}
+super + {x,n,d}
+    {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh)}
 
 # Record a video
 #super + {KP_Multiply,KP_Subtract}
 #     {record,$(giph --stop && notify-send "Stopped recording video")}
-
-# Lock Screen
-#ctrl + alt + l
-#   lock
-
-# custom dmenu scripts
-super + l
-    {quick-links}
-
-super + p
-  {edit-configs}
 
 # Launch Applications
 super + shift + {f,g,c,d,s,v}
@@ -78,6 +67,13 @@ XF86MonBrightness{Up,Down}
 # screenshot
 Print
     flameshot gui
+
+# Screenshot exras
+ctrl + Print
+  win-shot
+
+ctrl + shift + Print
+  shot-delay
 
 #
 #
@@ -134,6 +130,10 @@ super + {_,shift + }{Left,Down,Up,Right}
 # Change focus to next window, including floating window
 alt + {_,shift + }Tab
     bspc node -f {next.local,prev.local}
+
+# Center currently active window
+super + KP_Insert
+  center-window
  
 #
 # focus/swap

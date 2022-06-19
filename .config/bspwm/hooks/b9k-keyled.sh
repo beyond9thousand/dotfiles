@@ -1,7 +1,7 @@
 #!/bin/bash
 
 idle1=false
-idleAfter=60000
+idleAfter=120000
 
 while true; do
   idleTimeMillis=$(xprintidle)

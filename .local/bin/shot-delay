@@ -8,10 +8,10 @@ do
   sleep 1
 done
 
-killall dunst 
+dunstify -C 69 
 
 sleep 0.5
 
-maim -u -f png | xclip -selection clipboard -t image/png
+maim -f png | xclip -selection clipboard -t image/png
 
-dunstify --replace=69 -i $icon "Screenshot copied to clipboard"
+dunstify --replace=696 -i $icon "Screenshot copied to clipboard"
