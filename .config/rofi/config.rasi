@@ -1,5 +1,5 @@
 configuration{
-    modi: "run,drun,window";
+    modi: "run,drun";
     lines: 5;
     font: "JetBrainsMono Nerd Font Medium 14";
     show-icons: true;
@@ -24,7 +24,7 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 360px;
+    height: 50%;
     /* border: 3px; */
     border-color: @border-col;
     background-color: @bg-col;
@@ -63,22 +63,22 @@ entry {
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
-    margin: 10px 10px 0px 10px;
-    columns: 2;
+    padding: 10 10 0;
+    margin: 10 10 0 10;
+    columns: 5;
     background-color: @bg-col;
-    font: "JetBrainsMono Nerd Font Medium 12";
 }
 
 element {
     padding: 5;
     background-color: @bg-col;
     text-color: @fg-col  ;
+    orientation: vertical;
 }
 
 element-icon {
-    size: 32px;
+    size: 64px;
+    horizontal-align: 0.5;
 }
 
 element selected {
@@ -89,7 +89,9 @@ element selected {
 
 element-text {
     vertical-align: 0.5;
-    font: "JetBrainsMono Nerd Font Medium 12";
+    horizontal-align: 0.5;
+    expand: true;
+    font: "JetBrainsMono Nerd Font Medium 10";
   }
 
 mode-switcher {
