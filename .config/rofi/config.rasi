@@ -69,7 +69,6 @@ listview {
     columns: 2;
     background-color: @bg-col;
     font: "JetBrainsMono Nerd Font Medium 12";
-
 }
 
 element {

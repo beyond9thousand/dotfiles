@@ -1,35 +1,28 @@
 #
- wm independent hotkeys
+# wm independent hotkeys
 #
 
-# reloads sxhkd configuration:
+# Reloads sxhkd configuration
 super + Escape
-    keeb-reset
+  keeb-reset
 
 ~button3
-   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
+  xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
+
+super + k
+  sxhkd-cheat
 
 # Launch Terminal
 super + Return 
-    xfce4-terminal
-    #terminal
-
-# Floating Alacritty Terminal
-super + shift + Return
-    terminal -f
-
-# Fullscreen Terminal
-super + shift + t
-    xfce4-terminal --fullscreen
-    #terminal -m
+  xfce4-terminal
 
 # Toggle Conkeww
 super + shift + e
-    toggle-conkeww
+  toggle-conkeww
 
 # GUI System monitor
 ctrl + shift + Escape
-    gnome-system-monitor
+  gnome-system-monitor
 
 # Rofi app launcher
 alt + F1
@@ -37,7 +30,7 @@ alt + F1
 
 # Launch Menus
 super + {x,n,d}
-    {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh)}
+  {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh)}
 
 # Record a video
 #super + {KP_Multiply,KP_Subtract}
@@ -45,8 +38,7 @@ super + {x,n,d}
 
 # Launch Applications
 super + shift + {f,g,c,d,s,v}
-    {thunar,geany,code,discord,spotify,virtualbox}
-    #{thunar,firefox,terminal -e ranger,geany,code,discord,spotify,virtualbox}
+  {thunar,geany,code,discord,spotify,virtualbox}
 
 # Launch firefox
 super + w
@@ -58,20 +50,25 @@ super + shift + w
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-    volume{ --up, --down, --toggle}
+  volume{ --up, --down, --toggle}
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
-    brightness{ --up, --down}
+  brightness{ --up, --down}
 
-# screenshot
+# Screenshot
 Print
-    flameshot gui
+  flameshot gui
 
+#
 # Screenshot exras
+#
+
+# Maim screenshot window
 ctrl + Print
   win-shot
 
+# Maim delayed screenshot
 ctrl + shift + Print
   shot-delay
 
@@ -81,27 +78,27 @@ ctrl + shift + Print
 #
 #
 
-# quit/restart bspwm
+# Quit/Restart bspwm
 super + shift + {q,r}
-    bspc {quit,wm -r}
+  bspc {quit,wm -r}
 
-# close and kill
+# Close and kill
 super + {q,Delete}
-    {bspc node -c,bspc node -c}
+  {bspc node -c,bspc node -c}
 
-# alternate between the tiled and monocle layout
+# Alternate between the tiled and monocle layout
 super + space
-	bspc node -t "~"{floating,tiled}
+  bspc node -t "~"{floating,tiled}
 
-# switch to tiled mode
+# Switch to tiled mode
 super + KP_Subtract
   bspc node -t {floating}
 
-# send the newest marked node to the newest preselected node
+# Send the newest marked node to the newest preselected node
 super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+  bspc node newest.marked.local -n newest.!automatic.local
 
-# swap the current node and the biggest window
+# Swap the current node and the biggest window
 super + g
 	bspc node -s biggest.window
 
@@ -109,27 +106,29 @@ super + g
 # state/flags
 #
 
-# set the window state
+# Set the window state
 super + {ctrl + t,f,KP_Enter}
 	bspc node -t {pseudo_tiled,fullscreen,fullscreen}
 
-# set the node flags
+# Set the node flags
 super + ctrl + {m,x,z}
 	bspc node -g {marked,locked,private}
 
+# Make window sticky
 super + {KP_Add}
   bspc node -g {sticky}
 
+# Tile window
 super + {KP_Delete}
   bspc node -t {tiled}
 
 # Send the window to another edge of the screen
 super + {_,shift + }{Left,Down,Up,Right}
-    bspc node -{f,s} {west,south,north,east}
+  bspc node -{f,s} {west,south,north,east}
 
 # Change focus to next window, including floating window
 alt + {_,shift + }Tab
-    bspc node -f {next.local,prev.local}
+  bspc node -f {next.local,prev.local}
 
 # Center currently active window
 super + KP_Insert
@@ -139,37 +138,37 @@ super + KP_Insert
 # focus/swap
 #
 
-# focus the node in the given direction
+# Focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-# focus the node for the given path jump
+# Focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous window in the current desktop
+# Focus the next/previous window in the current desktop
 super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
         
-# rotate windows
+# Rotate windows
 super + {r,KP_Divide}        
   bspc node @/ -R {90,90}
 
-# focus the next/previous desktop in the current monitor
+# Focus the next/previous desktop in the current monitor
 super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
-# focus the last node/desktop
+# Focus the last node/desktop
 super + {grave,Tab}
 	bspc {node,desktop} -f last
 
-# focus the older or newer node in the focus history
+# Focus the older or newer node in the focus history
 super + {o,i}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
+# Focus or send to the given desktop
 super + {_,shift + }{KP_End,KP_Down,KP_Next,KP_Left,KP_Begin,KP_Right,KP_Home}
 	bspc {desktop -f,node -d} '^{1-7}'
 
@@ -177,19 +176,19 @@ super + {_,shift + }{KP_End,KP_Down,KP_Next,KP_Left,KP_Begin,KP_Right,KP_Home}
 # preselect
 #
 
-# preselect the direction
+# Preselect the direction
 super + alt + {KP_End,KP_Down,KP_Begin,KP_Next}
 	bspc node -p {west,south,north,east}
 
-# preselect the ratio
+# Preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
-# cancel the preselection for the focused node
+# Cancel the preselection for the focused node
 super + alt + space
 	bspc node -p cancel
 
-# cancel the preselection for the focused desktop
+# Cancel the preselection for the focused desktop
 super + ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
@@ -199,20 +198,12 @@ super + ctrl + shift + space
 
 # Expanding windows
 super + alt + {Left,Right,Up,Down}
-    bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+  bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
 
 # Shrinking windows
 super + ctrl + {Left,Right,Up,Down}
-    bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+  bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
 
-# expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-
-# contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-
-# move a floating window
+# Move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
