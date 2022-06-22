@@ -1,10 +1,10 @@
 Restart BSPWM,bspc wm -r 
 Restart Polybar,poly-reset,xfce4-systray
 Restart SXHKD,keeb-reset,input-keyboard
-Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && polyb-reset,audio-speakers
+Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && poly-reset,audio-speakers
 ^sep()
 
-Find Window Class,notify-send "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
+Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
 Randomize Wallpaper,feh --bg-fill --randomize "$HOME/Pictures/Wallpapers",phototonic
 ^sep()
 

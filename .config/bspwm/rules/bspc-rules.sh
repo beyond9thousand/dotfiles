@@ -36,7 +36,7 @@ declare -a floats=(Alafloat Lxappearance Arandr \
 Viewnior Pcmanfm feh Nm-connection-editor Matplotlib \
 Yad Gnome-disks SimpleScreenRecorder \
 Font-manager Gnome-system-monitor OpenTabletDriver.UX.Gtk \
-Thunar PureRef Gcolor3 flameshot Xarchiver)
+Thunar PureRef Gcolor3 flameshot Xarchiver Blueberry.py)
 for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
 
