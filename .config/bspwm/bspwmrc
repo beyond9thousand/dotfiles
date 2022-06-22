@@ -57,9 +57,6 @@ playerctld daemon &
 # Begin touchpad swipe control
 touchegg & 
 
-# Launch pavucontrol
-pavucontrol & 
-
 # Active green-tunnel
 # pkill -9 -f "green-tunnel"
 # green-tunnel &

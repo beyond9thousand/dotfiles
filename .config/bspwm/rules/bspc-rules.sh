@@ -36,12 +36,10 @@ declare -a floats=(Alafloat Lxappearance Arandr \
 Viewnior Pcmanfm feh Nm-connection-editor Matplotlib \
 Yad Gnome-disks SimpleScreenRecorder \
 Font-manager Gnome-system-monitor OpenTabletDriver.UX.Gtk \
-Thunar PureRef Gcolor3 flameshot Xarchiver Blueberry.py)
+Thunar PureRef Gcolor3 flameshot Xarchiver Blueberry.py \
+Pavucontrol)
 for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
 
 # Keep plank above all windows 
 bspc rule -a Plank manage=off locked=on border=off layer=above focus=off state=floating
-
-# Special rules go below this
-bspc rule -a Pavucontrol desktop='^6' follow=off focus=on
