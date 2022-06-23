@@ -9,6 +9,12 @@ super + Escape
 ~button3
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
 
+# ~button9
+#   blend-swap
+#
+# ~button2
+#   blend-swap
+
 super + k
   sxhkd-cheat
 
@@ -33,8 +39,8 @@ super + {x,n,d}
   {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh)}
 
 # Record a video
-#super + {KP_Multiply,KP_Subtract}
-#     {record,$(giph --stop && notify-send "Stopped recording video")}
+# super + {KP_Multiply,KP_Subtract}
+  # {record,$(giph --stop && notify-send "Stopped recording video")}
 
 # Launch Applications
 super + shift + {f,g,c,d,s,v}

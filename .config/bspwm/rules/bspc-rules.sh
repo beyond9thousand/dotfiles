@@ -33,7 +33,7 @@ for i in "${settings[@]}"; do
 
 # floating windows
 declare -a floats=(Alafloat Lxappearance Arandr \
-Viewnior Pcmanfm feh Nm-connection-editor Matplotlib \
+Viewnior feh Nm-connection-editor Matplotlib \
 Yad Gnome-disks SimpleScreenRecorder \
 Font-manager Gnome-system-monitor OpenTabletDriver.UX.Gtk \
 Thunar PureRef Gcolor3 flameshot Xarchiver Blueberry.py \
@@ -43,3 +43,14 @@ for i in "${floats[@]}"; do
 
 # Keep plank above all windows 
 bspc rule -a Plank manage=off locked=on border=off layer=above focus=off state=floating
+
+# Force tile windows
+declare -a tiled=(Zathura)
+for i in "${tiled[@]}"; do
+    bspc rule -a $i manage=on state=tiled; done
+
+# Force full screen windows
+declare -a fullscreen=(mpv)
+for i in "${fullscreen[@]}"; do
+    bspc rule -a $i manage=on state=fullscreen; done
+

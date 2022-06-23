@@ -22,7 +22,7 @@ if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
 fi
 
-/usr/bin/plank &
+/usr/bin/plank & disown
 
 mkdir /tmp/torrent-stream
 mkdir /tmp/Recordings
