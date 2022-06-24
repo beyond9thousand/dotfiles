@@ -8,12 +8,10 @@ while true; do
     ss=Paused #Initial state provided is 'Paused'
     smeta=Null
     vc=Null
-    ss=$(playerctl status) #Playerctl status is fed
-    smeta=$(playerctl metadata album) #Playerctl metadata album info is fed
+    ss=$(playerctl status 2>/dev/null) #Playerctl status is fed
+    smeta=$(playerctl metadata album 2>/dev/null) #Playerctl metadata album info is fed
     vc=$(fuser /dev/video0)
-      if [[ $ss = Playing && $smeta = "" ]]; then
-        xdg-screensaver reset
-      elif [[ $vc != "" ]]; then
+      if [[ $ss = Playing && $smeta = "" || $vc != "" ]]; then
         xdg-screensaver reset
       fi
 done

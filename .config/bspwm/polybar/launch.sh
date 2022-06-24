@@ -55,4 +55,3 @@ if [[ ! -f "$RFILE" ]]; then
 fi
 
 launch_bar
-

@@ -42,7 +42,7 @@ for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
 
 # Keep plank above all windows 
-bspc rule -a Plank manage=off locked=on border=off layer=above focus=off state=floating
+bspc rule -a Plank manage=off locked=on border=off state=floating focus=off
 
 # Force tile windows
 declare -a tiled=(Zathura)

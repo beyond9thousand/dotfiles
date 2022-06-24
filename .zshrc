@@ -107,6 +107,31 @@ plugins=(
   )
 
 source $ZSH/oh-my-zsh.sh
+
+##############################
+# Zplug
+##############################
+
+source ~/.zplug/init.zsh
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "marzocchi/zsh-notify"
+
+# Therefore, when it returns false, run zplug install
+if ! zplug check; then
+  zplug install
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+zstyle ':notify:*' activate-terminal yes
+zstyle ':notify:*' error-sound "Glass"
+zstyle ':notify:*' success-sound "default"
+
+# Broot
 source /home/beyond9thousand/.config/broot/launcher/bash/br
 
 [[ -f ~/.zshrc-personal ]] && . ~/.zshrc-personal
@@ -144,17 +169,3 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-##############################
-# Zplug
-##############################
-
-source ~/.zplug/init.zsh
-
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "marzocchi/zsh-notify"
-
-# Then, source plugins and add commands to $PATH
-zplug load

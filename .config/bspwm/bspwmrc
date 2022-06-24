@@ -9,23 +9,20 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # Launching polybar
 bash "$HOME"/.config/bspwm/polybar/launch.sh &
 
+# fix pointer
+xsetroot -cursor_name left_ptr &
+
 # Set configurations
 for i in "$HOME"/.config/bspwm/configs/*.sh; do {
   eval "$i" & 
 } 
 done
 
-# fix pointer
-xsetroot -cursor_name left_ptr &
-
 # Set rules
 for i in "$HOME"/.config/bspwm/rules/*.sh; do {
   eval "$i" & 
 } 
 done
-
-# Autostart
-bash "$HOME"/.config/bspwm/autostart.sh &
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager \
@@ -58,13 +55,12 @@ playerctld daemon &
 # Begin touchpad swipe control
 touchegg & 
 
-# Active green-tunnel
-# pkill -9 -f "green-tunnel"
-# green-tunnel &
-
 # Start compositor
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 picom --config "$HOME"/.config/bspwm/picom.conf &
+
+# Autostart
+bash "$HOME"/.config/bspwm/autostart.sh &
 
 # change cava colorscheme
 # CAVA_PATH=""$HOME"/.config/cava"
