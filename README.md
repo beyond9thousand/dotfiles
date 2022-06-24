@@ -6,10 +6,10 @@
    <a href="">
       <img src="https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=ffb29b&labelColor=1C2325&style=for-the-badge">
    </a>
-   <a href="https://github.com/janleigh/dotfiles/stargazers">
+   <a href="https://github.com/beyond9thousand/dotfiles/stargazers">
       <img src="https://img.shields.io/github/stars/beyond9thousand/dotfiles?color=C9CBFF&labelColor=1C2325&style=for-the-badge">
    </a>
-   <a href="https://github.com/janleigh/dotfiles/">
+   <a href="https://github.com/beyond9thousand/dotfiles/">
       <img src="https://img.shields.io/github/repo-size/beyond9thousand/dotfiles?color=FCA2AA&labelColor=1C2325&style=for-the-badge">
    </a>
    <br>
