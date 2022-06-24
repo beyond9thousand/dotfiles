@@ -1,0 +1,12 @@
+#!/bin/bash
+
+check=$(pidof pavucontrol)
+
+# If lock file exists, remove it, kill the notif, kill dunstspeed; exit the script
+if [[ $check != "" ]]; then
+  killall -9 pavucontrol
+	pkill -9 -f "pavu-toggle"
+	exit
+else
+	pavucontrol &
+fi

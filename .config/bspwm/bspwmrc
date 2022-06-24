@@ -24,12 +24,13 @@ for i in "$HOME"/.config/bspwm/rules/*.sh; do {
 } 
 done
 
-## Autostart
+# Autostart
+bash "$HOME"/.config/bspwm/autostart.sh &
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager \
 eww copyq flameshot playerctld touchegg ksuperkey \
-pavucontrol green-tunnel jgmenu
+pavucontrol jgmenu
 
 # Launch Conkeww
 #sed -i "s/colors\/color-.*/colors\/color-tokyo.yuck\")/g" "$HOME"/.config/conkeww/eww.yuck
