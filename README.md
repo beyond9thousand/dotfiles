@@ -20,7 +20,7 @@
 
 <img src="assets/result-sprite.png" alt="Rice Showcase" align="right" width="400px">
 
-My workflow is personalized to utilize keyboard shortcuts as well as mouse actions to keep my workflow meaningful and flexible under varying conditions.
+My configuration is personalized to utilize keyboard shortcuts as well as mouse actions to keep my workflow meaningful and flexible under varying conditions.
 
 - **Color Scheme:** Tokyo Night + Ant-Dracula
 - **Window Manager:** [bspwm](https://github.com/baskerville/bspwm)
