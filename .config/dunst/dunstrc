@@ -201,7 +201,7 @@ new_icon = bell
 
 [wireless]
 appname = wireless
-new_icon = 
+new_icon = network-card
 format = "<span font_desc='JetBrainsMono Medium Nerd Font'>%b</span>"
 
 # Every section that isn't one of the above is interpreted as a rules to
