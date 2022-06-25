@@ -5,7 +5,7 @@ configuration{
     show-icons: true;
     icon-theme: "Papirus";
     terminal: "xfce4-terminal";
-    drun-display-format: "{icon} {name}";
+    drun-display-format: "{name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
@@ -24,7 +24,8 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 50%;
+    height: 52.5%;
+    width: 35%;
     /* border: 3px; */
     border-color: @border-col;
     background-color: @bg-col;
@@ -70,14 +71,14 @@ listview {
 }
 
 element {
-    padding: 5;
+    padding: 15 10 15;
     background-color: @bg-col;
     text-color: @fg-col  ;
     orientation: vertical;
 }
 
 element-icon {
-    size: 64px;
+    size: 56px;
     horizontal-align: 0.5;
 }
 
