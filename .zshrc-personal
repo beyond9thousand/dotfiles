@@ -1,7 +1,9 @@
+clip="xclip -selection 'clipboard' -f"
+
 # aliases
-alias pl="pwd | tr -d '\n' | xclip -selection 'clipboard' -f | notify-send 'Copied current directory path'"
+alias pl="pwd | tr -d '\n' | $clip | notify-send 'Copied current directory path'"
 # Copy last used command to clipboard
-alias cl="fc -ln -1 | sed 's/^\s*//' | tr -d '\n' | xclip -selection 'clipboard' -f | notify-send 'Copied last command to clipboard'"
+alias cl="fc -ln -1 | sed 's/^\s*//' | tr -d '\n' | $clip | notify-send 'Copied last command to clipboard'"
 #Open dmenu scripts directory
 alias ds="notify-send 'Opening custom scripts directory (root)' | z /usr/local/bin"
 
