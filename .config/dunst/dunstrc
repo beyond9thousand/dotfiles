@@ -70,7 +70,7 @@ hide_duplicate_count = yes
 
 origin = top-right
 
-offset = 10x56
+offset = 9x56
 
 width = (0,500)
 
