@@ -191,7 +191,7 @@ super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
 # Cancel the preselection for the focused node
-super + alt + space
+super + alt + {KP_Delete}
 	bspc node -p cancel
 
 # Cancel the preselection for the focused desktop
