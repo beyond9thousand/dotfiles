@@ -52,7 +52,7 @@ super + w
 
 # Randomize wallpaper
 super + shift + w
-  {feh --bg-fill --randomize "$HOME/Pictures/Wallpapers/"}
+  {feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpapers/"}
 
 # Volume controls
 XF86Audio{RaiseVolume,LowerVolume,Mute}

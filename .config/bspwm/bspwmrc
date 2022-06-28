@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Restore wallpaper
-bash "$HOME"/.config/bspwm/.fehbg &
+feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpapers/"
 
 # Starting SXHKD Keyboard Daemon
 pgrep -x sxhkd > /dev/null || sxhkd & 

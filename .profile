@@ -24,3 +24,27 @@ fi
 
 mkdir /tmp/torrent-stream
 mkdir /tmp/Recordings
+
+# Directory declarations
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+# zsh directories
+export ZDOTDIR="$HOME"/.config/zsh
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+export ZPLUG_HOME="$XDG_DATA_HOME/zplug"
+
+# bash directories
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
+# miscellaneous
+# export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export GOPATH="$XDG_DATA_HOME"/go
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg 
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc

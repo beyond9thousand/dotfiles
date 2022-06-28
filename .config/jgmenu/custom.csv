@@ -5,7 +5,7 @@ Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket
 ^sep()
 
 Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
-Randomize Wallpaper,feh --bg-fill --randomize "$HOME/Pictures/Wallpapers",phototonic
+Randomize Wallpaper,feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpapers",phototonic
 ^sep()
 
 Terminal,xfce4-terminal,utilities-terminal
