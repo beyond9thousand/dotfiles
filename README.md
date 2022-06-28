@@ -28,11 +28,14 @@ My configuration is personalized to utilize keyboard shortcuts as well as mouse 
 - **Shell:** [zsh](https://www.zsh.org/)
 - **Panel:** [polybar](https://github.com/polybar/polybar)
 - **Dock:** [plank](https://github.com/ricotz/plank)
-- **Compositor:** [picom-ibhagwan-git](https://github.com/ibhagwan/picom-ibhagwan-git)
+- **Compositor:** [picom-ibhagwan-git*](https://github.com/ibhagwan/picom-ibhagwan-git)
 - **Editor:** [neovim](https://github.com/neovim/neovim)
 - **Notification Manager:** [dunst](https://github.com/dunst-project/dunst)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 - **Application Menu:** [jgmenu](https://github.com/johanmalm/jgmenu)
+
+### *Disclaimer
+Currently swapping between ibhagwan's fork and [pijulius](https://github.com/pijulius/picom)
 
 ## 🔠 Fonts
 | Font List |  Use  |
