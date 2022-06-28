@@ -19,7 +19,7 @@ for i in "$HOME"/.config/bspwm/configs/*.sh; do {
 done
 
 # Autostart
-bash "$HOME"/.config/bspwm/autostart.sh &
+eval "$HOME"/.config/bspwm/autostart.sh &
 
 # Set rules
 for i in "$HOME"/.config/bspwm/rules/*.sh; do {

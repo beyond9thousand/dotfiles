@@ -41,7 +41,7 @@ declare -A actions
 actions[lockscreen]="rofi-lock"
 #actions[switchuser]="???"
 actions[logout]="pkill -KILL -u $USER"
-actions[suspend]="rofi-suspend"
+actions[suspend]="systemctl suspend"
 # actions[hibernate]="systemctl hibernate"
 actions[reboot]="systemctl reboot"
 actions[shutdown]="systemctl poweroff"
