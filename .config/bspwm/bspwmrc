@@ -60,7 +60,7 @@ touchegg &
 
 # Start compositor
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
-picom --config "$HOME"/.config/bspwm/picom.conf &
+picom &
 
 # change cava colorscheme
 # CAVA_PATH=""$HOME"/.config/cava"

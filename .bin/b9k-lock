@@ -2,8 +2,8 @@
 
 fg=c0caf5
 wrong=db4b4b
-highlight=7aa2f7
-date=7aa2f7
+highlight=659b82
+date=7bc5e4
 verify=9ece6a
 roundbox=515d94
 
@@ -14,7 +14,7 @@ half_height=$((height/2))
 
 sleep 0.25
 
-maim | convert - -scale 10% -blur 0x0.7 -resize 1000% RGB:- | i3lock --raw 1920x1080:rgb -i /dev/stdin \
+maim | convert - -scale 10% -blur 0x0.7 -resize 1000% -brightness-contrast -5 PNG:- | convert - ~/Pictures/Screenshots/Assets/lock-light.png -matte -channel A +level 0,1% +channel -gravity center -geometry +0+65 -composite RGB:- | i3lock --raw 1920x1080:rgb -i /dev/stdin \
 \
 -n --force-clock \
 -e --indicator \
@@ -32,7 +32,7 @@ maim | convert - -scale 10% -blur 0x0.7 -resize 1000% RGB:- | i3lock --raw 1920x
 \
 --time-str="%I:%M %p" \
 --time-size=100 \
---date-str="%a, %d %b" \
+--date-str="%d %B, %A" \
 --date-size=45 \
 \
 --verif-text="Verifying Password..." --wrong-text="Wrong Password!" \
@@ -51,7 +51,5 @@ maim | convert - -scale 10% -blur 0x0.7 -resize 1000% RGB:- | i3lock --raw 1920x
 \
 --date-color=$date --time-color=$date \
 --greeter-color=$fg --wrong-color=$wrong --verif-color=$verify \
-\
---verif-pos="$half_width:820" \
 \
 --pointer=default --pass-media-keys --pass-volume-keys
