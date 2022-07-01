@@ -19,7 +19,6 @@ alias ggr='gg rm --cached'
 
 alias god="bash ~/Scripts/Backup/githubgod.sh"
 alias pflix="peerflix -k"
-alias qb="qbittorrent-nox --webui-port=8000 | devour firefox http://localhost:8000/#/login"
 
 # Quick open neovim
 alias n='nvim'

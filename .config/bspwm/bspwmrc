@@ -74,3 +74,4 @@ for i in "$HOME"/.config/bspwm/hooks/*.sh; do {
 done
 
 dunstify -i window_list "Successfully restarted BSPWM"
+

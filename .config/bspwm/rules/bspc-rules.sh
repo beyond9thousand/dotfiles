@@ -14,8 +14,8 @@ for i in "${filem[@]}"; do
     bspc rule -a $i desktop='^3' follow=on focus=on; done
 
 # workspace 4 (Text Editor)
-declare -a office=(Code Geany Blender)
-for i in "${office[@]}"; do
+declare -a work=(Blender)
+for i in "${work[@]}"; do
     bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 # workspace 5 (Media)
@@ -35,9 +35,9 @@ for i in "${settings[@]}"; do
 declare -a floats=(Alafloat Lxappearance Arandr \
 Viewnior feh Nm-connection-editor Matplotlib \
 Yad Gnome-disks SimpleScreenRecorder \
-Font-manager Gnome-system-monitor OpenTabletDriver.UX.Gtk \
-Thunar PureRef Gcolor3 flameshot Xarchiver Blueberry.py \
-Pavucontrol)
+Font-manager Gnome-system-monitor Thunar \
+PureRef Gcolor3 flameshot Xarchiver Blueberry.py \
+Pavucontrol jamesdsp Nvidia-settings)
 for i in "${floats[@]}"; do
   bspc rule -a $i manage=on state=floating follow=on focus=on centre=true; done
 
