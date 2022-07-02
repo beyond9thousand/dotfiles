@@ -19,7 +19,6 @@ get_url() {
 	choose
 }
 
-
 ##########
 # choice #
 ##########
@@ -33,7 +32,7 @@ download() {
 }
 
 choose() {
-	choice="$( printf "Stream\nDownload" | fzf)"
+	choice="$(printf "Stream\nDownload" | fzf)"
 	[ "$choice" = "Stream" ] && stream
 	[ "$choice" = "Download" ] && download
 }
@@ -42,7 +41,7 @@ choose() {
 # Startup #
 ###########
 
-# defaults 
+# defaults
 
 baseurl=$(curl -s -L -o /dev/null -w "%{url_effective}\n" https://thepiratebay.party)
 name=$(printf "$*")
@@ -50,4 +49,3 @@ name=$(printf "$*")
 # checks if name variable is empty or not
 [ -n "$name" ] && get_url
 [ ! -n "$name" ] && input
-

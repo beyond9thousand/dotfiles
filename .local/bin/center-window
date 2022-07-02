@@ -2,6 +2,6 @@
 
 IFS='x' read -r w h < <(xdpyinfo | awk '/dimensions/ {print $2}')
 eval "$(xdotool getactivewindow getwindowgeometry --shell)"
-xdotool getactivewindow windowmove $((w/2-WIDTH/2-4)) $((h/2-HEIGHT/2-3))
+xdotool getactivewindow windowmove $((w / 2 - WIDTH / 2 - 4)) $((h / 2 - HEIGHT / 2 - 3))
 
 # vim:filetype=sh

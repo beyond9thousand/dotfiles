@@ -4,7 +4,7 @@ check=$(pidof pavucontrol)
 
 # If lock file exists, remove it, kill the notif, kill dunstspeed; exit the script
 if [[ $check != "" ]]; then
-  killall -9 pavucontrol dunst
+	killall -9 pavucontrol dunst
 	dunstify -t 5000 -u critical "Pavucontrol" "Closed Pavucontrol"
 	pkill -9 -f "pavu-toggle"
 	exit

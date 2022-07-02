@@ -1,10 +1,10 @@
-#! /bin/sh
+#!/bin/bash
 
 # Restore wallpaper
 feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpapers/"
 
 # Starting SXHKD Keyboard Daemon
-pgrep -x sxhkd > /dev/null || sxhkd & 
+pgrep -x sxhkd >/dev/null || sxhkd &
 
 # Launching polybar
 bash "$HOME"/.config/bspwm/polybar/launch.sh &
@@ -13,65 +13,60 @@ bash "$HOME"/.config/bspwm/polybar/launch.sh &
 xsetroot -cursor_name left_ptr &
 
 # Set configurations
-for i in "$HOME"/.config/bspwm/configs/*.sh; do {
-  eval "$i" & 
-} 
+for i in "$HOME"/.config/bspwm/configs/*.sh; do
+	{
+		eval "$i" &
+	}
 done
 
 # Autostart
 eval "$HOME"/.config/bspwm/autostart.sh &
 
 # Set rules
-for i in "$HOME"/.config/bspwm/rules/*.sh; do {
-  eval "$i" & 
-} 
+for i in "$HOME"/.config/bspwm/rules/*.sh; do
+	{
+		eval "$i" &
+	}
 done
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager \
-eww copyq flameshot playerctld touchegg ksuperkey \
-pavucontrol jgmenu
-
-# Launch Conkeww
-#sed -i "s/colors\/color-.*/colors\/color-tokyo.yuck\")/g" "$HOME"/.config/conkeww/eww.yuck
-#eww --config "$HOME"/.config/conkeww/ open conkeww-main
+	eww copyq flameshot playerctld touchegg ksuperkey \
+	pavucontrol jgmenu
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # polkit agent
-if [[ ! `pidof xfce-polkit` ]]; then
-    /usr/lib/xfce-polkit/xfce-polkit & 
+if [[ ! $(pidof xfce-polkit) ]]; then
+	/usr/lib/xfce-polkit/xfce-polkit &
 fi
 
 # Enable power management
-xfce4-power-manager & 
+xfce4-power-manager &
 
 # Start copyq and flameshot
-copyq --start-server & 
-flameshot & 
+copyq --start-server &
+flameshot &
 
 # Start playerctld daemon to monitor playback
 playerctld daemon &
 
 # Begin touchpad swipe control
-touchegg & 
+touchegg &
 
 # Start compositor
 while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 picom &
 
-# change cava colorscheme
-# CAVA_PATH=""$HOME"/.config/cava"
-# cp "$CAVA_PATH"/colorschemes/tokyo-night "$CAVA_PATH"/config
-
 # Delete existing hooks and restart them
-for i in "$HOME"/.config/bspwm/hooks/*.sh; do {
-  pkill -9 -f "$i" 
-  eval "$i" &
-} 
+for i in "$HOME"/.config/bspwm/hooks/*.sh; do
+	{
+		pkill -9 -f "$i"
+		eval "$i" &
+	}
 done
 
+pkill -9 -f "dunst"
 dunstify -i window_list "Successfully restarted BSPWM"
-
