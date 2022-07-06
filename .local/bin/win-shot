@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
 tmp="/tmp/screenshot-$(date +%Y%m%d_%H%M%S).png"
-icon="/usr/share/icons/Papirus-Dark/symbolic/devices/camera-photo-symbolic.svg"
+icon="camera-photo-symbolic"
 
 dunstify --replace=69 -i $icon "Window screenshot initiated"
 
-maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l "$tmp" && xclip -selection clipboard -t image/png <"$tmp"
+maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l "$tmp" && xclip -selection clipboard -t image/png < "$tmp"
 
 if [ ! -f "$tmp" ]; then
-	dunstify -u critical --replace=69 -i $icon "Screenshot cancelled"
-	exit
+  dunstify -u critical --replace=69 -i $icon "Screenshot cancelled"
+  exit
 fi
 
 rm "$tmp"

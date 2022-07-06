@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
-icon="/usr/share/icons/Papirus-Dark/symbolic/devices/camera-photo-symbolic.svg"
+tmp="/tmp/Recordings/screenshot-$(date +%Y%m%d_%H%M%S).png"
+icon="camera-photo-symbolic"
 
-for i in {10..1}
-do 
-  dunstify --replace=69 -i $icon "Capturing a screenshot in $i"
+for i in {10..1}; do
+  dunstify --replace=69 -i $icon "Screenshot" "Capturing the entire screen in $i"
   sleep 1
 done
 
-dunstify -C 69 
+dunstify -C 69
 
 sleep 0.5
 
-maim -f png | xclip -selection clipboard -t image/png
+maim -f png "$tmp" && xclip -selection clipboard -t image/png
 
-dunstify --replace=696 -i $icon "Screenshot copied to clipboard"
+dunstify --replace=696 -i $icon "Screenshot" "Copied to clipboard"

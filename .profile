@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export QT_STYLE_OVERRIDE=kvantum
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_FONT_DPI=116 Roboto
@@ -14,16 +16,17 @@ cp "$XFCE_TERM_PATH"/colorschemes/tokyo-night "$XFCE_TERM_PATH"/terminalrc
 sed -i "s/theme =.*$/theme = \"tokyonight\",/g" "$HOME"/.config/nvim/lua/custom/chadrc.lua
 
 # set PATH so it includes user's private ~/.local/bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/.bin" ] ;
-  then PATH="$HOME/.bin:$PATH"
+if [ -d "$HOME/.bin" ]; then
+  PATH="$HOME/.bin:$PATH"
 fi
 
 mkdir /tmp/torrent-stream
 mkdir /tmp/Recordings
+mkdir /tmp/Screenshots
 
 # Directory declarations
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -40,11 +43,10 @@ export ZPLUG_HOME="$XDG_DATA_HOME/zplug"
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 # miscellaneous
-# export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
 export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export GOPATH="$XDG_DATA_HOME"/go
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg 
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
