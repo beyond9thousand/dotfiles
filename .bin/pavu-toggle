@@ -1,13 +1,12 @@
 #!/bin/bash
 
-check=$(pidof pavucontrol)
-
-# If lock file exists, remove it, kill the notif, kill dunstspeed; exit the script
-if [[ $check != "" ]]; then
-	killall -9 pavucontrol dunst
-	dunstify -t 5000 -u critical "Pavucontrol" "Closed Pavucontrol"
-	pkill -9 -f "pavu-toggle"
-	exit
+if [[ $(pidof pavucontrol) != "" ]]; then
+  killall -9 pavucontrol dunst
+  dunstify -t 5000 -u critical "Pavucontrol" "Closed Pavucontrol"
+  pkill -9 -f "pavu-toggle"
+  exit
 else
-	pavucontrol &
+  pavucontrol &
 fi
+
+# eval "$(xdotool search --shell pavucontrol)" && bspc node "${WINDOWS[0]}" --to-desktop focused

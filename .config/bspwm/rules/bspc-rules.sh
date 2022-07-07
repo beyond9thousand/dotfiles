@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# Workspace specific conditions
+#
+
 # workspace 1 (Terminals)
 declare -a terminal=(discord)
 for i in "${terminal[@]}"; do
@@ -50,8 +54,16 @@ for i in "${floats[@]}"; do
   bspc rule -a "$i" manage=on state=floating follow=on focus=on centre=true
 done
 
+#
+# Exclusive apps
+#
+
 # Keep plank above all windows
 bspc rule -a Plank manage=off locked=on border=off state=floating focus=off
+
+#
+# Exclusive conditions
+#
 
 # Force tile windows
 declare -a tiled=(Zathura)
