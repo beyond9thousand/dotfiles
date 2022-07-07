@@ -1,22 +1,33 @@
 #!/bin/bash
 
+#     _ _____ __           __
+#    (_)__  // /___  _____/ /__
+#   / / /_ </ / __ \/ ___/ //_/
+#  / /___/ / / /_/ / /__/ ,<
+# /_//____/_/\____/\___/_/|_|
+#
+
+# Check for existing instance of i3lock
 if [[ $(pidof i3lock) ]]; then
   exit
 fi
 
+# Declare colors
 fg=c0caf5
 wrong=db4b4b
 highlight=659b82
 date=7bc5e4
 verify=9ece6a
 
+# Calculate center width and height
 width=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | cut -d "x" -f 1 | head -n1)
-height=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | cut -d "x" -f 2 | head -n1)
+# height=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | cut -d "x" -f 2 | head -n1)
 half_width=$((width / 2))
-half_height=$((height / 2))
+# half_height=$((height / 2))
 
 sleep 0.25
 
+# Screenlock command begins here
 maim | convert - -scale 10% -blur 0x0.7 -resize 1000% -brightness-contrast -5 PNG:- | convert - ~/Pictures/Screenshots/Assets/lock-light.png -matte -channel A +level 0,1% +channel -gravity center -geometry +0+65 -composite RGB:- | i3lock --raw 1920x1080:rgb -i /dev/stdin \
   -n --force-clock \
   -e --indicator \
@@ -47,3 +58,5 @@ maim | convert - -scale 10% -blur 0x0.7 -resize 1000% -brightness-contrast -5 PN
   --date-color=$date --time-color=$date \
   --greeter-color=$fg --wrong-color=$wrong --verif-color=$verify \
   --pointer=default --pass-media-keys --pass-volume-keys
+
+dunstify-send -i screensaver "Screensaver" "Your screen is now locked"

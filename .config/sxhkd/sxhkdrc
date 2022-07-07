@@ -1,3 +1,10 @@
+#               __    __       __
+#    ______  __/ /_  / /______/ /
+#   / ___/ |/_/ __ \/ //_/ __  / 
+#  (__  )>  </ / / / ,< / /_/ /  
+# /____/_/|_/_/ /_/_/|_|\__,_/   
+#                                
+
 #
 # wm independent hotkeys
 #
@@ -6,25 +13,17 @@
 super + Escape
   keeb-reset
 
+# Right click menu
 ~button3
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
 
-# ~button9
-#   blend-swap
-#
-# ~button2
-#   blend-swap
-
+# Cheat sheet
 super + k
   sxhkd-cheat
 
-# Launch Terminal
+# Launch xfce4-Terminal
 super + Return 
   xfce4-terminal
-
-# Toggle Conkeww
-super + shift + e
-  toggle-conkeww
 
 # GUI System monitor
 ctrl + shift + Escape
@@ -34,13 +33,9 @@ ctrl + shift + Escape
 alt + F1
   key-menu    
 
-# Launch Menus
+# Rofi menu launcher(s)
 super + {x,n,d}
   {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh)}
-
-# Record a video
-# super + {KP_Multiply,KP_Subtract}
-  # {record,$(giph --stop && notify-send "Stopped recording video")}
 
 # Launch Applications
 super + shift + {f,g,c,d,s,v}
@@ -62,7 +57,7 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 XF86MonBrightness{Up,Down}
   brightness{ --up, --down}
 
-# Screenshot
+# Flameshot screenshot launcher
 Print
   flameshot gui
 
@@ -79,9 +74,7 @@ ctrl + shift + Print
   shot-delay
 
 #
-#
 # BSPWM HOTKEYS
-#
 #
 
 # Quit/Restart bspwm

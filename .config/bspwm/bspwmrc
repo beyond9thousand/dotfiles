@@ -1,10 +1,18 @@
 #!/bin/bash
 
+#     __
+#    / /_  _________ _      ______ ___
+#   / __ \/ ___/ __ \ | /| / / __ `__ \
+#  / /_/ (__  ) /_/ / |/ |/ / / / / / /
+# /_.___/____/ .___/|__/|__/_/ /_/ /_/
+#           /_/
+#
+
 # Restore wallpaper
 feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpapers/"
 
 # Starting SXHKD Keyboard Daemon
-pgrep -x sxhkd >/dev/null || sxhkd &
+pgrep -x sxhkd > /dev/null || sxhkd &
 
 # Launching polybar
 bash "$HOME"/.config/bspwm/polybar/launch.sh &
@@ -14,9 +22,9 @@ xsetroot -cursor_name left_ptr &
 
 # Set configurations
 for i in "$HOME"/.config/bspwm/configs/*.sh; do
-	{
-		eval "$i" &
-	}
+  {
+    eval "$i" &
+  }
 done
 
 # Autostart
@@ -24,15 +32,15 @@ eval "$HOME"/.config/bspwm/autostart.sh &
 
 # Set rules
 for i in "$HOME"/.config/bspwm/rules/*.sh; do
-	{
-		eval "$i" &
-	}
+  {
+    eval "$i" &
+  }
 done
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager \
-	eww copyq flameshot playerctld touchegg ksuperkey \
-	pavucontrol jgmenu
+  eww copyq flameshot playerctld touchegg ksuperkey \
+  pavucontrol jgmenu
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -40,7 +48,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # polkit agent
 if [[ ! $(pidof xfce-polkit) ]]; then
-	/usr/lib/xfce-polkit/xfce-polkit &
+  /usr/lib/xfce-polkit/xfce-polkit &
 fi
 
 # Enable power management
@@ -57,15 +65,15 @@ playerctld daemon &
 touchegg &
 
 # Start compositor
-while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
+while pgrep -u $UID -x picom > /dev/null; do sleep 1; done
 picom &
 
 # Delete existing hooks and restart them
 for i in "$HOME"/.config/bspwm/hooks/*.sh; do
-	{
-		pkill -9 -f "$i"
-		eval "$i" &
-	}
+  {
+    pkill -9 -f "$i"
+    eval "$i" &
+  }
 done
 
 pkill -9 -f "dunst"
