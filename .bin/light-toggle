@@ -12,8 +12,10 @@ else
     dunstify --replace=69 -i screensaver "Screensaver" "Turning off screen in $i"
     sleep 1
   done
+
   dunstify -C 69
   xbacklight -set 0
+
   while true; do
     sleep 1
     if [[ $(xprintidle) -lt 1000 ]]; then
