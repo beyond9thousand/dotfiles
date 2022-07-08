@@ -1,0 +1,26 @@
+#!/bin/bash
+
+lock="/tmp/light-toggle.lock"
+
+if [[ -e $lock ]]; then
+  exit
+else
+  touch $lock
+  og=$(xbacklight -get)
+  pkill -9 -f "dunst"
+  for i in {3..1}; do
+    dunstify --replace=69 -i screensaver "Screensaver" "Turning off screen in $i"
+    sleep 1
+  done
+  dunstify -C 69
+  xbacklight -set 0
+  while true; do
+    sleep 1
+    if [[ $(xprintidle) -lt 1000 ]]; then
+      xbacklight -time 400 -set "$og"
+      dunstify -i screensaver "Screensaver" "Welcome back"
+      rm $lock
+      exit
+    fi
+  done
+fi

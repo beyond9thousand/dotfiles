@@ -18,7 +18,7 @@ alias gg='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias ggr='gg rm --cached'
 
 alias god="bash ~/Scripts/Backup/githubgod.sh"
-alias pflix="peerflix -k"
+alias pflix="bspc node -t floating && peerflix -k"
 
 # Quick open neovim
 alias n='nvim'

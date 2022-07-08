@@ -58,5 +58,3 @@ maim | convert - -scale 10% -blur 0x0.7 -resize 1000% -brightness-contrast -5 PN
   --date-color=$date --time-color=$date \
   --greeter-color=$fg --wrong-color=$wrong --verif-color=$verify \
   --pointer=default --pass-media-keys --pass-volume-keys
-
-dunstify-send -i screensaver "Screensaver" "Your screen is now locked"

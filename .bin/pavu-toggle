@@ -1,12 +1,12 @@
 #!/bin/bash
 
 if [[ $(pidof pavucontrol) != "" ]]; then
-  killall -9 pavucontrol dunst
-  dunstify -t 5000 -u critical "Pavucontrol" "Closed Pavucontrol"
-  pkill -9 -f "pavu-toggle"
-  exit
+  killall -9 dunst
+  eval "$(xdotool search --shell pavucontrol)"
+  [ "$(xdotool get_desktop)" = "$(xdotool get_desktop_for_window "$WINDOWS")" ] &&
+    pgrep -x pavucontrol | xargs kill &&
+    dunstify -t 5000 -u critical "Pavucontrol" "Closed Pavucontrol" ||
+    bspc node "$WINDOWS" -d focused
 else
   pavucontrol &
 fi
-
-# eval "$(xdotool search --shell pavucontrol)" && bspc node "${WINDOWS[0]}" --to-desktop focused

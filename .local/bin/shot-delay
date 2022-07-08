@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 tmp="/tmp/Recordings/screenshot-$(date +%Y%m%d_%H%M%S).png"
-icon="camera-photo-symbolic"
 
 for i in {10..1}; do
   dunstify --replace=69 -i $icon "Screenshot" "Capturing the entire screen in $i"
@@ -14,4 +13,4 @@ sleep 0.5
 
 maim -f png "$tmp" && xclip -selection clipboard -t image/png
 
-dunstify --replace=696 -i $icon "Screenshot" "Copied to clipboard"
+dunstify --replace=696 -i camera-photo-symbolic "Screenshot" "Copied to clipboard"
