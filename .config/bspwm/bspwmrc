@@ -39,8 +39,8 @@ done
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager \
-  eww copyq flameshot playerctld touchegg ksuperkey \
-  pavucontrol jgmenu
+  eww copyq playerctld ksuperkey \
+  jgmenu
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -54,15 +54,11 @@ fi
 # Enable power management
 xfce4-power-manager &
 
-# Start copyq and flameshot
+# Start copyq
 copyq --start-server &
-flameshot &
 
 # Start playerctld daemon to monitor playback
 playerctld daemon &
-
-# Begin touchpad swipe control
-touchegg &
 
 # Start compositor
 while pgrep -u $UID -x picom > /dev/null; do sleep 1; done
@@ -76,5 +72,6 @@ for i in "$HOME"/.config/bspwm/hooks/*.sh; do
   }
 done
 
+# Reached end of script
 pkill -9 -f "dunst"
 dunstify -i window_list "Successfully restarted BSPWM"
