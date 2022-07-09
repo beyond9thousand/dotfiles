@@ -4,7 +4,7 @@ workspaces() {
   name=1
   for monitor in $(bspc query -M); do
     bspc monitor "${monitor}" -n "$name" -d '' '' '' '' '' '' ''
-    let name++
+    ((name++))
   done
 }
 workspaces

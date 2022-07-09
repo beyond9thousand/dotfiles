@@ -23,7 +23,7 @@ super + k
 
 # Launch xfce4-Terminal
 super + Return 
-  xfce4-terminal
+  alacritty
 
 # GUI System monitor
 ctrl + shift + Escape

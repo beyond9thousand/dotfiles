@@ -9,8 +9,8 @@ Randomize Wallpaper,feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpap
 ^sep()
 
 Terminal,xfce4-terminal,utilities-terminal
-Neovim,xfce4-terminal -x nvim,nvim
-Ranger,xfce4-terminal -x ranger,stock_folder
+Neovim,alacritty -e nvim,nvim
+Ranger,alacritty -e ranger,stock_folder
 ^sep()
 
 Lock,b9k-lock,system-lock-screen

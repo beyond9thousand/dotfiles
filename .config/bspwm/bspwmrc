@@ -9,7 +9,7 @@
 #
 
 # Restore wallpaper
-feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpapers/"
+nitrogen --restore &
 
 # Starting SXHKD Keyboard Daemon
 pgrep -x sxhkd > /dev/null || sxhkd &
