@@ -4,7 +4,7 @@ configuration{
     font: "JetBrainsMono Nerd Font Medium 14";
     show-icons: true;
     icon-theme: "Papirus";
-    terminal: "xfce4-terminal";
+    terminal: "alacritty";
     drun-display-format: "{name}";
     location: 0;
     disable-history: false;
