@@ -23,7 +23,7 @@ while true; do
 
   if [[ $stage1 = true && $idle = true && $idletime -gt $warntime ]]; then
     pkill -9 -f "dunst"
-    dunstify -i screensaver "Screensaver" "Screen will turn off in 30 seconds"
+    dunstify --replace 650 -i screensaver "Screensaver" "Screen will turn off in 30 seconds"
     stage1=false
     stage2=true
   fi

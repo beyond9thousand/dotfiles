@@ -5,10 +5,10 @@ Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket
 ^sep()
 
 Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
-Randomize Wallpaper,feh --no-fehbg --bg-fill --randomize "$HOME/Pictures/Wallpapers",phototonic
+Randomize Wallpaper,nitrogen --set-zoom-fill --save --random Pictures/Wallpapers,phototonic
 ^sep()
 
-Terminal,xfce4-terminal,utilities-terminal
+Terminal,alacritty,utilities-terminal
 Neovim,alacritty -e nvim,nvim
 Ranger,alacritty -e ranger,stock_folder
 ^sep()
@@ -21,4 +21,3 @@ Exit,^checkout(exit)
 Suspend,systemctl suspend,system-suspend
 Reboot,reboot,system-reboot
 Poweroff,poweroff,system-shutdown
-

@@ -1,7 +1,7 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "$HOME/config/gtk-2.0/gtkrc-2.0.mine"
+include "/home/beyond9thousand/.config/gtk-2.0/gtkrc-2.0.mine"
 gtk-theme-name="Ant-Dracula"
 gtk-icon-theme-name="Papirus-Dark"
 gtk-font-name="Roboto 11"
@@ -18,3 +18,4 @@ gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="none"
 gtk-modules="gail:atk-bridge"
+

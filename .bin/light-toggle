@@ -9,11 +9,11 @@ else
   og=$(xbacklight -get)
   pkill -9 -f "dunst"
   for i in {3..1}; do
-    dunstify --replace=69 -i screensaver "Screensaver" "Turning off screen in $i"
+    dunstify --replace=650 -i screensaver "Screensaver" "Turning off screen in $i"
     sleep 1
   done
 
-  dunstify -C 69
+  dunstify -C 650
   xbacklight -set 0
 
   while true; do

@@ -49,7 +49,8 @@ declare -a floats=(Alafloat Lxappearance Arandr
   Yad Gnome-disks SimpleScreenRecorder
   Font-manager Gnome-system-monitor Thunar
   PureRef Gcolor3 flameshot Xarchiver Blueberry.py
-  Pavucontrol jamesdsp Nvidia-settings Nitrogen)
+  Pavucontrol jamesdsp Nvidia-settings Nitrogen
+  Peazip Xfce4-appearance-settings Xfce4-mouse-settings)
 for i in "${floats[@]}"; do
   bspc rule -a "$i" manage=on state=floating follow=on focus=on centre=true
 done
