@@ -15,6 +15,7 @@
 </div>
 
 <!-- Information -->
+
 ## 📝 <span>Information</span> <img alt="" align="right" src="https://badges.pufler.dev/visits/beyond9thousand/dotfiles?style=for-the-badge&color=A7D9B2&logoColor=white&labelColor=1C2325"/>
 
 <img src="assets/result-sprite.png" alt="Rice Showcase" align="right" width="400px">
@@ -28,7 +29,7 @@ actions to keep my workflow meaningful and flexible under varying conditions.
 - **Shell:** [zsh](https://www.zsh.org/)
 - **Panel:** [polybar](https://github.com/polybar/polybar)
 - **Dock:** [plank](https://github.com/ricotz/plank)
-- **Compositor:** [picom-ibhagwan-git*](https://github.com/ibhagwan/picom-ibhagwan-git)
+- **Compositor:** [picom-ibhagwan-git\*](https://github.com/ibhagwan/picom-ibhagwan-git)
 - **Editor:** [neovim](https://github.com/neovim/neovim)
 - **Notification Manager:** [dunst](https://github.com/dunst-project/dunst)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
@@ -36,17 +37,17 @@ actions to keep my workflow meaningful and flexible under varying conditions.
 
 ## 🔠 Fonts
 
-| Font List |  Use  |
-| -------------- | --- |
-| [`Roboto`](https://github.com/googlefonts/roboto) | Main Font |
-| [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome) | Main Icon Font |
-| [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont) | Main UI Font |
+| Font List                                                                   | Use            |
+| --------------------------------------------------------------------------- | -------------- |
+| [`Roboto`](https://github.com/googlefonts/roboto)                           | Main Font      |
+| [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome)               | Main Icon Font |
+| [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont) | Main UI Font   |
 
 ## ✨ Credits
 
 - Neovim config by [NvChad](https://github.com/NvChad/NvChad)
 - [pagankeymaster](https://github.com/pagankeymaster) for helping with various
-    bspwm related scripts
+  bspwm related scripts
 - Wallpaper artwork created by [BisBiswas](https://www.deviantart.com/bisbiswas/art/Scattered-Lights-898482741)
 - Gundam 3D model created by [Jeff Allen](https://mjeff3d.gumroad.com/l/MSA0011M)
 - Some configurations have been derived from [axyl-os](https://github.com/axyl-os)
