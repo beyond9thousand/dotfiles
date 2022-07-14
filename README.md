@@ -1,4 +1,4 @@
-<h2 align="center"> BSPWM </h2>
+<h1 align="center"> BSPWM </h1>
 
 <!-- BADGES -->
 <div align="center">
@@ -49,10 +49,10 @@ Currently swapping between ibhagwan's fork and [pijulius](https://github.com/pij
 ## ✨ Credits
 
 - Neovim config by [NvChad](https://github.com/NvChad/NvChad)
+- [pagankeymaster](https://github.com/pagankeymaster) for helping with various
+    bspwm related scripts
 - Wallpaper artwork created by [BisBiswas](https://www.deviantart.com/bisbiswas/art/Scattered-Lights-898482741)
 - Gundam 3D model created by [Jeff Allen](https://mjeff3d.gumroad.com/l/MSA0011M)
 - Some configurations have been derived from [axyl-os](https://github.com/axyl-os)
-
-<h2></h2>
 
 ### :warning: NOTE: This readme is still a WIP
