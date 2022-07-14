@@ -24,7 +24,7 @@ actions to keep my workflow meaningful and flexible under varying conditions.
 
 - **Color Scheme:** Tokyo Night + Ant-Dracula
 - **Window Manager:** [bspwm](https://github.com/baskerville/bspwm)
-- **Terminal:** [xfce4-terminal](https://gitlab.xfce.org/apps/xfce4-terminal)
+- **Terminal:** [alacritty](https://github.com/alacritty/alacritty)
 - **Shell:** [zsh](https://www.zsh.org/)
 - **Panel:** [polybar](https://github.com/polybar/polybar)
 - **Dock:** [plank](https://github.com/ricotz/plank)
@@ -33,10 +33,6 @@ actions to keep my workflow meaningful and flexible under varying conditions.
 - **Notification Manager:** [dunst](https://github.com/dunst-project/dunst)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 - **Application Menu:** [jgmenu](https://github.com/johanmalm/jgmenu)
-
-### *Disclaimer
-
-Currently swapping between ibhagwan's fork and [pijulius](https://github.com/pijulius/picom)
 
 ## 🔠 Fonts
 
