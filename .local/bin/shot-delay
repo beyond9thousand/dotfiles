@@ -3,7 +3,7 @@
 tmp="/tmp/Recordings/screenshot-$(date +%Y%m%d_%H%M%S).png"
 
 for i in {10..1}; do
-  dunstify --replace=69 -i $icon "Screenshot" "Capturing the entire screen in $i"
+  dunstify --replace=69 -i camera-photo-symbolic "Screenshot" "Capturing the entire screen in $i"
   sleep 1
 done
 

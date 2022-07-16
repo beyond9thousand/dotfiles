@@ -3,15 +3,15 @@
 tmp="/tmp/screenshot-$(date +%Y%m%d_%H%M%S).png"
 icon="camera-photo-symbolic"
 
-dunstify --replace=69 -i $icon "Window screenshot initiated"
+dunstify --replace=69 -i "$icon" "Window screenshot initiated"
 
 maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l "$tmp" && xclip -selection clipboard -t image/png < "$tmp"
 
 if [ ! -f "$tmp" ]; then
-  dunstify -u critical --replace=69 -i $icon "Screenshot cancelled"
+  dunstify -u critical --replace=69 -i "$icon" "Screenshot cancelled"
   exit
 fi
 
 rm "$tmp"
 
-dunstify -u success --replace=69 -i $icon "Screenshot copied to clipboard"
+dunstify -u success --replace=69 -i "$icon" "Screenshot copied to clipboard"

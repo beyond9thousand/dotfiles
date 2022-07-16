@@ -14,8 +14,8 @@ input() {
 ##################
 
 get_url() {
-  search=$(echo "${name}" | sed 's/ /\%20/g')
-  magnet=$(curl -s "$baseurl/search/${search}/1/99/200" | grep -Eo "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
+  search=$(echo "$name" | sed 's/ /\%20/g')
+  magnet=$(curl -s "$baseurl/search/$search/1/99/200" | grep -Eo "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
   choose
 }
 
@@ -26,11 +26,11 @@ get_url() {
 stream() {
   bspc node -t floating
   dunstify -i video-player -t 5000 "Peerflix" "Your video should load shortly..."
-  peerflix -k "${magnet}"
+  peerflix -k "$magnet"
 }
 
 download() {
-  peerflix "${magnet}"
+  peerflix "$magnet"
 }
 
 choose() {
@@ -49,5 +49,5 @@ baseurl=$(curl -s -L -o /dev/null -w "%{url_effective}\n" https://thepiratebay.p
 name=$(printf '..%s..' "$*")
 
 # checks if name variable is empty or not
-[ -n "$name" ] && get_url
-[ -z "$name" ] && input "$@"
+[ "$name" != "" ] && get_url
+[ "$name" = "" ] && input "$@"
