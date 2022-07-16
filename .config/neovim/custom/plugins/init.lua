@@ -1,7 +1,5 @@
 -- custom/plugins/init.lua
 
--- require "custom.plugins.format"
-
 return {
    -- startup dashboard
    ["goolord/alpha-nvim"] = {
