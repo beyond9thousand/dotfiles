@@ -13,4 +13,4 @@ sleep 0.5
 
 maim -f png "$tmp" && xclip -selection clipboard -t image/png
 
-dunstify --replace=696 -i camera-photo-symbolic "Screenshot" "Copied to clipboard"
+dunstify --replace=696 -i camera-photo-symbolic "Screenshot" "Saved to disk"
