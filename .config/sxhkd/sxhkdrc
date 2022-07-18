@@ -17,13 +17,9 @@ super + Escape
 ~button3
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
 
-# Cheat sheet
-super + k
-  sxhkd-cheat
-
-# Launch xfce4-Terminal
-super + Return 
-  alacritty
+# Cheatsheet, terminal
+super + {k,Return}
+  {sxhkd-cheat,alacritty}
 
 # GUI System monitor
 ctrl + shift + Escape
@@ -41,9 +37,9 @@ super + {x,n,d}
 super + shift + {f,g,c,d,s,v}
   {thunar,geany,code,discord,spotify,virtualbox}
 
-# Launch firefox
-super + w
-  firefox
+# Launch firefox,audioshare
+super + {w,backslash}
+  {firefox,audioshare}
 
 # Randomize wallpaper
 super + shift + w
@@ -89,9 +85,9 @@ super + {q,Delete}
 super + space
   bspc node -t "~"{floating,tiled}
 
-# Switch to tiled mode
-super + KP_Subtract
-  bspc node -t {floating}
+# Switch to floating, tiled
+super + {KP_Subtract,KP_Delete}
+  bspc node -t {floating,tiled}
 
 # Send the newest marked node to the newest preselected node
 super + y
@@ -105,9 +101,13 @@ super + g
 # state/flags
 #
 
-# Set the window state
-super + {ctrl + t,f,KP_Enter}
-	bspc node -t {pseudo_tiled,fullscreen,fullscreen}
+# Set pseudo tiled
+super + ctrl + {KP_Delete}
+	bspc node -t {pseudo_tiled}
+
+# Set full screen
+super + {f,KP_Enter}
+  bspc node -t {fullscreen,fullscreen}
 
 # Set the node flags
 super + ctrl + {m,x,z}
@@ -116,10 +116,6 @@ super + ctrl + {m,x,z}
 # Make window sticky
 super + {KP_Add}
   bspc node -g {sticky}
-
-# Tile window
-super + {KP_Delete}
-  bspc node -t {tiled}
 
 # Send the window to another edge of the screen
 super + {_,shift + }{Left,Down,Up,Right}

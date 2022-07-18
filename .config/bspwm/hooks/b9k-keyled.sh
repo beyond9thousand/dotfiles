@@ -7,14 +7,13 @@ idle=false
 stage1=false
 stage2=false
 lock="/tmp/light-toggle.lock"
-on=660000
-off=000000
+on=00008c
 
 while true; do
 	idletime=$(xprintidle)
 	# echo "$idletime"  # just for debug purposes.
 	if [[ $idle = false && $idletime -gt $dimtime ]]; then
-		msi-perkeyrgb -s "$off"
+		msi-perkeyrgb -d
 		if [[ ! -e $lock ]]; then
 			og=$(xbacklight -get)
 			xbacklight -set 5

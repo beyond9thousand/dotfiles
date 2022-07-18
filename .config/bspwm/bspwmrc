@@ -12,7 +12,7 @@
 nitrogen --restore &
 
 # Starting SXHKD Keyboard Daemon
-pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x sxhkd >/dev/null || sxhkd &
 
 # Launching polybar
 bash "$HOME"/.config/bspwm/polybar/launch.sh &
@@ -22,9 +22,9 @@ xsetroot -cursor_name left_ptr &
 
 # Set configurations
 for i in "$HOME"/.config/bspwm/configs/*.sh; do
-  {
-    eval "$i" &
-  }
+	{
+		eval "$i" &
+	}
 done
 
 # Autostart
@@ -32,15 +32,15 @@ eval "$HOME"/.config/bspwm/autostart.sh &
 
 # Set rules
 for i in "$HOME"/.config/bspwm/rules/*.sh; do
-  {
-    eval "$i" &
-  }
+	{
+		eval "$i" &
+	}
 done
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager \
-  eww copyq playerctld ksuperkey \
-  jgmenu
+	eww copyq playerctld ksuperkey \
+	jgmenu
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -48,7 +48,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # polkit agent
 if [[ ! $(pidof xfce-polkit) ]]; then
-  /usr/lib/xfce-polkit/xfce-polkit &
+	/usr/lib/xfce-polkit/xfce-polkit &
 fi
 
 # Enable power management
@@ -61,15 +61,15 @@ copyq --start-server &
 playerctld daemon &
 
 # Start compositor
-while pgrep -u $UID -x picom > /dev/null; do sleep 1; done
+while pgrep -u "$UID" -x picom >/dev/null; do sleep 1; done
 picom &
 
 # Delete existing hooks and restart them
 for i in "$HOME"/.config/bspwm/hooks/*.sh; do
-  {
-    pkill -9 -f "$i"
-    eval "$i" &
-  }
+	{
+		pkill -9 -f "$i"
+		eval "$i" &
+	}
 done
 
 # Reached end of script

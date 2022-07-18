@@ -12,7 +12,9 @@ local sources = {
    b.formatting.prettier,
    b.formatting.shellharden,
    b.formatting.black,
-   b.diagnostics.markdownlint,
+   b.diagnostics.markdownlint.with({
+         extra_args = { "--disable MD002 MD006" }
+      }),
    b.diagnostics.shellcheck,
    b.diagnostics.flake8,
    b.diagnostics.mypy,
