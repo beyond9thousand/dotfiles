@@ -117,10 +117,6 @@ super + ctrl + {m,x,z}
 super + {KP_Add}
   bspc node -g {sticky}
 
-# Send the window to another edge of the screen
-super + {_,shift + }{Left,Down,Up,Right}
-  bspc node -{f,s} {west,south,north,east}
-
 # Change focus to next window, including floating window
 alt + {_,shift + }Tab
   bspc node -f {next.local,prev.local}
@@ -133,9 +129,9 @@ super + KP_Insert
 # focus/swap
 #
 
-# Focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+# Node focus and swapping on the same desktop
+super + {_,shift + }{Left,Down,Up,Right}
+  bspc node -{f,s} {west,south,north,east}
 
 # Focus the node for the given path jump
 super + {p,b,comma,period}
@@ -191,14 +187,10 @@ super + ctrl + shift + space
 # move/resize
 #
 
-# Expanding windows
-super + alt + {Left,Right,Up,Down}
-  bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
-
-# Shrinking windows
-super + ctrl + {Left,Right,Up,Down}
-  bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+# resize windows i3 style
+super + ctrl + {Left,Up,Down,Right}
+	resize {x -, y +, y -, x +}
 
 # Move a floating window
-super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+super + ctrl {KP_End,KP_Down,KP_Begin,KP_Next}
+	bspc node -v {-200 0,0 200,0 -200,200 0}

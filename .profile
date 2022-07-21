@@ -46,6 +46,7 @@ export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export MYPY_CACHE_DIR="$XDG_CACHE_HOME"/mypy
 
 # terminal
 export TERMINAL="alacritty"

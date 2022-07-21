@@ -15,7 +15,7 @@ nitrogen --restore &
 pgrep -x sxhkd >/dev/null || sxhkd &
 
 # Launching polybar
-bash "$HOME"/.config/bspwm/polybar/launch.sh &
+bash "$HOME/.config/bspwm/polybar/launch.sh" &
 
 # fix pointer
 xsetroot -cursor_name left_ptr &
@@ -28,7 +28,7 @@ for i in "$HOME"/.config/bspwm/configs/*.sh; do
 done
 
 # Autostart
-eval "$HOME"/.config/bspwm/autostart.sh &
+eval "$HOME/.config/bspwm/autostart.sh" &
 
 # Set rules
 for i in "$HOME"/.config/bspwm/rules/*.sh; do
@@ -39,8 +39,8 @@ done
 
 # Kill if already running
 killall -9 picom sxhkd dunst xfce4-power-manager \
-	eww copyq playerctld ksuperkey \
-	jgmenu
+	eww copyq playerctld ksuperkey jgmenu \
+	
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
