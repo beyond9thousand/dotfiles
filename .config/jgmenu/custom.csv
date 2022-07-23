@@ -4,7 +4,7 @@ Restart SXHKD,keeb-reset,input-keyboard
 Restart Pipewire,systemctl --user restart pipewire.service pipewire-pulse.socket && poly-reset,audio-speakers
 ^sep()
 
-Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -selection 'clipboard' -f)",window_list
+Find Window Class,dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -sel c -f)",window_list
 Randomize Wallpaper,nitrogen --set-zoom-fill --save --random Pictures/Wallpapers,phototonic
 ^sep()
 

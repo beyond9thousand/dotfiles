@@ -1,4 +1,4 @@
-clip="xclip -selection 'clipboard' -f"
+clip="xclip -sel c -f"
 
 # aliases
 alias pl="pwd | tr -d '\n' | $clip | notify-send 'Copied current directory path'"
