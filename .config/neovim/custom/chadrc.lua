@@ -1,15 +1,18 @@
 local M = {}
 
+local override = require("custom.override")
+
 M.ui = {
-   theme = "tokyonight",
+	theme = "tokyonight",
 }
 
 M.plugins = {
-   user = require "custom.plugins",
-}
 
--- M.mappings = {
---    user = require "custom.mappings",
--- }
+	override = {
+		["nvim-treesitter/nvim-treesitter"] = override.treesitter,
+	},
+
+	user = require("custom.plugins"),
+}
 
 return M

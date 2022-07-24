@@ -13,7 +13,7 @@ return {
 
    ["baskerville/vim-sxhkdrc"] = {},
 
-   ["sheerun/vim-polyglot"] = {},
+   -- ["sheerun/vim-polyglot"] = {},
 
    -- formatting and diagnostic
    ["jose-elias-alvarez/null-ls.nvim"] = {
