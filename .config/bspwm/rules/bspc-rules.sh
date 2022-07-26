@@ -29,7 +29,7 @@ for i in "${work[@]}"; do
 done
 
 # workspace 5 (Media)
-declare -a media=(vlc obs mplayer lxmusic Gimp
+declare -a media=(vlc obs instagram-live-streamer mplayer lxmusic Gimp
 	Gimp-2.10 "VirtualBox Manager")
 for i in "${media[@]}"; do
 	bspc rule -a "$i" desktop='^5' follow=on focus=on
@@ -52,7 +52,8 @@ declare -a floats=(Alafloat Lxappearance Arandr
 	Pavucontrol jamesdsp Nvidia-settings Nitrogen
 	Peazip Xfce4-appearance-settings Xfce4-mouse-settings
 	qView parsecd Galculator com.github.joseexposito.touche
-	XVkbd usbguard-applet-qt)
+	XVkbd usbguard-applet-qt instagram-live-streamer
+  Mumble)
 for i in "${floats[@]}"; do
 	bspc rule -a "$i" manage=on state=floating follow=on focus=on center=true
 done
