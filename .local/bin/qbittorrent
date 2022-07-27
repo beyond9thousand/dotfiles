@@ -1,0 +1,20 @@
+#!/bin/bash
+
+file="$HOME/.config/bspwm/polybar/modules.ini"
+
+# If lock file exists, remove it, kill the notif, kill dunstspeed; exit the script
+if [[ $(pidof qbittorrent-nox) ]]; then
+	killall -9 qbittorrent-nox
+	dunstify -C 649
+	dunstify --replace 649 -i qbittorrent -u critical "Qbittorrent" "Terminated Qbittorrent-nox" &
+	polybar-msg action qbit hook 1
+	perl -0 -i -pe 's/rent\ninitial=.*/rent\ninitial=2/g' "$file"
+	pkill -9 -f "qbittorrent"
+	exit
+else
+	pkill -9 -f "dunst"
+	dunstify --replace 649 -i qbittorrent "Qbittorrent" "Running Qbittorrent-nox" &
+	qbittorrent-nox --webui-port=8000 | firefox http://localhost:8000/ &
+	polybar-msg action qbit hook 0
+	perl -0 -i -pe 's/rent\ninitial=.*/rent\ninitial=1/g' "$file"
+fi

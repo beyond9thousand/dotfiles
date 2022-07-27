@@ -25,12 +25,13 @@ actions to keep my workflow meaningful and flexible under varying conditions.
 
 - **Color Scheme:** Tokyo Night + Ant-Dracula
 - **Window Manager:** [bspwm](https://github.com/baskerville/bspwm)
+- **Compositor:** [picom/pijulius](https://github.com/pijulius/picom)
 - **Terminal:** [alacritty](https://github.com/alacritty/alacritty)
 - **Shell:** [zsh](https://www.zsh.org/)
-- **Panel:** [polybar](https://github.com/polybar/polybar)
-- **Dock:** [plank](https://github.com/ricotz/plank)
-- **Compositor:** [picom-ibhagwan-git\*](https://github.com/ibhagwan/picom-ibhagwan-git)
 - **Editor:** [neovim](https://github.com/neovim/neovim)
+- **Panel:** [polybar](https://github.com/polybar/polybar)
+- **System Tray:** [stalonetray](https://github.com/kolbusa/stalonetray)
+- **Dock:** [plank](https://github.com/ricotz/plank)
 - **Notification Manager:** [dunst](https://github.com/dunst-project/dunst)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
 - **Application Menu:** [jgmenu](https://github.com/johanmalm/jgmenu)
