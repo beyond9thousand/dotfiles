@@ -25,11 +25,12 @@ if [ -d "$HOME/.bin" ]; then
   PATH="$HOME/.bin:$PATH"
 fi
 
+# Create temp directories
 mkdir /tmp/torrent-stream
 mkdir /tmp/Recordings
 mkdir /tmp/Screenshots
 
-# Directory declarations
+# XDG Directory declarations
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -53,5 +54,6 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export MYPY_CACHE_DIR="$XDG_CACHE_HOME"/mypy
 
-# Set default terminal
+# Set default mime types
 export TERMINAL="alacritty"
+export BROWSER="firefox"

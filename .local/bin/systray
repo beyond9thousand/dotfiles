@@ -3,7 +3,7 @@
 hidden=/tmp/syshide.lock
 file="$HOME/.config/bspwm/polybar/modules.ini"
 
-if [[ $(pidof stalonetray) != "" ]]; then
+if [[ $(pidof stalonetray) ]]; then
 	if [[ ! -e $hidden ]]; then
 		polybar-msg action "#systray.hook.1"
 		xdo hide -n stalonetray
@@ -17,10 +17,5 @@ if [[ $(pidof stalonetray) != "" ]]; then
 		perl -0 -i -pe 's/systray\ninitial=.*/systray\ninitial=1/g' "$file"
 	fi
 else
-	stalonetray \
-		-bg '#1a1b26' \
-		-v \
-		--geometry 1x1-9+55 \
-		--grow-gravity NE --icon-gravity NE \
-		-s 32
+	stalonetray &
 fi

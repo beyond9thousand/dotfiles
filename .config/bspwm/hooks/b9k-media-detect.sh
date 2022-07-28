@@ -11,7 +11,7 @@ while true; do
 	ss=$(playerctl status 2>/dev/null)            #Playerctl status is fed
 	smeta=$(playerctl metadata album 2>/dev/null) #Playerctl metadata album info is fed
 	vc=$(fuser /dev/video0 2>/dev/null)
-	if [[ $ss = Playing && $smeta = "" || $vc != "" ]]; then
+	if [[ $ss = Playing && ! $smeta || $vc ]]; then
 		xdg-screensaver reset
 	fi
 done
