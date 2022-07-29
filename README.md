@@ -38,11 +38,12 @@ actions to keep my workflow meaningful and flexible under varying conditions.
 
 ## 🔠 Fonts
 
-| Font List                                                                   | Use            |
-| --------------------------------------------------------------------------- | -------------- |
-| [`Roboto`](https://github.com/googlefonts/roboto)                           | Main Font      |
-| [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome)               | Main Icon Font |
-| [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont) | Main UI Font   |
+| Font List                                                                   | Use                 |
+| --------------------------------------------------------------------------- | ------------------- |
+| [`Roboto`](https://github.com/googlefonts/roboto)                           | Primary Font        |
+| [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome)               | Primary Icon Font   |
+| [`Icomoon-Feather`](https://feathericons.com/)                              | Secondary Icon Font |
+| [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont) | Primary UI Font     |
 
 ## ✨ Credits
 
