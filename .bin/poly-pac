@@ -1,0 +1,20 @@
+#!/bin/bash
+
+logfile="/var/log/poly-update-count.log"
+hidden="/tmp/poly-hidden.lock"
+
+check=$(cat "$logfile")
+if [[ $check -gt 0 ]]; then
+	echo "$check"
+	rm -f "$hidden"
+	exit
+else
+	if [ -e "$hidden" ]; then
+		exit
+	else
+		polybar-msg action "#pacman.module_hide"
+		touch "$hidden"
+	fi
+fi
+
+# cat $logfile

@@ -1,0 +1,72 @@
+#!/bin/bash
+
+case "$1" in
+-bspres)
+	bspc wm -r &
+	;;
+-ewwopen)
+	eww daemon
+	eww open taskbar
+	;;
+-ewwclose)
+	eww kill
+	bspc config top_padding 0
+	;;
+-ewwhalt)
+	eww close-all
+	;;
+-ewwreload)
+	if [[ $(pidof eww) ]]; then
+		control_box -ewwhalt
+		control_box -ewwopen
+		dunstify -r 888 "EWW" "Taskbar has been reloaded"
+	else
+		dunstify -u critical -r 888 "EWW" "Taskbar is not running"
+	fi
+	;;
+-polybres)
+	poly-reset
+	;;
+-kbres)
+	keeb-reset
+	;;
+-soundres)
+	systemctl --user restart pipewire.service pipewire-pulse.socket && control_box -ewwreload
+	;;
+-wclass)
+	dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -sel c -f)"
+	;;
+-wallres)
+	nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
+	;;
+-record)
+	record() {
+		ffmpeg \
+			-f x11grab \
+			-framerate 60 \
+			-probesize 42M \
+			-s "1920x1080" \
+			-i :1 \
+			-f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 \
+			-vf setpts=N/FR/TB \
+			-c:v libx264rgb -preset ultrafast -q:v 1 \
+			-threads 4 \
+			/tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
+	}
+	record
+	;;
+-monitor)
+	process_manager() {
+		if [[ $(pidof gnome-system-monitor) != "" ]]; then
+			dunstctl close-all
+			eval "$(xdotool search --shell gnome-system-monitor)"
+			[ "$(xdotool get_desktop)" = "$(xdotool get_desktop_for_window "$WINDOWS")" ] &&
+				pkill -9 -f gnome-system-monitor && dunstify -t 5000 -u critical "Gnome System Monitor" "Closed Gnome System Monitor" ||
+				bspc node "$WINDOWS" -d focused
+		else
+			gnome-system-monitor &
+		fi
+	}
+	process_manager &
+	;;
+esac

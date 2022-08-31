@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ "$(echo "$(awk '{print $1}' /proc/uptime)" / 86400 | bc)" -gt 7 ]]; then
+	/bin/rm -rf "$b9krecordings"/*
+	/bin/rm -rf "$b9kscreenshots/*"
+	/bin/rm -rf "$b9ktorrents/*"
+fi

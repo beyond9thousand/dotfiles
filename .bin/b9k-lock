@@ -1,0 +1,60 @@
+#!/bin/bash
+
+#     _ _____ __           __
+#    (_)__  // /___  _____/ /__
+#   / / /_ </ / __ \/ ___/ //_/
+#  / /___/ / / /_/ / /__/ ,<
+# /_//____/_/\____/\___/_/|_|
+#
+
+# Check for existing instance of i3lock
+if [[ $(pidof i3lock) ]]; then
+  exit
+fi
+
+# Declare colors
+fg=c0caf5
+wrong=db4b4b
+highlight=659b82
+date=7bc5e4
+verify=9ece6a
+
+# Calculate center width and height
+width=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | cut -d "x" -f 1 | head -n1)
+# height=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*' | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/' | cut -d "x" -f 2 | head -n1)
+half_width=$((width / 2))
+# half_height=$((height / 2))
+
+sleep 0.25
+
+# Screenlock command begins here
+maim | convert - -scale 10% -blur 0x0.7 -resize 1000% -brightness-contrast -5 PNG:- | convert - ~/Pictures/Screenshots/Assets/lock-light.png -matte -channel A +level 0,1% +channel -gravity center -geometry +0+65 -composite RGB:- | i3lock --raw 1920x1080:rgb -i /dev/stdin \
+  -n --force-clock \
+  -e --indicator \
+  --radius=0 \
+  --ring-width=20 \
+  --inside-color=00000000 \
+  --ring-color=00000040 \
+  --insidever-color=$verify \
+  --ringver-color=$verify \
+  --insidewrong-color=$wrong \
+  --ringwrong-color=$wrong \
+  --line-uses-inside \
+  --keyhl-color=$highlight --separator-color=$highlight --bshl-color=$highlight \
+  --time-str="%I:%M %p" \
+  --time-size=100 \
+  --date-str="%d %B, %A" \
+  --date-size=45 \
+  --verif-text="Verifying Password..." --wrong-text="Wrong Password!" \
+  --noinput-text="" \
+  --greeter-text="$(fortune -n 90 -s | head -n 1)" \
+  --ind-pos="$half_width:610" \
+  --time-font="Roboto:style=Bold" \
+  --date-font="Roboto" \
+  --verif-font="Roboto" --greeter-font="Roboto" --wrong-font="Roboto" \
+  --{layout,verif,wrong,greeter}-size=23 \
+  --time-pos="$half_width:390" --date-pos="$half_width:450" \
+  --greeter-pos="$half_width:780" --wrong-pos="$half_width:820" --verif-pos="$half_width:655" \
+  --date-color=$date --time-color=$date \
+  --greeter-color=$fg --wrong-color=$wrong --verif-color=$verify \
+  --pointer=default --pass-media-keys --pass-volume-keys

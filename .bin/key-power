@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rofi -show power-menu -modi power-menu:rofi-power-menu -hover-select -me-select-entry '' -me-accept-entry MousePrimary -config ~/.config/rofi/keypower.rasi
