@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Create a lock file to detect if dunstspeed is running
+lockfile="/tmp/dunstspeed.lock"
+
+# If lock file exists, remove it, kill the notif, kill dunstspeed; exit the script
+if [ -e "$lockfile" ]; then
+  rm -f "$lockfile"
+  dunstify -C 699
+  pkill -9 -f "dunstspeed"
+  exit
+else
+  dunstify -t 1000 "Checking network speed"
+  touch "$lockfile" # Delete lock file
+fi
+
+dwn=" "
+upl=" "
+spc=" "
+tab="   "
+while true; do
+  rx1=$(cat /sys/class/net/wlo1/statistics/rx_bytes)
+  tx1=$(cat /sys/class/net/wlo1/statistics/tx_bytes)
+  sleep 1
+  rx2=$(cat /sys/class/net/wlo1/statistics/rx_bytes)
+  tx2=$(cat /sys/class/net/wlo1/statistics/tx_bytes)
+
+  dspeed=$(((rx2 - rx1) / 1024))
+  uspeed=$(((tx2 - tx1) / 1024))
+
+  d_unit="KB/s"
+  u_unit="KB/s"
+
+  if [[ $dspeed -gt 1024 ]]; then
+    dspeed=$(((dspeed) / 1024))
+    d_unit="MB/s"
+  fi
+  if [[ $uspeed -gt 1024 ]]; then
+    uspeed=$(((uspeed) / 1024))
+    u_unit="MB/s"
+  fi
+
+  dunstify --replace=699 --appname=wireless "Network Speed" "$dwn$dspeed$spc$d_unit$tab$upl$uspeed$spc$u_unit"
+done

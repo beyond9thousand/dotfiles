@@ -1,0 +1,25 @@
+set adjust-open width
+
+set selection-clipboard clipboard
+
+set font "Roboto 12"
+
+set default-bg "#1a1b26"
+
+set statusbar-bg "#282e49"
+
+set statusbar-fg "#7aa2f7"
+
+set inputbar-bg "#1a1b26"
+
+set inputbar-fg "#7aa2f7"
+
+set completion-bg "#1a1b26"
+
+set completion-fg "#5b668e"
+
+set completion-highlight-bg "#282e49"
+
+set completion-highlight-fg "#7aa2f7"
+
+set completion-group-bg "#32333e"

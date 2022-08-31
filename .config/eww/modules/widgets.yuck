@@ -1,0 +1,69 @@
+;            _     __           __      
+;  _      __(_)___/ /___ ____  / /______
+; | | /| / / / __  / __ `/ _ \/ __/ ___/
+; | |/ |/ / / /_/ / /_/ /  __/ /_(__  ) 
+; |__/|__/_/\__,_/\__, /\___/\__/____/  
+;                /____/                 
+;
+
+(defwidget launcher []
+ (eventbox 
+          :onclick "poly-menu" :cursor "pointer" 
+          :onrightclick "control_box -ewwreload" 
+          :class "launcher glyph" :width 30
+          (box "")))
+
+(defwidget work_space_box []
+ (eventbox :vexpand true
+              :onscroll "[ {} = down ] && bspc desktop -f next; \
+                             [ {} = up ] && bspc desktop -f prev" 
+     (literal :content work_space))) 
+
+(defwidget usage_box []
+  (box
+    (cpu_usage_box)))
+ 
+(defwidget access []
+ (box :space-evenly false :spacing 0
+
+  (notif_bell)
+
+  (bat_indicator 
+    :bat_critical ""
+    :bat_low ""
+    :bat_normal ""
+    :bat_full ""
+    :battery {EWW_BATTERY.BAT1.capacity})
+  (network :wifi_text_off "wifi_text_off"
+           :wifi_icon_off "wifi_icon_off glyph"
+           :connected "Connected to ${ssid}"
+           :disconnected "Not connected to any network")
+  (eventbox 
+    :onhover "eww update unit_hover=true" 
+    (box :class "access" :orientation "h" :space-evenly false :spacing 0
+     
+      (label :class "${unit_hover == "false" ? "unit_box" : "unit_box_on"} glyph" 
+             :text "")
+      (revealer :reveal unit_hover :transition "slideright" :duration "0.5s"
+        (box :class "generous_box" :space-evenly false :spacing 8
+         (mic_box
+           :mic_vol_percent "${mic_current_vol}%")
+         (sound_box 
+                  :vol_num_off "vol_num_off"
+                  :vol_icon_off "vol_icon_off glyph"
+                  :vol_percent "${current_vol}%"
+                  :vol_max ""
+                  :vol_mid ""
+                  :vol_min "")
+         (nit_box)))))
+  
+  
+  (eventbox
+    :onhover "eww update time_hover=true" 
+    :onhoverlost "eww update time_hover=false"
+    (box 
+      :space-evenly false :spacing 0
+      (date)
+      (revealer :reveal time_hover :transition "slideright" :duration "0.25s"
+        (box
+          (system_tray)))))))

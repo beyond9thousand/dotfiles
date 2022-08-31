@@ -1,0 +1,12 @@
+@theme "~/.config/rofi/power.rasi"
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    location: center;
+	  x-offset: 0%;
+	  y-offset: 0%;
+}

@@ -1,0 +1,64 @@
+;     ______            __  _            
+;    / __/ /___  ____ _/ /_(_)___  ____ _
+;   / /_/ / __ \/ __ `/ __/ / __ \/ __ `/
+;  / __/ / /_/ / /_/ / /_/ / / / / /_/ / 
+; /_/ /_/\____/\__,_/\__/_/_/ /_/\__, /  
+;                               /____/   
+;
+
+(defwidget bat_indicator [bat_critical bat_low bat_normal bat_full battery]
+  (box :space-evenly false :spacing 0 :class "bat_bound"
+       ; :tooltip "Current battery capacity"
+    (label :class "bat_icon glyph" 
+          :text "${battery > 95 ? bat_full :
+                   battery > 25 ? bat_normal :
+                   battery > 15 ? bat_low : bat_critical}")
+    (label :class "bat_text" :text "${battery}%")))
+
+(defwidget notif_bell []
+ (eventbox 
+          ; :tooltip "Click to ${notif_initial != "" ? "disable" : "enable" } notifications" 
+          :cursor "pointer"
+          :onclick notif_switch
+   (label :class "${notif_initial != "" ? "notif_icon" : "notif_icon_off"} notif_bell"
+          :text "${notif_initial}")))
+
+(defwidget cpu_temp_text []
+ (eventbox 
+   :tooltip "Current CPU temperature" 
+     (box :space-evenly false :spacing 0
+       (label 
+        :class "${cpu_temp >= 60 ? "cpu_hot" : "cpu_normal"} glyph"
+        :text "${cpu_temp >= 60 ? "" : ""}")
+       (label 
+         :class "${cpu_temp >= 60 ? "cpu_hot" : "cpu_normal"}"
+         :text "${cpu_temp}°C"))))
+
+(defwidget layout_state []
+  (box
+    (label 
+      :limit-width 1 :class "window_state glyph"
+      :text "${layout_var}")))
+
+(defwidget sticky_title []
+  (box
+    (label :limit-width 1 :class "window_state glyph"
+           :text "${sticky_var}")))
+
+(defwidget title_bar []
+  (box
+    (label
+      :limit-width 50
+      :class "window_title"
+      :text "${window_title}")))
+
+(defwidget date []
+ (box :space-evenly false
+  (label :class "date" :text time)))
+
+(defwidget system_tray []
+  (eventbox 
+    :cursor "pointer" :onclick tray_toggle
+    (label
+      :class "system_tray glyph"
+      :text "${tray_initial}")))

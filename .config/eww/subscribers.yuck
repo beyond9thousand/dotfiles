@@ -1,0 +1,22 @@
+; True subscribers
+(deflisten work_space "pgrep -x 'work_space.bash' | xargs kill
+                      ./scripts/work_space.bash")
+
+(deflisten muted "pgrep -x 'pactl' | xargs kill 2>/dev/null
+                 ./scripts/sound_state.zsh -s")
+(deflisten current_vol "pgrep -x 'pactl' | xargs kill 2>/dev/null
+                       ./scripts/sound_state.zsh -v")
+
+(deflisten nit_level "pgrep -x 'inotifywait' | xargs kill 2>/dev/null
+                     ./scripts/nit_state.zsh")
+
+(deflisten mic_current_vol "pgrep -x 'pactl' | xargs kill 2>/dev/null
+                           ./scripts/sound_state.zsh -mic_vol")
+
+(deflisten window_title "pgrep -x 'xtitle' | xargs kill
+                        ./scripts/window_title_fetch.zsh")
+
+; Psuedo subscribers
+(deflisten mic_initial "./scripts/sound_state.zsh -mc")
+(deflisten notif_initial "./scripts/notif_state.zsh -c")
+(deflisten tray_initial "./scripts/system_tray.zsh -c")

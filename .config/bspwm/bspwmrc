@@ -1,0 +1,62 @@
+#!/bin/bash
+
+#     __
+#    / /_  _________ _      ______ ___
+#   / __ \/ ___/ __ \ | /| / / __ `__ \
+#  / /_/ (__  ) /_/ / |/ |/ / / / / / /
+# /_.___/____/ .___/|__/|__/_/ /_/ /_/
+#           /_/
+#
+
+# Restore wallpaper
+nitrogen --restore &
+
+# Launch polybar
+# bash "$HOME/.config/bspwm/polybar/launch.sh" &
+
+# Fix the pointer for BSPWM
+xsetroot -cursor_name left_ptr &
+
+# Set configurations
+for i in "$HOME"/.config/bspwm/configs/*.sh; do
+	{
+		eval "$i" &
+	}
+done
+
+# Autostart apps
+eval "$HOME/.config/bspwm/autostart.sh" &
+
+# Set rules
+for i in "$HOME"/.config/bspwm/rules/*.sh; do
+	{
+		eval "$i" &
+	}
+done
+
+# Kill if already running
+killall -9 ksuperkey
+
+# Enable Super Keys For Menu
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &
+
+# Polkit agent
+if [[ ! $(pidof xfce-polkit) ]]; then
+	/usr/lib/xfce-polkit/xfce-polkit &
+fi
+
+# Delete existing hooks and restart them
+for i in "$HOME"/.config/bspwm/hooks/*; do
+	{
+		pkill -9 -f "$i"
+		eval "$i" &
+	}
+done
+
+for i in "$HOME"/.config/bspwm/eww_startup/*; do
+	{
+		pkill -9 -f "$i"
+		eval "$i" &
+	}
+done

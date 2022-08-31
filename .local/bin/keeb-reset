@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"

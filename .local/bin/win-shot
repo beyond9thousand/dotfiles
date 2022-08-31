@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+tmp="/tmp/screenshot-$(date +%Y%m%d_%H%M%S).png"
+icon="camera-photo-symbolic"
+
+maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l "$tmp" && xclip -sel c -t image/png <"$tmp"
+
+if [ ! -f "$tmp" ]; then
+	dunstify -u critical --replace=69 -i "$icon" "Screenshot cancelled"
+	exit
+fi
+
+rm "$tmp"
+
+dunstify --replace=69 -i "$icon" "Screenshot copied to clipboard"

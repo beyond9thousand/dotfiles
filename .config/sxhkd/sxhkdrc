@@ -1,0 +1,196 @@
+#               __    __       __
+#    ______  __/ /_  / /______/ /
+#   / ___/ |/_/ __ \/ //_/ __  / 
+#  (__  )>  </ / / / ,< / /_/ /  
+# /____/_/|_/_/ /_/_/|_|\__,_/   
+#                                
+
+#
+# wm independent hotkeys
+#
+
+# Reloads sxhkd configuration
+super + Escape
+  keeb-reset
+
+# Right click menu
+~button3
+  xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
+
+# Cheatsheet, terminal
+super + {k,Return}
+  {sxhkd-cheat,alacritty}
+
+# GUI System monitor
+ctrl + shift + Escape
+  gnome-system-monitor
+
+# Rofi app launcher
+alt + F1
+  key-menu    
+
+# Rofi menu launcher(s)
+super + {x,n,d}
+  {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh)}
+
+# Launch Applications
+super + shift + {f,g,c,d,s,v}
+  {thunar,geany,code,discord,spotify,virtualbox}
+
+# Launch firefox,audioshare
+super + {w,backslash}
+  {firefox,audioshare}
+
+# Randomize wallpaper
+super + shift + w
+  {nitrogen --set-zoom-fill --save --random Pictures/Wallpapers}
+
+# Volume controls
+XF86Audio{RaiseVolume,LowerVolume,Mute}
+  volume{ --up, --down, --toggle}
+
+# Brightness controls
+XF86MonBrightness{Up,Down}
+  brightness{ --up, --down}
+
+# Flameshot screenshot launcher
+Print
+  flameshot gui
+
+#
+# Screenshot exras
+#
+
+# Maim screenshot window
+ctrl + Print
+  win-shot
+
+# Maim delayed screenshot
+ctrl + shift + Print
+  shot-delay
+
+#
+# BSPWM HOTKEYS
+#
+
+# Quit/Restart bspwm
+super + shift + {q,r}
+  bspc {quit,wm -r}
+
+# Close and kill
+super + {q,Delete}
+  bspc node {-c,-c}
+
+# Alternate between the tiled and monocle layout
+super + space
+  bspc node -t "~"{floating,tiled}
+
+# Switch to floating, tiled
+super + {KP_Subtract,KP_Delete}
+  bspc node -t {floating,tiled}
+
+# Send the newest marked node to the newest preselected node
+super + y
+  bspc node newest.marked.local -n newest.!automatic.local
+
+# Swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+#
+# state/flags
+#
+
+# Set pseudo tiled
+super + ctrl + {KP_Delete}
+	bspc node -t {pseudo_tiled}
+
+# Set full screen
+super + {f,KP_Enter}
+  bspc node -t {fullscreen,fullscreen}
+
+# Set the node flags
+super + ctrl + {m,x,z}
+	bspc node -g {marked,locked,private}
+
+# Make window sticky
+super + {KP_Add}
+  bspc node -g {sticky}
+
+# Change focus to next window, including floating window
+alt + {_,shift + }Tab
+  bspc node -f {next.local,prev.local}
+
+# Center currently active window
+super + KP_Insert
+  center-window
+ 
+#
+# focus/swap
+#
+
+# Node focus and swapping on the same desktop
+super + {_,shift + }{Left,Down,Up,Right}
+  bspc node -{f,s} {west,south,north,east}
+
+# Focus the node for the given path jump
+super + {p,b,comma,period}
+	bspc node -f @{parent,brother,first,second}
+
+# Focus the next/previous window in the current desktop
+super + {_,shift + }c
+	bspc node -f {next,prev}.local.!hidden.window
+        
+# Rotate windows
+super + {r,KP_Divide}        
+  bspc node @/ -R {90,90}
+
+# Focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# Focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# Focus the older or newer node in the focus history
+super + {o,i}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# Focus or send to the given desktop
+super + {_,shift + }{KP_End,KP_Down,KP_Next,KP_Left,KP_Begin,KP_Right,KP_Home}
+	bspc {desktop -f,node -d} '^{1-7}'
+
+#
+# preselect
+#
+
+# Preselect the direction
+super + alt + {KP_End,KP_Down,KP_Begin,KP_Next}
+	bspc node -p {west,south,north,east}
+
+# Preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Cancel the preselection for the focused node
+super + alt + {KP_Delete}
+	bspc node -p cancel
+
+# Cancel the preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+
+# resize windows i3 style
+super + ctrl + {Left,Up,Down,Right}
+	resize {x -, y +, y -, x +}
+
+# Move a floating window
+super + ctrl {KP_End,KP_Down,KP_Begin,KP_Next}
+	bspc node -v {-200 0,0 200,0 -200,200 0}

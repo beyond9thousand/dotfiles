@@ -1,0 +1,37 @@
+;                     _____      
+;   _________  ____  / __(_)___ _
+;  / ___/ __ \/ __ \/ /_/ / __ `/
+; / /__/ /_/ / / / / __/ / /_/ / 
+; \___/\____/_/ /_/_/ /_/\__, /  
+;                       /____/   
+;
+
+(include "./variables.yuck")
+(include "./subscribers.yuck")
+(include "./modules/layout.yuck")
+(include "./modules/widgets.yuck")
+(include "./modules/submodules.yuck")
+(include "./modules/floating.yuck")
+
+(defwindow taskbar
+  :monitor 0
+  :geometry 
+    (geometry
+      :x "0"
+      :y "8"
+      :width "99%"
+      :height "35"
+      :anchor "top center")
+  :stacking "bg"
+  :reserve (struts :distance "50" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+ (bar))
+
+(defwidget bar []
+  (eventbox :onhoverlost "eww update unit_hover=false; 
+                         eww update usage_hover=false"
+   (box :class "main_box" :orientation "h" :space-evenly true
+     (left_box)
+     (center_box)
+     (right_box))))

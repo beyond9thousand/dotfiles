@@ -1,0 +1,33 @@
+Restart SXHKD,control_box -kbres,input-keyboard
+Restart Pipewire,control_box -soundres,audio-speakers
+^sep()
+
+Extras,^checkout(extras)
+^sep()
+
+Find Window Class,control_box -wclass,window_list
+Randomize Wallpaper,control_box -wallres,phototonic
+^sep()
+
+Terminal,alacritty,utilities-terminal
+Neovim,alacritty -e nvim,nvim
+Ranger,alacritty -e ranger,stock_folder
+^sep()
+
+Lock,b9k-lock,system-lock-screen
+Logout,pkill -KILL -u "$USER" &,system-log-out
+
+Exit,^checkout(exit)
+
+
+^tag(exit)
+Suspend,systemctl suspend,system-suspend
+Reboot,reboot,system-reboot
+Poweroff,poweroff,system-shutdown
+
+^tag(extras)
+Restart BSPWM,control_box -bspres 
+^sep()
+Restart eww taskbar,control_box -ewwreload
+Open eww taskbar,control_box -ewwopen
+Close eww taskbar,control_box -ewwclose

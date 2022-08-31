@@ -1,0 +1,12 @@
+.cpu_normal {
+  color: $cyan;
+}
+
+.cpu_hot {
+  color: $red;
+}
+
+.cpu_normal,
+.cpu_hot {
+  padding: 0px 3px;
+}

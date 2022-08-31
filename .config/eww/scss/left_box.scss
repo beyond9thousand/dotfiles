@@ -1,0 +1,101 @@
+.launcher > box {
+  @extend .container_box;
+  transition: all 0.5s ease;
+}
+
+.launcher {
+  color: $cyan;
+  font-size: 24px;
+}
+
+.launcher:hover > box {
+  background-color: $blue;
+}
+
+.launcher:hover {
+  color: white;
+}
+
+.workspace_box {
+  background-color: $bg;
+  margin: 6px 0px;
+  border-radius: 8px;
+}
+
+.workspace_button {
+  margin: 5px 0px;
+  border-radius: 8px;
+  padding: 5px 0px;
+  background-color: $bg;
+  color: $blue;
+}
+
+.workspace_button_expand {
+  margin: 5px 0px;
+  border-radius: 8px;
+  padding: 5px 5px;
+  background-color: $bg;
+  color: $blue;
+}
+
+.focused_workspace {
+  color: $yellow;
+}
+
+.occupied_workspace {
+  color: $blue;
+}
+
+.empty_workspace {
+  color: $fg_blend;
+}
+
+.focused_workspace,
+.occupied_workspace,
+.empty_workspace {
+  padding: 0px 5px;
+  padding-top: 1px;
+}
+
+.cpu_usage {
+  font-size: 20px;
+  font-family: "icomoon\-feather";
+}
+
+.cpu_usage,
+.cpu_usage_text {
+  color: $green;
+}
+
+.cpu_usage_text {
+  padding: 0px 0px 0px 4px;
+}
+
+.mem_usage,
+.mem_usage_text {
+  color: $yellow;
+}
+
+.mem_usage {
+  padding: 0px 1px 0px 0px;
+}
+
+.mem_usage_text {
+  padding: 0px 0px 0px 4px;
+}
+
+.stat_bolt {
+  color: $cyan;
+  padding: 0px 2px;
+}
+
+.stat_bolt_off {
+  color: $fg_blend;
+  padding: 0px 0px 0px 6px;
+}
+
+.stat_red {
+  color: $red;
+}
+
+@import "./widgets/floating_left.scss";

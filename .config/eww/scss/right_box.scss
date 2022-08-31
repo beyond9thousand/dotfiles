@@ -1,0 +1,86 @@
+@import "./widgets/floating_right.scss";
+
+.wifi > box {
+  @extend .container_box;
+  color: $green;
+}
+
+.wifi_text,
+.wifi_text_off {
+  padding: 0px 0px 0px 8px;
+}
+
+.wifi_off > box {
+  @extend .container_box;
+  color: $red;
+}
+
+.wifi_icon_off {
+  color: $fg_blend;
+}
+
+.wifi_on_beacon {
+  color: $green;
+}
+
+.wifi_off_beacon {
+  color: $fg_blend;
+}
+
+.generous_box {
+  padding: 0px 0px 0px 8px;
+}
+
+.unit_box {
+  color: $cyan;
+}
+
+.unit_box_on {
+  font-family: "Font Awesome 6 Pro Regular";
+  color: $fg_blend;
+}
+
+.access {
+  @extend .container_box;
+}
+
+.mic_box,
+.mic_box_text {
+  color: $blue;
+}
+
+.mic_box_off {
+  color: $fg_blend;
+}
+
+.mic_box_text {
+  padding: 0px 0px 0px 5px;
+}
+
+.mic_box_text_off {
+  padding: 0px 0px 0px 5px;
+  color: $red;
+}
+
+.vol_num,
+.vol_icon {
+  color: $pink;
+}
+
+.vol_icon_off {
+  color: $fg_blend;
+}
+
+.vol_num_off {
+  color: $red;
+}
+
+.vol_num,
+.vol_num_off {
+  padding: 0px 0px 0px 5px;
+}
+
+.brn_num,
+.brn_icon {
+  color: $yellow;
+}

@@ -1,0 +1,33 @@
+;                    _       __    __         
+;  _   ______ ______(_)___ _/ /_  / /__  _____
+; | | / / __ `/ ___/ / __ `/ __ \/ / _ \/ ___/
+; | |/ / /_/ / /  / / /_/ / /_/ / /  __(__  ) 
+; |___/\__,_/_/  /_/\__,_/_.___/_/\___/____/  
+;                                             
+
+(defvar sticky_var "")
+(defvar layout_var "")
+
+(defvar notif_switch "./scripts/notif_state.zsh -s")
+(defvar tray_toggle "./scripts/system_tray.zsh -t")
+(defvar mic_toggle "./scripts/sound_state.zsh -mt")
+(defvar cpu_load "0")
+(defvar mem_load "0GB")
+
+(defvar work_space_hover false)
+(defvar mic_hover false)
+(defvar vol_hover false)
+(defvar net_hover false)
+(defvar unit_hover false)
+(defvar time_hover false)
+(defvar layout_hover false)
+(defvar sticky_hover false)
+(defvar usage_hover false)
+
+(defpoll cpu_temp :interval "15s" "./scripts/cpu_state.zsh -t")
+(defpoll connect :interval "1s" `ip addr | grep -o 'state UP' | awk '{print}'`) 
+(defpoll time :interval "1s" `date '+%I:%M %p'`)
+(defpoll ssid 
+         :interval "1s"
+         :run-while net_hover
+         `nmcli -terse -fields SSID,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)

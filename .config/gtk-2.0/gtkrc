@@ -1,0 +1,20 @@
+# DO NOT EDIT! This file will be overwritten by LXAppearance.
+# Any customization should be done in ~/.gtkrc-2.0.mine instead.
+
+include "/home/beyond9thousand/.gtkrc-2.0.mine"
+gtk-theme-name="Ant-Dracula"
+gtk-icon-theme-name="Papirus-Dark"
+gtk-font-name="Roboto 11"
+gtk-cursor-theme-name="phinger-cursors"
+gtk-cursor-theme-size=0
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_MENU
+gtk-button-images=0
+gtk-menu-images=1
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=1
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintfull"
+gtk-xft-rgba="none"
+gtk-modules="gail:atk-bridge"

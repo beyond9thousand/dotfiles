@@ -1,0 +1,41 @@
+.notif_bell {
+  font-family: "Font Awesome 6 Pro Regular";
+  font-size: 21px;
+  padding: 0px 2px;
+}
+
+.notif_icon {
+  color: $yellow;
+}
+
+.notif_icon_off {
+  color: $fg_blend;
+}
+
+.bat_bound {
+  padding: 0px 2px;
+}
+
+.bat_icon {
+  @extend .bat_text;
+  font-size: 25px;
+}
+
+.bat_text {
+  padding: 0px 0px 0px 5px;
+  color: $green;
+}
+
+.date {
+  color: $cyan;
+}
+
+.date {
+  color: $cyan;
+}
+
+.system_tray {
+  color: $cyan;
+  padding: 0px 0px 0px 8px;
+  font-size: 25px;
+}

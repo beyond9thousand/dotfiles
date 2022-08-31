@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+tmp="/tmp/Screenshots/screenshot-$(date +%Y%m%d_%H%M%S).png"
+icon="camera-photo-symbolic"
+
+for i in {10..1}; do
+	dunstify --replace=69 -i "$icon" "Screenshot" "Capturing the entire screen in $i"
+	sleep 1
+done
+
+dunstify -C 69
+
+sleep 0.5
+
+maim -f png | tee "$tmp" | xclip -sel c -t image/png
+
+dunstify --replace=696 -i "$icon" "Screenshot" "Saved to disk"

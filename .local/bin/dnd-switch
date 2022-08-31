@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# echo $notif
+file="$HOME/.config/bspwm/polybar/modules.ini"
+if dunstctl is-paused | grep true; then
+  dunstctl set-paused false
+  polybar-msg action "#dunst.hook.0"
+  # echo entered
+  perl -0 -i -pe 's/switch\ninitial=.*/switch\ninitial=1/g' "$file"
+  dunstify --replace 659 -i bell "Notifications" "DND mode deactivated"
+  # echo "changed value to 2 (toggled off)"
+else
+  dunstify -C 659
+  polybar-msg action "#dunst.hook.1"
+  # notify-send "Turned on DND"
+  dunstctl set-paused true
+  perl -0 -i -pe 's/switch\ninitial=.*/switch\ninitial=2/g' "$file"
+  # echo "Did not change value to 2 (toggled on)"
+  # echo exited
+fi
