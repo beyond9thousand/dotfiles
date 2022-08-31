@@ -1,0 +1,65 @@
+clip="xclip -sel c -f"
+RDIR="$HOME/.config/ranger/.rangerdir"
+
+# aliases
+alias pl="pwd | tr -d '\n' | $clip | notify-send 'Copied current directory path'"
+# Copy last used command to clipboard
+alias cl="fc -ln -1 | sed 's/^\s*//' | tr -d '\n' | $clip | notify-send 'Copied last command to clipboard'"
+
+# Record gif in a selected area
+alias gif="giph -f 30 -s -l -c 122,162,247,0.1 -d 3 /tmp/Recordings/$(date +%Y%m%d_%H%M%S).gif"
+
+# Cheat sheet
+alias cheat="navi --cheatsh"
+
+# Checking script for potential errors
+# alias sc="notify-send 'Checking script for potential errors' | shellcheck"
+
+# Dotfiles management commands using bare repo method
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias configr='config rm --cached'
+
+alias god="bash ~/Scripts/Backup/githubgod.sh"
+alias pflix="bspc node -t floating && peerflix -k"
+
+# Quick open neovim
+alias n='nvim'
+
+# Quick open ranger file manager
+alias rr='ranger --choosedir=$RDIR; LSDIR=`cat $RDIR`; cd "$LSDIR"'
+
+# Borrowed from axyl-os
+alias clock='tty-clock -sct -C 4'
+alias cpu="ps axch -o cmd:15,%cpu --sort=-%cpu | head"
+alias df='df -h'
+alias e='exit'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias gpgexportprivkey="gpg --export-secret-keys --armor"
+alias gpgimportkey="gpg --import"
+alias gpglistkeys="gpg --list-keys --keyid-format LONG"
+alias grep='grep --color=auto'
+alias jctl="journalctl -p 3 -xb" #get the error messages from journalctl
+alias kp='killprocess'
+alias l='exa -lahF --color=always --icons --sort=size --group-directories-first'
+alias less='bat'
+alias ls='exa -lhF --color=always --icons --sort=size --group-directories-first'
+alias lst='exa -lahFT --color=always --icons --sort=size --group-directories-first'
+alias m='mocp'
+alias matrix='unimatrix -f -l ocCgGkS -s 96'
+alias mem="ps axch -o cmd:15,%mem --sort=-%mem | head"
+alias merge="xrdb -merge ~/.Xresources"
+alias mpv='devour mpv'
+alias mv='mv -i'
+alias pipes='pipes -R -t 1'
+alias q='exit'
+alias rg="rg --sort path --no-ignore --hidden" #search content with ripgrep
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -25 | nl" #Recent Installed Packages
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -50 | nl"
+alias rm='rm -i'
+alias sxiv='devour sxiv'
+alias update='sudo pacman -Syyu'
+alias updatefonts='sudo fc-cache -fv'
+alias vlc='devour vlc'
+alias wget=wget -c --hsts-file="$XDG_DATA_HOME/wget-hsts" # continue the download
+alias zathura='devour zathura'
