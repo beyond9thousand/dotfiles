@@ -37,9 +37,9 @@ super + {x,n,d}
 super + shift + {f,g,c,d,s,v}
   {thunar,geany,code,discord,spotify,virtualbox}
 
-# Launch firefox,audioshare
-super + {w,backslash}
-  {firefox,audioshare}
+# Launch firefox
+super + {w}
+  {firefox}
 
 # Randomize wallpaper
 super + shift + w
@@ -114,8 +114,8 @@ super + ctrl + {m,x,z}
 	bspc node -g {marked,locked,private}
 
 # Make window sticky
-super + {KP_Add}
-  bspc node -g {sticky}
+super + {KP_Add,a}
+  bspc node -g {sticky,sticky}
 
 # Change focus to next window, including floating window
 alt + {_,shift + }Tab
