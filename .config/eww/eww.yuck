@@ -29,8 +29,7 @@
  (bar))
 
 (defwidget bar []
-  (eventbox :onhoverlost "eww update unit_hover=false; 
-                         eww update usage_hover=false"
+  (eventbox 
    (box :class "main_box" :orientation "h" :space-evenly true
      (left_box)
      (center_box)

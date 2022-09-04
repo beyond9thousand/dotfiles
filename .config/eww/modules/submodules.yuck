@@ -72,6 +72,7 @@
 (defwidget cpu_usage_box []
   (eventbox 
             :onhover "eww update usage_hover=true"
+            :onhoverlost "eww update usage_hover=false"
     (box 
         :class "container_box" :space-evenly false :spacing 0
       (revealer :reveal usage_hover :transition "slideleft" :duration "0.5s"
