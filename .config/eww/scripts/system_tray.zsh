@@ -7,11 +7,11 @@ case "$1" in
         tray_toggle() {
             if [[ $(pidof stalonetray) ]]; then
                 if [[ ! -e $hidden ]]; then
-                    eww update tray_initial=""
+                    eww update tray_initial="וֹ"
                     xdo hide -N stalonetray
                     touch "$hidden"
                 else
-                    eww update tray_initial=""
+                    eww update tray_initial="רּ"
                     xdo show -N stalonetray
                     xdo raise -N stalonetray
                     rm "$hidden"
@@ -25,9 +25,9 @@ case "$1" in
     -c|--check)
         tray_state(){
             if [[ -e $hidden ]]; then
-                eww update tray_initial=""
+                eww update tray_initial="וֹ"
             else
-                eww update tray_initial=""
+                eww update tray_initial="רּ"
             fi
         }
         tray_state

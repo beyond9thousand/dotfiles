@@ -17,10 +17,9 @@
 
 (defwidget notif_bell []
  (eventbox 
-          ; :tooltip "Click to ${notif_initial != "" ? "disable" : "enable" } notifications" 
           :cursor "pointer"
           :onclick notif_switch
-   (label :class "${notif_initial != "" ? "notif_icon" : "notif_icon_off"} notif_bell"
+   (label :class "${notif_initial != "" ? "notif_icon" : "notif_icon_off"} notif_bell"
           :text "${notif_initial}")))
 
 (defwidget cpu_temp_text []
@@ -29,7 +28,7 @@
      (box :space-evenly false :spacing 0
        (label 
         :class "${cpu_temp >= 60 ? "cpu_hot" : "cpu_normal"} glyph"
-        :text "${cpu_temp >= 60 ? "" : ""}")
+        :text "${cpu_temp >= 60 ? "ﰱ" : "瑩"}")
        (label 
          :class "${cpu_temp >= 60 ? "cpu_hot" : "cpu_normal"}"
          :text "${cpu_temp}°C"))))

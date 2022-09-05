@@ -5,7 +5,7 @@
 
 .launcher {
   color: $cyan;
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .launcher:hover > box {
@@ -30,14 +30,6 @@
   color: $blue;
 }
 
-.workspace_button_expand {
-  margin: 5px 0px;
-  border-radius: 8px;
-  padding: 5px 5px;
-  background-color: $bg;
-  color: $blue;
-}
-
 .focused_workspace {
   color: $yellow;
 }
@@ -53,13 +45,8 @@
 .focused_workspace,
 .occupied_workspace,
 .empty_workspace {
-  padding: 0px 5px;
+  padding: 0px 3px;
   padding-top: 1px;
-}
-
-.cpu_usage {
-  font-size: 20px;
-  font-family: "icomoon\-feather";
 }
 
 .cpu_usage,
@@ -86,12 +73,11 @@
 
 .stat_bolt {
   color: $cyan;
-  padding: 0px 2px;
 }
 
 .stat_bolt_off {
   color: $fg_blend;
-  padding: 0px 0px 0px 6px;
+  padding: 0px 0px 0px 5px;
 }
 
 .stat_red {

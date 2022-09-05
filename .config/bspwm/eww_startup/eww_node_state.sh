@@ -10,10 +10,10 @@ node_state() {
 			xdo raise -N eww-taskbar
 		fi
 		if [[ $screen == "pseudo_tiled" && $state == "on" ]]; then
-			eww update layout_var=""
+			eww update layout_var="䀹"
 			eww update layout_hover=true
 		elif [[ $screen == "floating" && $state == "on" ]]; then
-			eww update layout_var=""
+			eww update layout_var="כּ"
 			eww update layout_hover=true
 		else
 			eww update layout_hover=false

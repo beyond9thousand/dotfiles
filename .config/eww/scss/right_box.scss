@@ -28,7 +28,7 @@
 }
 
 .generous_box {
-  padding: 0px 0px 0px 8px;
+  padding: 0px 0px 0px 5px;
 }
 
 .unit_box {
@@ -36,7 +36,6 @@
 }
 
 .unit_box_on {
-  font-family: "Font Awesome 6 Pro Regular";
   color: $fg_blend;
 }
 
@@ -54,11 +53,11 @@
 }
 
 .mic_box_text {
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 2px;
 }
 
 .mic_box_text_off {
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 2px;
   color: $red;
 }
 

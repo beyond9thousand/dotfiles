@@ -2,7 +2,7 @@
 
 query_instance() {
 	if [[ $(bspc query -N -n focused.sticky) ]]; then
-		eww update sticky_var=""
+		eww update sticky_var="ﵯ"
 		eww update sticky_hover=true
 	else
 		eww update sticky_hover=false
@@ -11,10 +11,10 @@ query_instance() {
 
 query_state() {
 	if [[ $(bspc query -N -n focused.floating) ]]; then
-		eww update layout_var=""
+		eww update layout_var="כּ"
 		eww update layout_hover=true
 	elif [[ $(bspc query -N -n focused.pseudo_tiled) ]]; then
-		eww update layout_var=""
+		eww update layout_var="䀹"
 		eww update layout_hover=true
 	else
 		eww update layout_hover=false

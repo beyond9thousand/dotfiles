@@ -3,17 +3,17 @@
    :cursor "pointer"
    :onclick mic_toggle :onhover "eww update mic_hover=true" 
    :onhoverlost "eww update mic_hover=false"
-   :onscroll "${mic_initial != "" ? `[ {} = up ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_up; \
+   :onscroll "${mic_initial != "ﳧ" ? `[ {} = up ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_up; \
                                           [ {} = down ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_down` : ""}"
    (box 
      :space-evenly false :spacing 0
-           (label :class "${mic_initial != "" ? "mic_box" : "mic_box_off"} glyph"
+           (label :class "${mic_initial != "ﳧ" ? "mic_box" : "mic_box_off"} glyph"
                   :text "${mic_initial}")
-           (label :class "${mic_initial != "" ? "mic_box_text" : ""}"
-                  :text "${mic_initial != "" ? mic_vol_percent : ""}")
+           (label :class "${mic_initial != "ﳧ" ? "mic_box_text" : ""}"
+                  :text "${mic_initial != "ﳧ" ? mic_vol_percent : ""}")
            (revealer :reveal mic_hover :transition "slideright" :duration "0.5s" 
-                  (label :class "${mic_initial == "" ? "mic_box_text_off" : ""}"
-                         :text "${mic_initial == "" ? "Muted" : ""}")))))
+                  (label :class "${mic_initial == "ﳧ" ? "mic_box_text_off" : ""}"
+                         :text "${mic_initial == "ﳧ" ? "Muted" : ""}")))))
   
 (defwidget sound_box [vol_icon_off vol_num_off
                       vol_percent vol_max vol_mid vol_min] 
@@ -31,7 +31,7 @@
               :text "${muted != "true" && current_vol > 60 ? vol_max :
                        muted != "true" && current_vol > 25 ? vol_mid :
                        muted != "true" && current_vol >= 10 ? vol_min : 
-                       muted != "true" && current_vol < 10 ? vol_min : ""}")
+                       muted != "true" && current_vol < 10 ? vol_min : "﷓"}")
             (label :class "${muted == "false" ? "vol_num" : ""}"
                    :text "${muted == "false" ? vol_percent : ""}")
             (revealer :reveal vol_hover :transition "slideright" :duration "0.5s"
@@ -49,7 +49,7 @@
             :tooltip "${nit_level <= 10 ? "Reducing brightness is disabled below 10%" :
                                           "Click to turn off screen"}"
            (label :class "brn_icon glyph" 
-                  :text "${nit_level <= 25 ? "" : ""}")
+                  :text "${nit_level <= 25 ? "料" : "輪"}")
            (label :class "brn_num" :text "${nit_level}%"))))
   
 
@@ -65,7 +65,7 @@
               :space-evenly false :spacing 0
               :tooltip "${connect != "" ? connected : disconnected}"
                          (label :class "${connect != "" ? "wifi_icon glyph" : wifi_icon_off}" 
-                                :text "${connect != "" ? "" : ""}")
+                                :text "${connect != "" ? "﹦" : "﹪"}")
               (revealer :reveal net_hover :transition "slideright" :duration "0.5s"
                          (label :class "${connect != "" ? "wifi_text" : wifi_text_off}" 
                                 :text "${connect != "" ? "Online" : "Offline"}")))))
@@ -80,15 +80,16 @@
             :space-evenly false :spacing 8
           (box 
               :space-evenly false 
-            (label :class "cpu_usage" :text "")
+            (label :class "cpu_usage glyph" :text "")
             (label :class "cpu_usage_text" :text "${cpu_load}%"))
           (eventbox
               :onrightclick "eval 'control_box -monitor'" :cursor "pointer"
             (box 
               :space-evenly false 
-              (label :class "mem_usage glyph" :text "")
+              (label :class "mem_usage glyph" :text "ﱗ")
               (label :class "mem_usage_text" :text "${mem_load}")))))
       (label 
-        :text ""
+        :text 
+          "${usage_hover == false ? "ﲹ" : ""}"
         :class "${usage_hover == false ? "stat_bolt glyph" :
-                                         "stat_bolt_off glyph_light" }"))))
+                                         "stat_bolt_off glyph" }"))))
