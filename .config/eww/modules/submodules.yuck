@@ -3,17 +3,17 @@
    :cursor "pointer"
    :onclick mic_toggle :onhover "eww update mic_hover=true" 
    :onhoverlost "eww update mic_hover=false"
-   :onscroll "${mic_initial != "ﳧ" ? `[ {} = up ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_up; \
+   :onscroll "${mic_initial == false ? `[ {} = up ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_up; \
                                           [ {} = down ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_down` : ""}"
    (box 
      :space-evenly false :spacing 0
-           (label :class "${mic_initial != "ﳧ" ? "mic_box" : "mic_box_off"} glyph"
-                  :text "${mic_initial}")
-           (label :class "${mic_initial != "ﳧ" ? "mic_box_text" : ""}"
-                  :text "${mic_initial != "ﳧ" ? mic_vol_percent : ""}")
+           (label :class "${mic_initial == false ? "mic_box" : "mic_box_off"} glyph_awesome"
+                  :text "${mic_initial == false ? "" : "" }")
+           (label :class "${mic_initial == false ? "mic_box_text" : ""}"
+                  :text "${mic_initial == false ? mic_vol_percent : ""}")
            (revealer :reveal mic_hover :transition "slideright" :duration "0.5s" 
-                  (label :class "${mic_initial == "ﳧ" ? "mic_box_text_off" : ""}"
-                         :text "${mic_initial == "ﳧ" ? "Muted" : ""}")))))
+                  (label :class "${mic_initial == true ? "mic_box_text_off" : ""}"
+                         :text "${mic_initial == true ? "Muted" : ""}")))))
   
 (defwidget sound_box [vol_icon_off vol_num_off
                       vol_percent vol_max vol_mid vol_min] 
@@ -27,11 +27,11 @@
         (box 
           :spacing 0 :space-evenly false
             (label 
-              :class "${muted != "true" ? "vol_icon glyph" : vol_icon_off}"
+              :class "${muted != "true" ? "vol_icon" : vol_icon_off} glyph_awesome"
               :text "${muted != "true" && current_vol > 60 ? vol_max :
                        muted != "true" && current_vol > 25 ? vol_mid :
                        muted != "true" && current_vol >= 10 ? vol_min : 
-                       muted != "true" && current_vol < 10 ? vol_min : "﷓"}")
+                       muted != "true" && current_vol < 10 ? vol_min : ""}")
             (label :class "${muted == "false" ? "vol_num" : ""}"
                    :text "${muted == "false" ? vol_percent : ""}")
             (revealer :reveal vol_hover :transition "slideright" :duration "0.5s"
@@ -48,8 +48,10 @@
        (box :space-evenly false :spacing 5
             :tooltip "${nit_level <= 10 ? "Reducing brightness is disabled below 10%" :
                                           "Click to turn off screen"}"
-           (label :class "brn_icon glyph" 
-                  :text "${nit_level <= 25 ? "料" : "輪"}")
+           (label :class "brn_icon glyph_jet" 
+                  :text "${nit_level <= 25 ? "" : 
+                           nit_level < 50 ? "" : 
+                           nit_level < 75 ? "" : "" }")
            (label :class "brn_num" :text "${nit_level}%"))))
   
 
@@ -86,7 +88,7 @@
               :onrightclick "eval 'control_box -monitor'" :cursor "pointer"
             (box 
               :space-evenly false 
-              (label :class "mem_usage glyph" :text "ﱗ")
+              (label :class "mem_usage glyph_awesome" :text "")
               (label :class "mem_usage_text" :text "${mem_load}")))))
       (label 
         :text 

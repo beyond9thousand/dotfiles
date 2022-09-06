@@ -11,7 +11,7 @@
 # Restore wallpaper
 nitrogen --restore &
 
-# Launch polybar
+# Launch polybar, NOT IN USE
 # bash "$HOME/.config/bspwm/polybar/launch.sh" &
 
 # Fix the pointer for BSPWM
@@ -23,9 +23,6 @@ for i in "$HOME"/.config/bspwm/configs/*.sh; do
 		eval "$i" &
 	}
 done
-
-# Autostart apps
-eval "$HOME/.config/bspwm/autostart.sh" &
 
 # Set rules
 for i in "$HOME"/.config/bspwm/rules/*.sh; do
@@ -54,9 +51,13 @@ for i in "$HOME"/.config/bspwm/hooks/*; do
 	}
 done
 
+# Scripts required by eww-taskbar
 for i in "$HOME"/.config/bspwm/eww_startup/*; do
 	{
 		pkill -9 -f "$i"
 		eval "$i" &
 	}
 done
+
+# Autostart apps
+eval "$HOME/.config/bspwm/autostart.sh" &

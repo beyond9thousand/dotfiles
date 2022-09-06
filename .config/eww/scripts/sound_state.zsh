@@ -28,9 +28,9 @@ case "$1" in
     -mc|--mic_check)
         function mic_state(){
             if [[ $(amixer get Capture | grep -i "\[on]") ]]; then
-                echo "ﳦ" | awk '{print}'
+                echo "false" | awk '{print}'
             else
-                echo "ﳧ" | awk '{print}'
+                echo "true" | awk '{print}'
             fi
         }
         mic_state
@@ -38,10 +38,10 @@ case "$1" in
     -mt|--mic_toggle)
         function mic_toggle() {
             if [[ $(amixer get Capture | grep -i "\[on]") ]]; then
-                eww update mic_initial="ﳧ"
+                eww update mic_initial="true"
                 pactl set-source-mute @DEFAULT_SOURCE@ true
             else
-                eww update mic_initial="ﳦ"
+                eww update mic_initial="false"
                 pactl set-source-mute @DEFAULT_SOURCE@ false
             fi
         }

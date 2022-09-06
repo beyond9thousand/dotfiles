@@ -10,8 +10,8 @@
  (eventbox 
           :onclick "poly-menu" :cursor "pointer" 
           :onrightclick "control_box -ewwreload" 
-          :class "launcher glyph" :width 30
-          (box "﯊")))
+          :class "launcher glyph_awesome" :width 30
+          (box "")))
 
 (defwidget work_space_box []
  (eventbox :vexpand true
@@ -32,6 +32,7 @@
     :bat_critical "﫶"
     :bat_low "﫹"
     :bat_normal "﫺"
+    :bat_medium "﫸"
     :bat_full "﫷"
     :battery {EWW_BATTERY.BAT1.capacity})
   (network :wifi_text_off "wifi_text_off"
@@ -51,11 +52,11 @@
            :mic_vol_percent "${mic_current_vol}%")
          (sound_box 
                   :vol_num_off "vol_num_off"
-                  :vol_icon_off "vol_icon_off glyph"
+                  :vol_icon_off "vol_icon_off"
                   :vol_percent "${current_vol}%"
-                  :vol_max "﷋"
-                  :vol_mid "﷌"
-                  :vol_min "﷍")
+                  :vol_max ""
+                  :vol_mid ""
+                  :vol_min "")
          (nit_box)))))
   
   (eventbox

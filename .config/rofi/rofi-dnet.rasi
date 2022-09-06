@@ -1,7 +1,7 @@
 configuration{
     modi: "run,drun,window";
     lines: 5;
-    font: "Font Awesome 6 Pro Solid 14";
+    font: "Font Awesome 6 Free Solid 14";
     /* show-icons: true; */
     icon-theme: "Papirus";
     terminal: "alacritty";
