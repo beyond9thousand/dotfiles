@@ -23,7 +23,7 @@
    :onhoverlost "eww update vol_hover=false" 
    :onscroll "${muted != "true" ? '[ {} = up ] && pamixer -i 5; \
                                           [ {} = down ] && pamixer -d 5' : ""}"
-   :onclick "pamixer -t &" :onrightclick "eval pavu-toggle"
+   :onclick "pamixer -t &" :onrightclick "eval control_box -pavu_toggle"
         (box 
           :spacing 0 :space-evenly false
             (label 

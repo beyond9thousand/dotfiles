@@ -5,6 +5,8 @@
 # \___/_/ /_/|___/_/_/   \____/_/ /_/_/ /_/ /_/\___/_/ /_/\__/
 #
 
+export HISTFILE="$XDG_STATE_HOME"/zsh/history
+
 # Default editor declarations
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim

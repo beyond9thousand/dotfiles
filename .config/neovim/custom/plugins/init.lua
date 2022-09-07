@@ -42,6 +42,9 @@ return {
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
+    config = function()
+      vim.g["mkdp_browser"] = "firefox"
+    end,
 	},
 
 	["williamboman/mason-lspconfig.nvim"] = {

@@ -6,7 +6,7 @@ work_space_function() {
 	for val in "${workspaces[@]}"; do
 		# Workspace is focused
 		if bspc query -D -d focused --names | grep -q "$val"; then
-			STRING_LIT+="(eventbox :cursor \"pointer\" :onclick \"bspc desktop -f $val\" (label :class \"focused_workspace glyph\" :text \"北\"))"
+			STRING_LIT+="(eventbox :cursor \"pointer\" :onclick \"bspc desktop -f $val\" (label :class \"focused_workspace\" :text \"\"))"
 		# Workspace is occupied
 		elif bspc query -D -d .occupied --names | grep -q "$val"; then
 			STRING_LIT+="(eventbox :cursor \"pointer\" :onclick \"bspc desktop -f $val\" (label :class \"occupied_workspace glyph\" :text \"\"))"
