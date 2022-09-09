@@ -6,10 +6,12 @@
 ;                               /____/   
 ;
 
-(defwidget bat_indicator [bat_critical bat_low bat_normal bat_medium bat_full battery]
+(defwidget bat_indicator [bat_critical bat_low bat_normal bat_medium bat_full battery
+                          bat_status bat_charging]
   (box :space-evenly false :spacing 0 :class "bat_bound"
     (label :class "bat_icon glyph" 
-          :text "${battery > 90 ? bat_full : 
+          :text "${bat_status == "Charging" ? bat_charging : 
+                   battery > 90 ? bat_full : 
                    battery > 50 ? bat_medium :
                    battery > 25 ? bat_normal :
                    battery > 15 ? bat_low : bat_critical}")
@@ -30,7 +32,7 @@
         :class "${cpu_temp >= 60 ? "cpu_hot glyph_awesome" : "cpu_normal glyph"}"
         :text "${cpu_temp >= 60 ? "" : "瑩"}")
        (label 
-         :class "${cpu_temp >= 60 ? "cpu_hot" : "cpu_normal"}"
+         :class "${cpu_temp >= 60 ? "cpu_hot cpu_text" : "cpu_normal"}"
          :text "${cpu_temp}°C"))))
 
 (defwidget layout_state []

@@ -34,7 +34,9 @@
     :bat_normal "﫺"
     :bat_medium "﫸"
     :bat_full "﫷"
-    :battery {EWW_BATTERY.BAT1.capacity})
+    :battery {EWW_BATTERY.BAT1.capacity}
+    :bat_status {EWW_BATTERY.BAT1.status}
+    :bat_charging "﫴")
   (network :wifi_text_off "wifi_text_off"
            :wifi_icon_off "wifi_icon_off glyph"
            :connected "Connected to ${ssid}"

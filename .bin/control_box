@@ -47,10 +47,8 @@ case "$1" in
                 -probesize 42M \
                 -s "1920x1080" \
                 -i :0 \
-                -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 \
-                -vf setpts=N/FR/TB \
-                -c:v libx264rgb -preset ultrafast -q:v 1 \
-                -threads 4 \
+                -c:v libx264rgb -preset ultrafast \
+                -threads 4 -crf 0 \
                 /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
         }
         record

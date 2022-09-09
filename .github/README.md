@@ -9,6 +9,8 @@
 
 </div>
 
+:warning: 'taskbar' setup is in the midst of being migrated to eww. In the mean time, you will find my polybar config located in [`~/.config/not_in_use/`](https://github.com/beyond9thousand/dotfiles/tree/master/.config/not_in_use/polybar) Sorry for the inconvenience caused
+
 # beyond9thousand dotfiles
 
 - [Information](#information)
