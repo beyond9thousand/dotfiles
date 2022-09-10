@@ -77,7 +77,7 @@ hide_duplicate_count = yes
 
 origin = top-right
 
-offset = 9x58
+offset = 9x64
 
 width = (0,500)
 

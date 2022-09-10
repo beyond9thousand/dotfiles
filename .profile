@@ -8,6 +8,9 @@
 # /_/                              
 #
 
+# Establish error file location
+export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+
 # Override QT apps theme
 export QT_STYLE_OVERRIDE=kvantum
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
@@ -55,11 +58,11 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 # Very niche variables go below this
-export b9ktorrents="/tmp/torrent-stream"
-export b9krecordings="/tmp/Recordings"
-export b9kscreenshots="/tmp/Screenshots"
+export torrents_b9k="/tmp/torrent-stream"
+export recordings_b9k="/tmp/Recordings"
+export screenshots_b9k="/tmp/Screenshots"
 
 # Create temp directories
-mkdir $b9ktorrents
-mkdir $b9krecordings
-mkdir $b9kscreenshots
+mkdir $torrents_b9k
+mkdir $recordings_b9k
+mkdir $screenshots_b9k

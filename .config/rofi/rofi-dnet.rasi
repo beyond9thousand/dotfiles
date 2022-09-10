@@ -29,7 +29,7 @@ window {
     /* border: 3px; */
     location: north;
 	  x-offset: 37.10%;
-	  y-offset: 5.35%;
+	  y-offset: 6.0%;
     border-color: @border-col;
     background-color: @bg-col;
     border-radius: 12px;

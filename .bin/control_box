@@ -44,11 +44,9 @@ case "$1" in
             ffmpeg \
                 -f x11grab \
                 -framerate 60 \
-                -probesize 42M \
-                -s "1920x1080" \
-                -i :0 \
-                -c:v libx264rgb -preset ultrafast \
-                -threads 4 -crf 0 \
+                -video_size 1920x1080 \
+                -i $DISPLAY \
+                -preset ultrafast \
                 /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
         }
         record

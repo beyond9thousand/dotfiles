@@ -67,7 +67,7 @@ declare -a floats=(Alafloat Lxappearance Arandr
 	Xfce4-appearance-settings Xfce4-mouse-settings
 	parsecd Galculator com.github.joseexposito.touche
 	XVkbd usbguard-applet-qt instagram-live-streamer
-	Mumble qimgv Peek)
+	Mumble qimgv Peek mpv)
 for i in "${floats[@]}"; do
 	bspc rule -a "$i" manage=on state=floating follow=on focus=on center=true
 done
@@ -79,7 +79,7 @@ for i in "${tiled[@]}"; do
 done
 
 # Force full screen windows
-declare -a fullscreen=(mpv)
+declare -a fullscreen=()
 for i in "${fullscreen[@]}"; do
 	bspc rule -a "$i" manage=on state=fullscreen
 done

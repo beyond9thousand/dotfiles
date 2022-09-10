@@ -18,12 +18,12 @@
   :geometry 
     (geometry
       :x "0"
-      :y "7"
+      :y "9"
       :width "99%"
       :height "35"
       :anchor "top center")
   :stacking "bg"
-  :reserve (struts :distance "50" :side "top")
+  :reserve (struts :distance "55" :side "top")
   :windowtype "dock"
   :wm-ignore false
  (bar))
