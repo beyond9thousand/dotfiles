@@ -1,3 +1,22 @@
+.net_speed {
+  font-size: 14px;
+  padding: 0px 6px;
+  margin: 0px;
+  color: $fg_blend;
+}
+
+.net_icon {
+  font-size: 20px;
+  padding: 0px;
+  color: $fg_blend;
+  margin: 0px;
+}
+
+.speed_box {
+  padding: 0px 6px;
+  margin: 0px;
+}
+
 .notif_bell {
   font-family: "Phosphor";
   font-size: 25px;
@@ -17,7 +36,8 @@
 }
 
 .bat_icon {
-  @extend .bat_text;
+  color: $green;
+  padding: 0px 2px 0px 6px;
   font-size: 28px;
 }
 

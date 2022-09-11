@@ -26,6 +26,8 @@
 (defwidget access []
  (box :space-evenly false :spacing 0
 
+  (network_speed)
+
   (notif_bell)
 
   (bat_indicator 
@@ -37,11 +39,13 @@
     :battery {EWW_BATTERY.BAT1.capacity}
     :bat_status {EWW_BATTERY.BAT1.status}
     :bat_charging "﫴")
+
   (network 
     :wifi_text_off "wifi_text_off"
     :wifi_icon_off "wifi_icon_off glyph"
     :connected "Connected to ${ssid}"
     :disconnected "Not connected to any network")
+
   (eventbox 
     :onhover "eww update unit_hover=true"
     :onhoverlost "eww update unit_hover=false"

@@ -13,6 +13,8 @@
 (defvar mic_toggle "./scripts/sound_state.zsh -mt")
 (defvar cpu_load "0")
 (defvar mem_load "0GB")
+(defvar u_speed "0B/s")
+(defvar d_speed "0B/s")
 
 (defvar work_space_hover false)
 (defvar mic_hover false)

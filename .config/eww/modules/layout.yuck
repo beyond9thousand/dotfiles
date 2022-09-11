@@ -24,6 +24,6 @@
     (title_bar)))
        
 (defwidget right_box []
-  (box :orientation "h" :space-evenly false :halign "end" :spacing 10
+  (box :orientation "h" :space-evenly false :halign "end" :spacing 0
     
     (access)))

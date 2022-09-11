@@ -121,9 +121,9 @@ Stalonetray is run at bootup and hid right after using [xdo](https://github.com/
 
 #### Packages
 
-Install an AUR helper of your choice
+Install an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) of your choice
 
-- Using [yay](https://github.com/Jguer/yay#installation) AUR helper
+- Using the [yay](https://github.com/Jguer/yay#installation) helper
 
 ```sh
 yay -S \

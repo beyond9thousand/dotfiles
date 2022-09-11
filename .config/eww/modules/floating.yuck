@@ -58,6 +58,34 @@
       :class "window_title"
       :text "${window_title}")))
 
+(defwidget network_speed []
+  (box
+    (revealer 
+      :transition "slideleft"
+      :reveal "${net_hover == true ? "false" :
+                unit_hover == true ? "false" : "true" }"
+      (box
+        :class "speed_box"
+        :space-evenly false :spacing 0
+        (box
+          :orientation "v" :space-evenly false
+          :spacing 0 :valign "end"
+    
+          (box
+            :orientation "h" :space-evenly false :spacing 0
+            (label
+              :class "net_icon glyph_awesome" :text "")
+            (label 
+              :class "net_speed"
+              :text "${u_speed}"))
+          (box
+            :orientation "h" :space-evenly false :spacing 0
+            (label
+              :class "net_icon glyph_awesome" :text "")
+            (label            
+              :class "net_speed"
+              :text "${d_speed}")))))))
+
 (defwidget date []
  (box 
    :space-evenly false

@@ -7,7 +7,7 @@
 
 .wifi_text,
 .wifi_text_off {
-  padding: 0px 0px 0px 8px;
+  padding-left: 5px;
 }
 
 .wifi_off > box {
@@ -25,10 +25,6 @@
 
 .wifi_off_beacon {
   color: $fg_blend;
-}
-
-.net_speed {
-  font-size: 12px;
 }
 
 .generous_box {
