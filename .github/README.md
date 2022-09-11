@@ -13,6 +13,8 @@
 
 # beyond9thousand dotfiles
 
+You are expected to have a basic understanding of the unix system. If you are new to linux, please visit [here](https://linuxjourney.com/lesson/the-shell) or look for similar resources online. Do **NOT** proceed
+
 - [Information](#information)
 - [Specifications](#specifications)
 - [Showcase](#showcase)
@@ -30,14 +32,15 @@
 
 ## :pencil: Information
 
-My configuration is personalized to utilize keyboard shortcuts as well as mouse actions to keep my workflow meaningful and flexible under varying conditions.
+My configuration is personalized to utilize keyboard shortcuts as well as mouse actions to keep my workflow meaningful and flexible under varying conditions. 
 
 <details close>
   <summary><b>Before proceeding</b></summary>
   
   - This readme is still a work in progress. Please open an issue for queries beyond its scope
-  - All the visual config parameters have been written for a resolution of 1920x1080 pixels
+  - All the visual config parameters have been written for a [resolution](https://wiki.archlinux.org/title/Xrandr) of 1920x1080 pixels
   - Non GUI apps will need to be configured manually to be correctly displayed in lower/higher resolutions
+  - Please read the [man-page](https://wiki.archlinux.org/title/Man_page) for an app before asking specific questions not addressed here
 
 </details>
 
