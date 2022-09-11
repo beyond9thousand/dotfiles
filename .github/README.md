@@ -9,7 +9,7 @@
 
 </div>
 
-:warning: 'taskbar' setup is in the midst of being migrated to eww. In the mean time, you will find my polybar config located in [`~/.config/not_in_use/`](https://github.com/beyond9thousand/dotfiles/tree/master/.config/not_in_use/polybar) Sorry for the inconvenience caused
+:warning: 'taskbar' setup is in the midst of being migrated to eww. In the mean time, you will find my polybar config located in [`$HOME/.config/not_in_use/`](https://github.com/beyond9thousand/dotfiles/tree/master/.config/not_in_use/polybar) Sorry for the inconvenience caused
 
 # beyond9thousand dotfiles
 
@@ -95,7 +95,7 @@ Dunst for a simple notification daemon. eww notification history panel coming so
 
 <div align="left">
 
-Stalonetray is run at bootup and hid right after using [xdo](https://github.com/baskerville/xdo). `systray` local binary is run via a custom ipc module defined in `~/.config/bspwm/polybar/modules.ini` which hides or unhides the tray as necessary.
+Stalonetray is run at bootup and hid right after using [xdo](https://github.com/baskerville/xdo). [`systray`](https://github.com/beyond9thousand/dotfiles/blob/master/.local/bin/systray) local binary is run via a custom ipc module defined in [`modules.ini`](https://github.com/beyond9thousand/dotfiles/tree/master/.config/not_in_use/polybar) which hides or unhides the tray as necessary.
 
 </div>
 
@@ -134,7 +134,7 @@ papirus-icon-theme kvantum pacman-contrib
 
 #### Environment Variables
 
-Copy the [`.profile`](https://github.com/beyond9thousand/dotfiles/blob/bspwm/.profile) to your `$HOME/` directory to set the correct environment variables at startup
+Copy the [`.profile`](https://github.com/beyond9thousand/dotfiles/blob/bspwm/.profile) to your `$HOME/` directory to set the correct [environment variables](https://wiki.archlinux.org/title/Environment_variables) at startup
 
 - Refer to [XDG Base Directory](https://wiki.archlinux.org/title/XDG_Base_Directory) for more details
 

@@ -28,6 +28,5 @@
 (defpoll connect :interval "1s" `ip addr | grep -o 'state UP' | awk '{print}'`) 
 (defpoll time :interval "1s" `date '+%I:%M %p'`)
 (defpoll ssid 
-         :interval "1s"
-         :run-while net_hover
-         `nmcli -terse -fields SSID,ACTIVE device wifi | awk --field-separator ':' '{if($2=="yes")print$1}'`)
+         :interval "1s" :initial "Checking..."
+         :run-while net_hover `nmcli | grep -i "connected to" | awk '{print$NF}'`)

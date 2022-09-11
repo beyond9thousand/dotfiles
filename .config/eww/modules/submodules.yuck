@@ -56,7 +56,7 @@
   
 
 (defwidget network [wifi_icon_off wifi_text_off 
-                    connected disconnected]
+                    connected disconnected] 
  (eventbox 
            :onclick "rofi-net" :onrightclick "dunstspeed &" 
            :cursor "pointer" :width 30 
@@ -65,12 +65,13 @@
            :onhoverlost "eww update net_hover=false"
             (box 
               :space-evenly false :spacing 0
-              :tooltip "${connect != "" ? connected : disconnected}"
                          (label :class "${connect != "" ? "wifi_icon glyph" : wifi_icon_off}" 
                                 :text "${connect != "" ? "﹦" : "﹪"}")
               (revealer :reveal net_hover :transition "slideright" :duration "0.5s"
+                (box :space-evenly false :spacing 5
                          (label :class "${connect != "" ? "wifi_text" : wifi_text_off}" 
-                                :text "${connect != "" ? "Online" : "Offline"}")))))
+                                :text "${connect != "" ? ssid : "Offline"}"))))))
+
 (defwidget cpu_usage_box []
   (eventbox 
             :onhover "eww update usage_hover=true"

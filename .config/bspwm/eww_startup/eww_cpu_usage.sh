@@ -20,7 +20,10 @@ _calculate() {
 }
 
 while true; do
-	result=$(_calculate)
-	eww update cpu_load="$result"
-	sleep 5
+	if [[ $(eww get usage_hover) == "true" ]]; then
+		result=$(_calculate)
+		eww update cpu_load="$result"
+		sleep 5
+	fi
+  sleep 0.1
 done
