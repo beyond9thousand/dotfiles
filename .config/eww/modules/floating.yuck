@@ -40,9 +40,12 @@
        (label 
         :class "${cpu_temp >= 60 ? "cpu_hot glyph_awesome" : "cpu_normal glyph"}"
         :text "${cpu_temp >= 60 ? "" : "瑩"}")
-       (label 
-         :class "${cpu_temp >= 60 ? "cpu_hot cpu_text" : "cpu_normal"}"
-         :text "${cpu_temp}°C"))))
+       (revealer
+            :transition "slideright"
+            :reveal "${usage_hover == true ? "false" : "true" }"
+           (label 
+             :class "${cpu_temp >= 60 ? "cpu_hot cpu_text" : "cpu_normal"}"
+             :text "${cpu_temp}°C")))))
 
 (defwidget layout_state []
   (box
@@ -70,7 +73,9 @@
       :transition "slideleft"
       :reveal "${net_hover == true ? "false" :
                 unit_hover == true ? "false" :
-                usage_hover == true ? "false" : speed_hover }"
+                usage_hover == true ? "false" :
+                work_space_hover == true ? "false" : 
+                launcher_hover == true ? "false" : speed_hover }"
       (box
         :class "speed_box"
         :space-evenly false :spacing 0

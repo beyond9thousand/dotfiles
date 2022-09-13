@@ -19,6 +19,7 @@
 (defvar d_speed "0KB/s")
 
 ; Revealer variables
+(defvar launcher_hover false)
 (defvar work_space_hover false)
 (defvar mic_hover false)
 (defvar vol_hover false)

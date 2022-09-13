@@ -8,6 +8,12 @@
 # /_/                              
 #
 
+# XDG Directory declarations
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # Establish error file location
 export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 
@@ -29,12 +35,6 @@ fi
 if [ -d "$HOME/.bin" ]; then
   PATH="$HOME/.bin:$PATH"
 fi
-
-# XDG Directory declarations
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
 
 # zsh directories
 export ZDOTDIR="$HOME"/.config/zsh

@@ -55,8 +55,7 @@
            (label :class "brn_num" :text "${nit_level}%"))))
   
 
-(defwidget network [wifi_icon_off wifi_text_off 
-                    connected disconnected] 
+(defwidget network [wifi_icon_off wifi_text_off] 
  (eventbox 
            :onclick "rofi-net" 
            :cursor "pointer" :width 30 

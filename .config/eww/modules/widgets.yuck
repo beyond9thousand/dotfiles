@@ -9,13 +9,17 @@
 (defwidget launcher []
  (eventbox 
           :onclick "poly-menu" :cursor "pointer" 
+          :onhover "eww update launcher_hover=true"
+          :onhoverlost "eww update launcher_hover=false"
           :onrightclick "control_box -ewwreload" 
           :class "launcher glyph_awesome" :width 30
           (box "")))
 
 (defwidget work_space_box []
  (eventbox 
-   :vexpand true
+   :vexpand true 
+   :onhover "eww update work_space_hover=true"
+   :onhoverlost "eww update work_space_hover=false"
    :onscroll "[ {} = down ] && bspc desktop -f next; \
                              [ {} = up ] && bspc desktop -f prev" 
      (literal :content work_space))) 
@@ -43,9 +47,7 @@
 
   (network 
     :wifi_text_off "wifi_text_off"
-    :wifi_icon_off "wifi_icon_off glyph"
-    :connected "Connected to ${ssid}"
-    :disconnected "Not connected to any network")
+    :wifi_icon_off "wifi_icon_off glyph")
 
   (eventbox 
     :onhover "eww update unit_hover=true"

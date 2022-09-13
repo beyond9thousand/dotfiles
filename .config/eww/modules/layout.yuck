@@ -7,7 +7,7 @@
 ;
 
 (defwidget left_box []
-  (box :orientation "h" :space-evenly false :halign "start" :spacing 0 :hexpand false
+  (box :orientation "h" :space-evenly false :halign "start" :spacing 0 
      (launcher)
      (work_space_box)
      (usage_box)
