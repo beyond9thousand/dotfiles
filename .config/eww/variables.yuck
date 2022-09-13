@@ -5,9 +5,11 @@
 ; |___/\__,_/_/  /_/\__,_/_.___/_/\___/____/  
 ;                                             
 
+; Empty variables
 (defvar sticky_var "")
 (defvar layout_var "")
 
+; Dummy variables
 (defvar notif_switch "./scripts/notif_state.zsh -s")
 (defvar tray_toggle "./scripts/system_tray.zsh -t")
 (defvar mic_toggle "./scripts/sound_state.zsh -mt")
@@ -16,6 +18,7 @@
 (defvar u_speed "0KB/s")
 (defvar d_speed "0KB/s")
 
+; Revealer variables
 (defvar work_space_hover false)
 (defvar mic_hover false)
 (defvar vol_hover false)
@@ -27,13 +30,14 @@
 (defvar sticky_hover false)
 (defvar usage_hover false)
 
+; Psuedo variables
 (defpoll cpu_temp :interval "15s" "./scripts/cpu_state.zsh -t")
 (defpoll connect :interval "1s" `ip addr | grep -o 'state UP' | awk '{print}'`) 
 (defpoll time :interval "1s" `date '+%I:%M %p'`)
 (defpoll usage_toggle
   :interval "5s"
-  :initial "./scripts/cpu_usage.zsh;./scripts/memory.zsh"
-  :run-while usage_hover "./scripts/cpu_usage.zsh;./scripts/memory.zsh")
+  :initial "./scripts/usage_data.zsh"
+  :run-while usage_hover "./scripts/usage_data.zsh")
 (defpoll speed_toggle
   :interval "0s" 
   :run-while speed_hover "./scripts/net_speed.zsh")

@@ -20,7 +20,7 @@
       :x "0"
       :y "9"
       :width "99%"
-      :height "35"
+      :height "4%"
       :anchor "top center")
   :stacking "bg"
   :reserve (struts :distance "55" :side "top")
