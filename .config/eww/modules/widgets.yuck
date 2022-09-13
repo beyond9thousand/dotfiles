@@ -14,8 +14,9 @@
           (box "")))
 
 (defwidget work_space_box []
- (eventbox :vexpand true
-              :onscroll "[ {} = down ] && bspc desktop -f next; \
+ (eventbox 
+   :vexpand true
+   :onscroll "[ {} = down ] && bspc desktop -f next; \
                              [ {} = up ] && bspc desktop -f prev" 
      (literal :content work_space))) 
 

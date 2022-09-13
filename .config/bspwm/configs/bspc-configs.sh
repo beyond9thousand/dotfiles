@@ -23,7 +23,7 @@ bspc config window_gap 10
 bspc config split_ratio 0.50
 
 # Colors
-bspc config focused_border_color "#7bc5e4"
+bspc config focused_border_color "#80a8fd"
 bspc config normal_border_color "#32344a"
 bspc config active_border_color "#444b6a"
 

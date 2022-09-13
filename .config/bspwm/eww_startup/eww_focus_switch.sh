@@ -25,6 +25,9 @@ query_screen() {
 	if [[ ! $(bspc query -N -n focused.fullscreen) ]]; then
 		xdo raise -N eww-taskbar
 		xdo raise -N Plank
+	else
+		xdo lower -N eww-taskbar
+		xdo lower -N Plank
 	fi
 }
 

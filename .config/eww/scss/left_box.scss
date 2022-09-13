@@ -42,13 +42,13 @@
 
 .empty_workspace {
   color: $fg_blend;
+  margin-top: 2px;
 }
 
 .focused_workspace,
 .occupied_workspace,
 .empty_workspace {
   padding: 0px 3px;
-  padding-top: 1px;
 }
 
 .cpu_usage,

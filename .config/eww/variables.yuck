@@ -13,13 +13,14 @@
 (defvar mic_toggle "./scripts/sound_state.zsh -mt")
 (defvar cpu_load "0")
 (defvar mem_load "0GB")
-(defvar u_speed "0B/s")
-(defvar d_speed "0B/s")
+(defvar u_speed "0KB/s")
+(defvar d_speed "0KB/s")
 
 (defvar work_space_hover false)
 (defvar mic_hover false)
 (defvar vol_hover false)
 (defvar net_hover false)
+(defvar speed_hover false)
 (defvar unit_hover false)
 (defvar time_hover false)
 (defvar layout_hover false)
@@ -29,6 +30,13 @@
 (defpoll cpu_temp :interval "15s" "./scripts/cpu_state.zsh -t")
 (defpoll connect :interval "1s" `ip addr | grep -o 'state UP' | awk '{print}'`) 
 (defpoll time :interval "1s" `date '+%I:%M %p'`)
+(defpoll usage_toggle
+  :interval "5s"
+  :initial "./scripts/cpu_usage.zsh;./scripts/memory.zsh"
+  :run-while usage_hover "./scripts/cpu_usage.zsh;./scripts/memory.zsh")
+(defpoll speed_toggle
+  :interval "0s" 
+  :run-while speed_hover "./scripts/net_speed.zsh")
 (defpoll ssid 
          :interval "1s" :initial "Checking..."
          :run-while net_hover `nmcli | grep -i "connected to" | awk '{print$NF}'`)

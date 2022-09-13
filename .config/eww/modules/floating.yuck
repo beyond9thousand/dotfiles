@@ -17,8 +17,13 @@
                    battery > 50 ? bat_medium :
                    battery > 25 ? bat_normal :
                    battery > 15 ? bat_low : bat_critical}")
-    (label 
-      :class "bat_text" :text "${battery}%")))
+    (box
+      (revealer
+        :transition "slideleft"
+        :reveal "${net_hover == true ? "false" :
+                unit_hover == true ? "false" : "true" }"
+        (label 
+          :class "bat_text" :text "${battery}%")))))
 
 (defwidget notif_bell []
  (eventbox 
@@ -53,8 +58,9 @@
 
 (defwidget title_bar []
   (box
+    :space-evenly false :spacing 0
     (label
-      :limit-width 50
+      :limit-width 60
       :class "window_title"
       :text "${window_title}")))
 
@@ -63,7 +69,8 @@
     (revealer 
       :transition "slideleft"
       :reveal "${net_hover == true ? "false" :
-                unit_hover == true ? "false" : "true" }"
+                unit_hover == true ? "false" :
+                usage_hover == true ? "false" : speed_hover }"
       (box
         :class "speed_box"
         :space-evenly false :spacing 0
@@ -96,5 +103,5 @@
   (eventbox 
     :cursor "pointer" :onclick tray_toggle
     (label
-      :class "system_tray glyph"
+      :class "system_tray glyph_awesome"
       :text "${tray_initial}")))
