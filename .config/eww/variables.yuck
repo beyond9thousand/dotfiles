@@ -8,6 +8,7 @@
 ; Empty variables
 (defvar sticky_var "")
 (defvar layout_var "")
+(defvar ssid "")
 
 ; Dummy variables
 (defvar notif_switch "./scripts/notif_state.zsh -s")
@@ -33,7 +34,6 @@
 
 ; Psuedo variables
 (defpoll cpu_temp :interval "15s" "./scripts/cpu_state.zsh -t")
-(defpoll connect :interval "1s" `ip addr | grep -o 'state UP' | awk '{print}'`) 
 (defpoll time :interval "1s" `date '+%I:%M %p'`)
 (defpoll usage_toggle
   :interval "5s"
@@ -42,6 +42,3 @@
 (defpoll speed_toggle
   :interval "0s" 
   :run-while speed_hover "./scripts/net_speed.zsh")
-(defpoll ssid 
-         :interval "1s" :initial "Checking..."
-         :run-while net_hover `nmcli | grep -i "connected to" | awk '{print$NF}'`)

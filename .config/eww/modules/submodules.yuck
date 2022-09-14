@@ -54,22 +54,21 @@
                            nit_level < 75 ? "" : "" }")
            (label :class "brn_num" :text "${nit_level}%"))))
   
-
 (defwidget network [wifi_icon_off wifi_text_off] 
  (eventbox 
            :onclick "rofi-net" 
            :cursor "pointer" :width 30 
-           :class "${connect != "" ? "wifi" : "wifi_off"}" 
+           :class "${connect == "true" ? "wifi" : "wifi_off"}" 
            :onhover "eww update net_hover=true"
            :onhoverlost "eww update net_hover=false"
             (box 
               :space-evenly false :spacing 0
-                         (label :class "${connect != "" ? "wifi_icon glyph" : wifi_icon_off}" 
-                                :text "${connect != "" ? "﹦" : "﹪"}")
+                         (label :class "${connect == "true" ? "wifi_icon glyph" : wifi_icon_off}" 
+                                :text "${connect == "true" ? "﹦" : "﹪"}")
               (revealer :reveal net_hover :transition "slideright" :duration "0.5s"
                 (box :space-evenly false :spacing 5
-                         (label :class "${connect != "" ? "wifi_text" : wifi_text_off}" 
-                                :text "${connect != "" ? ssid : "Offline"}"))))))
+                         (label :class "${connect == "true" ? "wifi_text" : wifi_text_off}" 
+                                :text "${connect == "true" ? ssid : "Offline"}"))))))
 
 (defwidget cpu_usage_box []
   (eventbox 
