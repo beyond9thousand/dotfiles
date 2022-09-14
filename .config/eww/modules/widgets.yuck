@@ -8,10 +8,10 @@
 
 (defwidget launcher []
  (eventbox 
-          :onclick "poly-menu" :cursor "pointer" 
+          :onclick "poly-menu &" :cursor "pointer" 
           :onhover "eww update launcher_hover=true"
           :onhoverlost "eww update launcher_hover=false"
-          :onrightclick "control_box -ewwreload" 
+          :onrightclick "control_box -ewwreload &" 
           :class "launcher glyph_awesome" :width 30
           (box "")))
 
@@ -22,7 +22,14 @@
    :onhoverlost "eww update work_space_hover=false"
    :onscroll "[ {} = down ] && bspc desktop -f next; \
                              [ {} = up ] && bspc desktop -f prev" 
-     (literal :content work_space))) 
+    (box 
+      :vexpand true :class "workspace_box"
+      (for index in work_space
+          (eventbox 
+            :cursor "pointer" 
+            :onclick {index.onclick}
+            (label
+              :class {index.class} :text {index.text})))))) 
 
 (defwidget usage_box []
   (box

@@ -1,5 +1,5 @@
 ; True subscribers
-(deflisten work_space "./scripts/work_space.bash")
+(deflisten work_space "./scripts/work_space.zsh")
 (deflisten muted "./scripts/sound_state.zsh -s")
 (deflisten current_vol "./scripts/sound_state.zsh -v")
 (deflisten nit_level "./scripts/nit_state.zsh")

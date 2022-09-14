@@ -5,7 +5,9 @@ case "$1" in
         bspc wm -r &
         ;;
     -ewwopen)
-        eww daemon
+        if [[ ! $(pidof eww) ]]; then
+            eww daemon
+        fi
         eww open taskbar
         ;;
     -ewwclose)

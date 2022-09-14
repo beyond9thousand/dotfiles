@@ -23,7 +23,7 @@
    :onhoverlost "eww update vol_hover=false" 
    :onscroll "${muted != "true" ? '[ {} = up ] && pamixer -i 5; \
                                           [ {} = down ] && pamixer -d 5' : ""}"
-   :onclick "pamixer -t &" :onrightclick "eval control_box -pavu_toggle"
+   :onclick "pamixer -t &" :onrightclick "control_box -pavu_toggle &"
         (box 
           :spacing 0 :space-evenly false
             (label 
@@ -56,7 +56,7 @@
   
 (defwidget network [wifi_icon_off wifi_text_off] 
  (eventbox 
-           :onclick "rofi-net" 
+           :onclick "rofi-net &" 
            :cursor "pointer" :width 30 
            :class "${connect == "true" ? "wifi" : "wifi_off"}" 
            :onhover "eww update net_hover=true"
@@ -84,7 +84,7 @@
             (label :class "cpu_usage glyph" :text "")
             (label :class "cpu_usage_text" :text "${cpu_load}%"))
           (eventbox
-              :onrightclick "eval 'control_box -monitor'" :cursor "pointer"
+              :onrightclick "control_box -monitor &" :cursor "pointer"
             (box 
               :space-evenly false 
               (label :class "mem_usage glyph_awesome" :text "")
