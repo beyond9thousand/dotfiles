@@ -28,11 +28,12 @@ You are expected to have a basic understanding of the unix system. If you are ne
   - [Packages](#packages)
   - [Environment Variables](#environment-variables)
   - [Miscellaneous](#miscellaneous)
+- [Troubleshooting](#troubleshooting)
 - [Credits](#credits)
 
 ## :pencil: Information
 
-My configuration is personalized to utilize keyboard shortcuts as well as mouse actions to keep my workflow meaningful and flexible under varying conditions. 
+My configuration is personalized to utilize keyboard shortcuts as well as mouse actions to keep my workflow meaningful and flexible under varying conditions.
 
 <details close>
   <summary><b>Before proceeding</b></summary>
@@ -108,36 +109,18 @@ Stalonetray is run at bootup and hid right after using [xdo](https://github.com/
 
 ## 🔠 Fonts
 
-| Font List                                                                   | Use                 |
-| --------------------------------------------------------------------------- | ------------------- |
-| [`Roboto`](https://github.com/googlefonts/roboto)                           | Primary Font        |
-| [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome)               | Primary Icon Font   |
-| [`Icomoon-Feather`](https://feathericons.com/)                              | Secondary Icon Font |
-| [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont) | Primary UI Font     |
+| Font List                                                                                                | Use                 |
+| -------------------------------------------------------------------------------------------------------- | ------------------- |
+| [`Roboto`](https://github.com/googlefonts/roboto)                                                        | Primary Font        |
+| [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont)                              | Primary UI Font     |
+| [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome)                                            | Primary Icon Font   |
+| [`Phoshphor Icons`](https://github.com/phosphor-icons/phosphor-icons/blob/master/src/fonts/Phosphor.ttf) | Secondary Icon Font |
 
 ## :pushpin: Dependencies
 
-:warning: **The following instructions have only been written for arch-based distros**
-
-#### Packages
-
-Install an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) of your choice
-
-- Using the [yay](https://github.com/Jguer/yay#installation) helper
-
-```sh
-yay -S \
-sxhkd bspwm alacritty zsh neovim polybar stalonetray \
-plank dunst rofi jgmenu xprintidle i3lock-color zathura \
-broot mpv neofetch ranger xdo perl cava xbanish xss-lock \
-pavucontrol nitrogen flameshot exa bat copyq maim \
-ant-dracula-kvantum-theme-git ant-dracula-theme-git \
-papirus-icon-theme kvantum pacman-contrib
-```
-
 #### Environment Variables
 
-Copy the [`.profile`](https://github.com/beyond9thousand/dotfiles/blob/bspwm/.profile) to your `$HOME/` directory to set the correct [environment variables](https://wiki.archlinux.org/title/Environment_variables) at startup
+Copy the [`.profile`](https://github.com/beyond9thousand/dotfiles/blob/bspwm/.profile) to your `$HOME` directory to set the correct [environment variables](https://wiki.archlinux.org/title/Environment_variables) at startup
 
 - Refer to [XDG Base Directory](https://wiki.archlinux.org/title/XDG_Base_Directory) for more details
 
@@ -149,9 +132,40 @@ Copy the [`.profile`](https://github.com/beyond9thousand/dotfiles/blob/bspwm/.pr
 
 </details>
 
+#### Packages
+
+:warning: **The following instructions have only been written for arch-based distros**
+Install an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) of your choice
+
+- Using the [yay](https://github.com/Jguer/yay#installation) helper
+
+```bash
+yay -S --needed \
+sxhkd bspwm alacritty zsh neovim polybar stalonetray \
+plank dunst rofi jgmenu xprintidle i3lock-color zathura \
+broot fzf mpv neofetch ranger ueberzug xdo perl cava \
+xbanish xss-lock pavucontrol nitrogen flameshot exa bat copyq \
+maim ant-dracula-kvantum-theme-git ant-dracula-theme-git \
+papirus-icon-theme kvantum pacman-contrib xorg-xbacklight \
+imagemagick
+```
+
 #### Miscellaneous
 
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k) as a prompt theme for zsh
+
+## :question: Troubleshooting
+
+#### Backlight
+
+To allow users in the video group to change the brightness, a udev rule such as the following can be used:
+
+```ini
+#/etc/udev/rules.d/backlight.rules
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
+```
+
+- Refer to [Backlight](https://wiki.archlinux.org/title/Backlight#Udev_rule) for more info
 
 ## :sparkles: Credits
 

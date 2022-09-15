@@ -5,7 +5,7 @@
 (deflisten nit_level "./scripts/nit_state.zsh")
 (deflisten mic_current_vol "./scripts/sound_state.zsh -mic_vol")
 (deflisten window_title "./scripts/window_title_fetch.zsh")
-(deflisten connect "./scripts/network_manager.zsh") 
+(deflisten connect "./scripts/network_manager.zsh -m") 
 
 ; Psuedo subscribers
 (deflisten mic_initial "./scripts/sound_state.zsh -mc")
