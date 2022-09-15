@@ -107,7 +107,7 @@ Stalonetray is run at bootup and hid right after using [xdo](https://github.com/
 
 </div>
 
-## 🔠 Fonts
+## :ab: Fonts
 
 | Font List                                                                                                | Use                 |
 | -------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -115,6 +115,23 @@ Stalonetray is run at bootup and hid right after using [xdo](https://github.com/
 | [`JetBrainsMono Nerd Font`](https://github.com/jtbx/jetbrainsmono-nerdfont)                              | Primary UI Font     |
 | [`Font Awesome`](https://github.com/FortAwesome/Font-Awesome)                                            | Primary Icon Font   |
 | [`Phoshphor Icons`](https://github.com/phosphor-icons/phosphor-icons/blob/master/src/fonts/Phosphor.ttf) | Secondary Icon Font |
+
+## :gear: Configuration
+
+Create a **backup** of your dotfiles (if any). Take a look at [this](https://news.ycombinator.com/item?id=11070797) article for a more long term solution, thank me later. Now clone this repository and symlink the respective files.
+
+```bash
+git clone --depth 1 https://github.com/beyond9thousand/dotfiles $HOME/Downloads/b9k_dotfiles
+ln -s $HOME/Downloads/b9k_dotfiles/.config/* $HOME/.config/
+```
+
+Mark binaries as executable
+
+```bash
+chmod u+x $HOME/.bin/* $HOME/.local/bin/*
+```
+
+Install the fonts mentioned in the [previous]() section.
 
 ## :pushpin: Dependencies
 
