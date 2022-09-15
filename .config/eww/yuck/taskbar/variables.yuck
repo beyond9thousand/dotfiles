@@ -11,9 +11,9 @@
 (defvar ssid "")
 
 ; Dummy variables
-(defvar notif_switch "./scripts/notif_state.zsh -s")
-(defvar tray_toggle "./scripts/system_tray.zsh -t")
-(defvar mic_toggle "./scripts/sound_state.zsh -mt")
+(defvar notif_switch "./shell/notif_state.zsh -s")
+(defvar tray_toggle "./shell/system_tray.zsh -t")
+(defvar mic_toggle "./shell/sound_state.zsh -mt")
 (defvar cpu_load "0")
 (defvar mem_load "0GB")
 (defvar u_speed "0KB/s")
@@ -33,12 +33,12 @@
 (defvar usage_hover false)
 
 ; Psuedo variables
-(defpoll cpu_temp :interval "15s" "./scripts/cpu_state.zsh -t &")
+(defpoll cpu_temp :interval "15s" "./shell/cpu_state.zsh -t &")
 (defpoll time :interval "1s" `date '+%I:%M %p' &`)
 (defpoll usage_toggle
   :interval "0s"
-  :initial "./scripts/usage_data.zsh &"
-  :run-while usage_hover "./scripts/usage_data.zsh &")
+  :initial "./shell/usage_data.zsh &"
+  :run-while usage_hover "./shell/usage_data.zsh &")
 (defpoll speed_toggle
   :interval "0s" 
-  :run-while speed_hover "./scripts/network_manager.zsh -ns &")
+  :run-while speed_hover "./shell/network_manager.zsh -ns &")

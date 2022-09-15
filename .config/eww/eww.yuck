@@ -6,33 +6,4 @@
 ;                       /____/   
 ;
 
-(include "./variables.yuck")
-(include "./subscribers.yuck")
-(include "./modules/layout.yuck")
-(include "./modules/widgets.yuck")
-(include "./modules/submodules.yuck")
-(include "./modules/floating.yuck")
-
-(defwindow taskbar
-  :monitor 0
-  :geometry 
-    (geometry
-      :x "0"
-      :y "1%"
-      :width "99%"
-      :height "4%"
-      :anchor "top center")
-  :stacking "bg"
-  :reserve (struts :distance "5%" :side "top")
-  :windowtype "dock"
-  :wm-ignore false
- (bar))
-
-(defwidget bar []
-  (eventbox
-    :onhover "eww update speed_hover=true;${speed_toggle}"
-    :onhoverlost "eww update speed_hover=false"
-   (centerbox :class "main_box" :orientation "h" 
-     (left_box)
-     (center_box)
-     (right_box))))
+(include "./yuck/taskbar/init.yuck")

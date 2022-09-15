@@ -132,7 +132,7 @@ Mark binaries as executable
 chmod u+x $HOME/.bin/* $HOME/.local/bin/*
 ```
 
-Install the fonts mentioned in the [previous]() section.
+Install the fonts mentioned in the previous section.
 
 ## :pushpin: Dependencies
 

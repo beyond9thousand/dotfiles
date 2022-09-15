@@ -1,0 +1,32 @@
+(include "./yuck/taskbar/variables.yuck")
+(include "./yuck/taskbar/subscribers.yuck")
+(include "./yuck/taskbar/modules/floating.yuck")
+(include "./yuck/taskbar/modules/layout.yuck")
+(include "./yuck/taskbar/modules/submodules.yuck")
+(include "./yuck/taskbar/modules/widgets.yuck")
+
+; Windows
+(defwindow taskbar
+  :monitor 0
+  :geometry 
+    (geometry
+      :x "0%"
+      :y "1%"
+      :width "99%"
+      :height "4%"
+      :anchor "top center")
+  :stacking "bg"
+  :reserve (struts :distance "5%" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+ (bar))
+
+; Mother widgets
+(defwidget bar []
+  (eventbox
+    :onhover "eww update speed_hover=true;${speed_toggle}"
+    :onhoverlost "eww update speed_hover=false"
+   (centerbox :class "main_box" :orientation "h" 
+     (left_box)
+     (center_box)
+     (right_box))))

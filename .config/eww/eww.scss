@@ -12,46 +12,4 @@
 
 // Predefined colors
 @import "./scss/colors.scss";
-
-// Global players
-.main_box {
-  background-color: $bg;
-  font-family: "JetBrains Mono SemiBold";
-  font-size: 16px;
-  border-radius: 8px;
-  padding: 1px 8px;
-}
-
-.glyph {
-  font-family: "Phosphor";
-  font-size: 25px;
-}
-
-.glyph_awesome {
-  font-family: "Font Awesome 6 Free Solid";
-  font-size: 22px;
-  padding: 0px 1px;
-}
-
-.glyph_jet {
-  font-family: "JetBrainsMonoNL Nerd Font";
-  font-size: 24px;
-}
-
-.container_box {
-  margin: 5px;
-  padding: 0px 6px;
-  border-radius: 8px;
-  background-color: $bg_blend;
-}
-
-.floating_box {
-  padding: 0px 2px;
-}
-
-// Organs of the taskbar
-@import "./scss/left_box.scss";
-
-@import "./scss/center_box.scss";
-
-@import "./scss/right_box.scss";
+@import "./scss/taskbar/init.scss";
