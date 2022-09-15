@@ -5,6 +5,7 @@
 --  / .___/_/\__,_/\__, /_/_/ /_/____/
 -- /_/            /____/
 --
+local override = require "custom.plugins.override"
 
 return {
 	-- startup dashboard
@@ -49,13 +50,12 @@ return {
 
 	["williamboman/mason-lspconfig.nvim"] = {
 		after = "mason.nvim",
-		config = function()
-			require("custom.plugins.mason-lspconfig").setup()
-		end,
+    override_options = override.mason_lspconfig,
 	},
 
 	["williamboman/mason.nvim"] = {
 		event = "VimEnter",
+    override_options = override.mason,
 	},
 
 	["neovim/nvim-lspconfig"] = {
