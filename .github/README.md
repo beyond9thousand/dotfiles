@@ -15,21 +15,22 @@
 
 You are expected to have a basic understanding of the unix system. If you are new to linux, please visit [here](https://linuxjourney.com/lesson/the-shell) or look for similar resources online. Do **NOT** proceed
 
-- [Information](#information)
-- [Specifications](#specifications)
-- [Showcase](#showcase)
+- [Information](#pencil-information)
+- [Specifications](#mag-specifications)
+- [Showcase](#mag-showcase)
   - [Tokyo Night Colorscheme](#tokyo-night-colorscheme)
   - [Application Launcher](#application-launcher)
   - [Right-click Application Menu](#right-click-application-menu)
   - [Notifications](#notifications)
   - [Drop-down Systray](#drop-down-systray)
-- [Fonts](#fonts)
-- [Dependencies](#dependencies)
+- [Fonts](#ab-fonts)
+- [Configuration](#gear-configuration)
+- [Dependencies](#pushpin-dependencies)
   - [Packages](#packages)
   - [Environment Variables](#environment-variables)
   - [Miscellaneous](#miscellaneous)
-- [Troubleshooting](#troubleshooting)
-- [Credits](#credits)
+- [Troubleshooting](#question-troubleshooting)
+- [Credits](#sparkles-credits)
 
 ## :pencil: Information
 
