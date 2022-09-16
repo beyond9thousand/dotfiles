@@ -1,6 +1,5 @@
 ; True subscribers
 (deflisten work_space "./shell/work_space.zsh")
-(deflisten muted "./shell/sound_state.zsh -s")
 (deflisten current_vol "./shell/sound_state.zsh -v")
 (deflisten nit_level "./shell/nit_state.zsh")
 (deflisten mic_current_vol "./shell/sound_state.zsh -mic_vol")
@@ -8,6 +7,7 @@
 (deflisten connect "./shell/network_manager.zsh -m") 
 
 ; Psuedo subscribers
+(deflisten muted "./shell/sound_state.zsh -s")
 (deflisten mic_initial "./shell/sound_state.zsh -mc")
 (deflisten notif_initial "./shell/notif_state.zsh -c")
 (deflisten tray_initial "./shell/system_tray.zsh -c")

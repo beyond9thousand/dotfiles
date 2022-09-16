@@ -40,7 +40,8 @@
 
   (network_speed)
 
-  (notif_bell)
+  (notif_bell
+    :notif_switch "./shell/notif_state.zsh -s")
 
   (bat_indicator 
     :bat_critical "﫶"
@@ -66,14 +67,18 @@
       (revealer :reveal unit_hover :transition "slideright" :duration "0.5s"
         (box :class "generous_box" :space-evenly false :spacing 8
          (mic_box
-           :mic_vol_percent "${mic_current_vol}%")
+           :mic_vol_percent "${mic_current_vol}%"
+           :mic_scroll "[ {} = up ] && ./shell/sound_state.zsh -mic_up; \
+                        [ {} = down ] && ./shell/sound_state.zsh -mic_down"
+           :mic_toggle "./shell/sound_state.zsh -mt")
          (sound_box 
-                  :vol_num_off "vol_num_off"
-                  :vol_icon_off "vol_icon_off"
-                  :vol_percent "${current_vol}%"
-                  :vol_max ""
-                  :vol_mid ""
-                  :vol_min "")
+           :vol_num_off "vol_num_off"
+           :vol_icon_off "vol_icon_off"
+           :vol_percent "${current_vol}%"
+           :vol_max ""
+           :vol_mid ""
+           :vol_min ""
+           :vol_scroll "[ {} = up ] && pamixer -i 5; [ {} = down ] && pamixer -d 5")
          (nit_box)))))
   
   (eventbox
@@ -84,4 +89,5 @@
       (date)
       (revealer :reveal time_hover :transition "slideright" :duration "0.25s"
         (box
-          (system_tray)))))))
+          (system_tray
+            :tray_toggle "./shell/system_tray.zsh -t")))))))

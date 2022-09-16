@@ -11,9 +11,6 @@
 (defvar ssid "")
 
 ; Dummy variables
-(defvar notif_switch "./shell/notif_state.zsh -s")
-(defvar tray_toggle "./shell/system_tray.zsh -t")
-(defvar mic_toggle "./shell/sound_state.zsh -mt")
 (defvar cpu_load "0")
 (defvar mem_load "0GB")
 (defvar u_speed "0KB/s")

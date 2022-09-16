@@ -25,7 +25,7 @@
         (label 
           :class "bat_text" :text "${battery}%")))))
 
-(defwidget notif_bell []
+(defwidget notif_bell [notif_switch]
  (eventbox 
           :cursor "pointer"
           :onclick notif_switch
@@ -104,7 +104,7 @@
   (label 
     :class "date" :text time)))
 
-(defwidget system_tray []
+(defwidget system_tray [tray_toggle]
   (eventbox 
     :cursor "pointer" :onclick tray_toggle
     (label

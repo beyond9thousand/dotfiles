@@ -1,10 +1,10 @@
-(defwidget mic_box [mic_vol_percent]
+(defwidget mic_box [mic_vol_percent mic_scroll
+                    mic_toggle]
  (eventbox 
    :cursor "pointer"
    :onclick mic_toggle :onhover "eww update mic_hover=true" 
    :onhoverlost "eww update mic_hover=false"
-   :onscroll "${mic_initial == false ? `[ {} = up ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_up; \
-                                          [ {} = down ] && $HOME/.config/eww/scripts/sound_state.zsh -mic_down` : ""}"
+   :onscroll "${mic_initial == false ? mic_scroll : ""}"
    (box 
      :space-evenly false :spacing 0
            (label :class "${mic_initial == false ? "mic_box" : "mic_box_off"} glyph_awesome"
@@ -16,13 +16,13 @@
                          :text "${mic_initial == true ? "Muted" : ""}")))))
   
 (defwidget sound_box [vol_icon_off vol_num_off
-                      vol_percent vol_max vol_mid vol_min] 
+                      vol_percent vol_max vol_mid vol_min
+                      vol_scroll] 
                       
  (eventbox 
    :cursor "pointer" :onhover "eww update vol_hover=true"
    :onhoverlost "eww update vol_hover=false" 
-   :onscroll "${muted != "true" ? '[ {} = up ] && pamixer -i 5; \
-                                          [ {} = down ] && pamixer -d 5' : ""}"
+   :onscroll "${muted != "true" ? vol_scroll : ""}"
    :onclick "pamixer -t &" :onrightclick "control_box -pavu_toggle &"
         (box 
           :spacing 0 :space-evenly false
