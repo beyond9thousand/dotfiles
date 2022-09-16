@@ -47,15 +47,35 @@
 }
 
 .date {
-  color: $cyan;
+  color: $blue;
 }
 
-.date {
-  color: $cyan;
+.date > box {
+  border-radius: 8px;
+  margin: 5px 0px 5px 5px;
+  padding: 0px 5px;
+  transition: all 0.5s ease;
+  background-color: $bg_blend;
+}
+
+.date_pressed > box {
+  border-radius: 8px;
+  margin: 5px 0px 5px 5px;
+  padding: 0px 5px;
+  color: $bg;
+  background-color: $blue;
+}
+
+.date:active > box {
+  background-color: $blue;
+}
+
+.date:active {
+  color: $bg;
 }
 
 .system_tray {
-  color: $cyan;
-  padding: 0px 0px 0px 8px;
+  color: $blue;
+  padding: 0px 0px 0px 5px;
   font-size: 22px;
 }

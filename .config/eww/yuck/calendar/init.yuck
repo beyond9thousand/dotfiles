@@ -1,0 +1,32 @@
+(include "./yuck/calendar/subscribers.yuck")
+
+; Windows
+(defwindow calendar_win
+  :geometry 
+    (geometry
+      :x "-7"
+      :y "63"
+      :width "20%"
+      :height "15%"
+      :anchor "top right")
+ (calendar_))
+
+; Mother widgets
+(defwidget calendar_ []
+   (box 
+     :space-evenly false :class "calendar_box" :orientation "v" 
+     :halign "center" :valign "center"
+     (centerbox
+       :space-evenly false :orientation "h" :class "calendar_bar"
+       (box :space-evenly false
+        (label
+           :class "calendar_icon" :text "")
+        (label
+           :class "calendar_date" :text "${calendar_date}")) 
+       (label :text "")
+       (box 
+         :halign "end"
+         (label
+          :valign "start" :class "calendar_day" :text "${calendar_day}")))
+     (calendar
+       :show-heading false :active false)))

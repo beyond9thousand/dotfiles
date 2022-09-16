@@ -94,3 +94,12 @@
           "${usage_hover == false ? "ﲹ" : ""}"
         :class "${usage_hover == false ? "stat_bolt glyph" :
                                          "stat_bolt_off glyph" }"))))
+
+(defwidget date [calendar_pop]
+ (eventbox 
+   :class "${calendar_check == false ? "date" : "date_pressed" }" 
+   :onclick calendar_pop :cursor "pointer" 
+   :onhover "eww update calendar_hover=true &"
+   :onhoverlost "eww update calendar_hover=false &"
+  (box "${time}")))
+

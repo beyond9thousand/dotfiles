@@ -9,8 +9,8 @@
 (defwidget launcher []
  (eventbox 
           :onclick "poly-menu &" :cursor "pointer" 
-          :onhover "eww update launcher_hover=true"
-          :onhoverlost "eww update launcher_hover=false"
+          :onhover "eww update launcher_hover=true &"
+          :onhoverlost "eww update launcher_hover=false &"
           :onrightclick "control_box -ewwreload &" 
           :class "launcher glyph_awesome" :width 30
           (box "")))
@@ -18,8 +18,8 @@
 (defwidget work_space_box []
  (eventbox 
    :vexpand true 
-   :onhover "eww update work_space_hover=true"
-   :onhoverlost "eww update work_space_hover=false"
+   :onhover "eww update work_space_hover=true &"
+   :onhoverlost "eww update work_space_hover=false &"
    :onscroll "[ {} = down ] && bspc desktop -f next; \
                              [ {} = up ] && bspc desktop -f prev" 
     (box 
@@ -41,7 +41,7 @@
   (network_speed)
 
   (notif_bell
-    :notif_switch "./shell/notif_state.zsh -s")
+    :notif_switch "./shell/notif_state.zsh -s &")
 
   (bat_indicator 
     :bat_critical "﫶"
@@ -70,7 +70,7 @@
            :mic_vol_percent "${mic_current_vol}%"
            :mic_scroll "[ {} = up ] && ./shell/sound_state.zsh -mic_up; \
                         [ {} = down ] && ./shell/sound_state.zsh -mic_down"
-           :mic_toggle "./shell/sound_state.zsh -mt")
+           :mic_toggle "./shell/sound_state.zsh -mt &")
          (sound_box 
            :vol_num_off "vol_num_off"
            :vol_icon_off "vol_icon_off"
@@ -81,13 +81,10 @@
            :vol_scroll "[ {} = up ] && pamixer -i 5; [ {} = down ] && pamixer -d 5")
          (nit_box)))))
   
-  (eventbox
-    :onhover "eww update time_hover=true" 
-    :onhoverlost "eww update time_hover=false"
-    (box 
-      :space-evenly false :spacing 0
-      (date)
-      (revealer :reveal time_hover :transition "slideright" :duration "0.25s"
-        (box
-          (system_tray
-            :tray_toggle "./shell/system_tray.zsh -t")))))))
+  (box 
+     :space-evenly false :spacing 0
+     (date
+       :calendar_pop "./shell/calendar.zsh -t &")
+     (box
+        (system_tray
+          :tray_toggle "./shell/system_tray.zsh -t &")))))

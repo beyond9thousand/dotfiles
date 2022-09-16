@@ -75,7 +75,9 @@
                 unit_hover == true ? "false" :
                 usage_hover == true ? "false" :
                 work_space_hover == true ? "false" : 
-                launcher_hover == true ? "false" : speed_hover }"
+                launcher_hover == true ? "false" :
+                calendar_hover == true ? "false" : 
+                tray_hover == true ? "false" : speed_hover }"
       (box
         :class "speed_box"
         :space-evenly false :spacing 0
@@ -98,15 +100,11 @@
               :class "net_speed"
               :text "${d_speed}")))))))
 
-(defwidget date []
- (box 
-   :space-evenly false
-  (label 
-    :class "date" :text time)))
-
 (defwidget system_tray [tray_toggle]
   (eventbox 
     :cursor "pointer" :onclick tray_toggle
+    :onhover "eww update tray_hover=true &"
+    :onhoverlost "eww update tray_hover=false &"
     (label
       :class "system_tray glyph_awesome"
       :text "${tray_initial}")))

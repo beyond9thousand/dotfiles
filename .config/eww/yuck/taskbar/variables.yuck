@@ -28,6 +28,11 @@
 (defvar layout_hover false)
 (defvar sticky_hover false)
 (defvar usage_hover false)
+(defvar calendar_hover false)
+(defvar tray_hover false)
+
+;Default window states
+(defvar calendar_check false)
 
 ; Psuedo variables
 (defpoll cpu_temp :interval "15s" "./shell/cpu_state.zsh -t &")

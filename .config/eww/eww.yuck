@@ -7,3 +7,4 @@
 ;
 
 (include "./yuck/taskbar/init.yuck")
+(include "./yuck/calendar/init.yuck")

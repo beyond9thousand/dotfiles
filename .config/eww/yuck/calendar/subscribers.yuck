@@ -1,0 +1,2 @@
+(deflisten calendar_day "./shell/calendar.zsh -day")
+(deflisten calendar_date "./shell/calendar.zsh -date")

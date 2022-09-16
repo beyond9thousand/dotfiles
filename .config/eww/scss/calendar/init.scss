@@ -1,0 +1,45 @@
+.calendar_box {
+  background-color: $bg;
+  color: $fg_blend;
+  font-family: "JetBrains Mono SemiBold";
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.calendar_bar {
+  background-color: $bg_blend;
+  padding: 5px;
+  margin: 10px 10px 8px 10px;
+  border-radius: 8px;
+}
+
+.calendar_date {
+  padding: 0px 5px;
+  color: $fg_blend;
+}
+
+.calendar_day {
+  font-size: 20px;
+  padding: 0px 5px;
+  color: $blue;
+}
+
+.calendar_icon {
+  font-family: "Font Awesome 6 Free Regular";
+  font-size: 26px;
+  padding: 0px 5px;
+}
+
+calendar {
+  color: $fg_blend;
+  padding: 10px;
+  padding-top: 0px;
+  &:selected {
+    color: $blue;
+    border-radius: 8px;
+  }
+
+  &:indeterminate {
+    color: $bg_blend;
+  }
+}

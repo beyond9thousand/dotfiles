@@ -1,11 +1,11 @@
+.launcher {
+  color: $blue;
+  font-size: 25px;
+}
+
 .launcher > box {
   @extend .container_box;
   transition: all 0.5s ease;
-}
-
-.launcher {
-  color: $cyan;
-  font-size: 25px;
 }
 
 .launcher:hover > box {
@@ -74,7 +74,7 @@
 }
 
 .stat_bolt {
-  color: $cyan;
+  color: $blue;
 }
 
 .stat_bolt_off {
