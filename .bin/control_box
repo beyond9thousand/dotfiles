@@ -108,4 +108,15 @@ case "$1" in
 
         report
         ;;
+    -calendar_close)
+        close(){
+            xqp 0 $(xdo id -N eww-taskbar) || crit_A=true
+            xqp 0 $(xdo id -N eww-calendar_win) || crit_B=true
+            if [[ $crit_A == "true" && $crit_B == "true" ]]; then
+              $HOME/.config/eww/shell/calendar.zsh -close
+            fi
+        }
+
+        close
+        ;;
 esac
