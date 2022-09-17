@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 
+var="calendar_win"
+
 calendar_toggle() {
-    if [[ $(eww windows | grep "*calendar_win") ]]; then
+    if [[ $(eww windows | grep "*$var") ]]; then
         eww update calendar_check=false
         xdo hide -N eww-calendar_win
         sleep 0.2
@@ -13,7 +15,7 @@ calendar_toggle() {
 }
 
 calendar_close(){
-    if [[ $(eww windows | grep "*calendar_win") ]]; then
+    if [[ $(eww windows | grep "*$var") ]]; then
         eww update calendar_check=false
         xdo hide -N eww-calendar_win
         sleep 0.2

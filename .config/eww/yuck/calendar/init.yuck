@@ -17,7 +17,7 @@
      :space-evenly false :class "calendar_box" :orientation "v" 
      :halign "center" :valign "center"
      (centerbox
-       :space-evenly false :orientation "h" :class "calendar_bar"
+       :orientation "h" :class "calendar_bar"
        (box :space-evenly false
         (label
            :class "calendar_icon" :text "")

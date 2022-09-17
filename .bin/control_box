@@ -1,122 +1,109 @@
 #!/usr/bin/env zsh
 
-case "$1" in
-    -bspres)
-        bspc wm -r &
-        ;;
-    -ewwopen)
-        if [[ ! $(pidof eww) ]]; then
-            eww daemon
-        fi
-        eww open taskbar
-        ;;
-    -ewwclose)
-        eww kill
-        bspc config top_padding 0
-        ;;
-    -ewwhalt)
-        eww close-all
-        ;;
-    -ewwreload)
-        if [[ $(pidof eww) ]]; then
-            control_box -ewwhalt
-            control_box -ewwopen
-            dunstify -r 888 "EWW" "Taskbar has been reloaded"
-        else
-            dunstify -u critical -r 888 "EWW" "Taskbar is not running"
-        fi
-        ;;
-    -polybres)
-        poly-reset
-        ;;
-    -kbres)
-        pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
-        ;;
-    -soundres)
-        systemctl --user restart pipewire.service pipewire-pulse.socket
-        control_box -ewwreload; dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
-        ;;
-    -wclass)
-        dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -sel c -f)"
-        ;;
-    -wallres)
-        nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
-        ;;
-    -record)
-        record() {
-            ffmpeg \
-                -f x11grab \
-                -framerate 60 \
-                -video_size 1920x1080 \
-                -i $DISPLAY \
-                -preset ultrafast \
-                /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
-        }
-        record
-        ;;
-    -monitor)
-        report(){
-            if [[ ! $(pidof gnome-system-monitor) ]]; then
-                dunstify -C 999
-                gnome-system-monitor &
+report(){
+    if [[ ! $(pidof "$1") ]]; then
+        dunstify -C 999
+        $1 &
+    else
+        node_focus=($(bspc query --desktop focused.focused --nodes))
+        seq ${#node_focus} | while read -r index; do
+            node_id=$(print "${node_focus[$index]}")
+            if [[ $(ps p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "$1" ]]; then
+                bspc node $node_id -c
+                dunstify -r 999 -t 5000 -u critical "Report" "Closed $1"
+                exit
+            fi
+        done
+        node_total=($(bspc query --desktop '.!focused' --nodes))
+        seq ${#node_total} | while read -r index; do
+            node_id=$(print "${node_total[$index]}")
+            if [[ $(ps p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "$1" ]]; then
+                bspc node $node_id --to-desktop focused.focused
+            fi
+        done
+    fi
+}
+
+close(){
+    list=(calendar_win)
+    xqp 0 $(xdo id -N eww-taskbar) || crit_A=true
+    for index in "${list[@]}"; do
+        xqp 0 $(xdo id -N eww-$index) || crit_B=true
+        if [[ $(eww windows | grep "*$index" ) != '' && \
+                  $crit_A == "true" && $crit_B == "true" ]]; then
+                check_var="${index}_check"
+                if [[ $index == "calendar_win" ]]; then
+                    check_var="${index::-4}_check"
+                fi
+                eww update $check_var=false
+                xdo hide -N eww-$index
+                sleep 0.2
+                eww close "$index"
+            fi
+        done
+    }
+
+    case "$1" in
+        -bspres)
+            bspc wm -r &
+            ;;
+        -ewwopen)
+            if [[ ! $(pidof eww) ]]; then
+                eww daemon
+            fi
+            eww open taskbar
+            ;;
+        -ewwclose)
+            eww kill
+            bspc config top_padding 0
+            ;;
+        -ewwhalt)
+            eww close-all
+            ;;
+        -ewwreload)
+            if [[ $(pidof eww) ]]; then
+                control_box -ewwhalt
+                control_box -ewwopen
+                dunstify -r 888 "EWW" "Taskbar has been reloaded"
             else
-                node_focus=($(bspc query --desktop focused.focused --nodes))
-                seq ${#node_focus} | while read -r index; do
-                    node_id=$(print "${node_focus[$index]}")
-                    if [[ $(ps -p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "gnome-system-monitor" ]]; then
-                        bspc node $node_id -c
-                        dunstify -r 999 -t 5000 -u critical "Gnome System Monitor" "Closed Gnome System Monitor"
-                        exit
-                    fi
-                done
-                node_total=($(bspc query --desktop '.!focused' --nodes))
-                seq ${#node_total} | while read -r index; do
-                    node_id=$(print "${node_total[$index]}")
-                    if [[ $(ps -p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "gnome-system-monitor" ]]; then
-                        bspc node $node_id --to-desktop focused.focused
-                    fi
-                done
+                dunstify -u critical -r 888 "EWW" "Taskbar is not running"
             fi
-        }
-
-        report
-        ;;
-    -pavu_toggle)
-        report(){
-            if [[ ! $(pidof pavucontrol) ]]; then
-                dunstify -C 999
-                pavucontrol &
-            else
-                node_focus=($(bspc query --desktop focused.focused --nodes))
-                seq ${#node_focus} | while read -r index; do
-                    node_id=$(print "${node_focus[$index]}")
-                    if [[ $(ps -p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "pavucontrol" ]]; then
-                        bspc node $node_id -c
-                        dunstify -r 999 -t 5000 -u critical "Pavucontrol" "Closed Pavucontrol"
-                        exit
-                    fi
-                done
-                node_total=($(bspc query --desktop '.!focused' --nodes))
-                seq ${#node_total} | while read -r index; do
-                    node_id=$(print "${node_total[$index]}")
-                    if [[ $(ps -p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "pavucontrol" ]]; then
-                        bspc node $node_id --to-desktop focused.focused
-                    fi
-                done
-            fi
-        }
-
-        report
-        ;;
-    -calendar_close)
-        close(){
-            xqp 0 $(xdo id -N eww-taskbar) || crit_A=true
-            xqp 0 $(xdo id -N eww-calendar_win) || crit_B=true
-            if [[ $crit_A == "true" && $crit_B == "true" ]]; then
-              $HOME/.config/eww/shell/calendar.zsh -close
-            fi
-        }
-
-        close
-        ;;
-esac
+            ;;
+        -polybres)
+            poly-reset
+            ;;
+        -kbres)
+            pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
+            ;;
+        -soundres)
+            systemctl --user restart pipewire.service pipewire-pulse.socket
+            control_box -ewwreload; dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
+            ;;
+        -wclass)
+            dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -sel c -f)"
+            ;;
+        -wallres)
+            nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
+            ;;
+        -record)
+            record() {
+                ffmpeg \
+                    -f x11grab \
+                    -framerate 60 \
+                    -video_size 1920x1080 \
+                    -i $DISPLAY \
+                    -preset ultrafast \
+                    /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
+            }
+            record
+            ;;
+        -monitor)
+            report "gnome-system-monitor"
+            ;;
+        -pavu_toggle)
+            report "pavucontrol"
+            ;;
+        -eww_idle)
+            close
+            ;;
+    esac

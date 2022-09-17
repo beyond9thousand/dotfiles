@@ -18,7 +18,7 @@ super + Escape
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
 
 ~button1
-  control_box -calendar_close &
+  control_box -eww_idle &
 
 # Cheatsheet, terminal
 super + {k,Return}
