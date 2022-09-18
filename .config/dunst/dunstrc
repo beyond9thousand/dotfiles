@@ -185,14 +185,14 @@ frame_width = 0
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-frame_color = "#7bc5e4"
-foreground = "#7bc5e4"
+frame_color = "#80a8fd"
+foreground = "#80a8fd"
 background = "#282e49"
 timeout = 10
 
 [urgency_normal]
-frame_color = "#7bc5e4"
-foreground = "#7bc5e4"
+frame_color = "#80a8fd"
+foreground = "#80a8fd"
 background = "#282e49"
 timeout = 10
 

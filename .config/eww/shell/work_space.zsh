@@ -14,13 +14,13 @@ wrap() {
 # Pack current values into the structure with json format
 pack() {
     buffer="["
-    seq ${#workspaces} | while read -r val; do
-        if bspc query -D -d focused --names | grep -q "$val"; then
-            buffer+="$(wrap "bspc desktop -f $val" "" "focused_workspace"),"
-        elif bspc query -D -d .occupied --names | grep -q "$val"; then
-            buffer+="$(wrap "bspc desktop -f $val" "" "occupied_workspace glyph"),"
+    seq ${#workspaces} | while read -r index; do
+        if bspc query -D -d focused --names | grep -q "$index"; then
+            buffer+="$(wrap "bspc desktop -f $index" "" "focused_workspace"),"
+        elif bspc query -D -d .occupied --names | grep -q "$index"; then
+            buffer+="$(wrap "bspc desktop -f $index" "" "occupied_workspace glyph"),"
         else
-            buffer+="$(wrap "bspc desktop -f $val" "" "empty_workspace glyph"),"
+            buffer+="$(wrap "bspc desktop -f $index" "" "empty_workspace glyph"),"
         fi
     done
 
@@ -32,4 +32,5 @@ pack() {
 pack
 bspc subscribe desktop node_transfer | while read -r _; do
     pack
+    control_box -eww_idle &
 done

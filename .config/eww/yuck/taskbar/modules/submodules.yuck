@@ -23,7 +23,8 @@
    :cursor "pointer" :onhover "eww update vol_hover=true"
    :onhoverlost "eww update vol_hover=false" 
    :onscroll "${muted != "true" ? vol_scroll : ""}"
-   :onclick "pamixer -t &" :onrightclick "control_box -pavu_toggle &"
+   :onclick "pamixer -t;eww update unit_hover=true &" 
+   :onrightclick "control_box -pavu_toggle &"
         (box 
           :spacing 0 :space-evenly false
             (label 
@@ -84,14 +85,14 @@
             (label :class "cpu_usage glyph" :text "")
             (label :class "cpu_usage_text" :text "${cpu_load}%"))
           (eventbox
-              :onrightclick "control_box -monitor &" :cursor "pointer"
+              :onrightclick "control_box -monitor;eww update usage_hover=true &" 
+              :cursor "pointer"
             (box 
               :space-evenly false 
               (label :class "mem_usage glyph_awesome" :text "")
               (label :class "mem_usage_text" :text "${mem_load}")))))
       (label 
-        :text 
-          "${usage_hover == false ? "ﲹ" : ""}"
+        :text "${usage_hover == false ? "ﲹ" : ""}"
         :class "${usage_hover == false ? "stat_bolt glyph" :
                                          "stat_bolt_off glyph" }"))))
 

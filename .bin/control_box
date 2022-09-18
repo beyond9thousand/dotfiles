@@ -26,84 +26,83 @@ report(){
 
 close(){
     list=(calendar_win)
-    xqp 0 $(xdo id -N eww-taskbar) || crit_A=true
     for index in "${list[@]}"; do
-        xqp 0 $(xdo id -N eww-$index) || crit_B=true
-        if [[ $(eww windows | grep "*$index" ) != '' && \
-                  $crit_A == "true" && $crit_B == "true" ]]; then
-                check_var="${index}_check"
-                if [[ $index == "calendar_win" ]]; then
-                    check_var="${index::-4}_check"
-                fi
-                eww update $check_var=false
-                xdo hide -N eww-$index
-                sleep 0.2
-                eww close "$index"
+        if [[ $(eww windows | grep "*$index" ) != '' ]]; then
+            check_var="${index}_check"
+            if [[ $index == "calendar_win" ]]; then
+                check_var="${index::-4}_check"
             fi
-        done
-    }
+            eww update $check_var=false
+            xdo hide -N eww-$index
+            sleep 0.2
+            eww close "$index"
+        fi
+    done
+}
 
-    case "$1" in
-        -bspres)
-            bspc wm -r &
-            ;;
-        -ewwopen)
-            if [[ ! $(pidof eww) ]]; then
-                eww daemon
-            fi
+case "$1" in
+    -bspres)
+        bspc wm -r &
+        ;;
+    -ewwopen)
+        if [[ ! $(pidof eww) ]]; then
+            eww daemon
+        fi
+        if [[ ! $(eww windows | grep "*taskbar") ]]; then
             eww open taskbar
-            ;;
-        -ewwclose)
-            eww kill
-            bspc config top_padding 0
-            ;;
-        -ewwhalt)
-            eww close-all
-            ;;
-        -ewwreload)
-            if [[ $(pidof eww) ]]; then
-                control_box -ewwhalt
-                control_box -ewwopen
-                dunstify -r 888 "EWW" "Taskbar has been reloaded"
-            else
-                dunstify -u critical -r 888 "EWW" "Taskbar is not running"
-            fi
-            ;;
-        -polybres)
-            poly-reset
-            ;;
-        -kbres)
-            pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
-            ;;
-        -soundres)
-            systemctl --user restart pipewire.service pipewire-pulse.socket
-            control_box -ewwreload; dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
-            ;;
-        -wclass)
-            dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -sel c -f)"
-            ;;
-        -wallres)
-            nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
-            ;;
-        -record)
-            record() {
-                ffmpeg \
-                    -f x11grab \
-                    -framerate 60 \
-                    -video_size 1920x1080 \
-                    -i $DISPLAY \
-                    -preset ultrafast \
-                    /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
-            }
-            record
-            ;;
-        -monitor)
-            report "gnome-system-monitor"
-            ;;
-        -pavu_toggle)
-            report "pavucontrol"
-            ;;
-        -eww_idle)
-            close
-            ;;
-    esac
+        fi
+        ;;
+    -ewwclose)
+        eww kill
+        bspc config top_padding 0
+        ;;
+    -ewwhalt)
+        eww close-all
+        ;;
+    -ewwreload)
+        if [[ $(pidof eww) ]]; then
+            control_box -ewwhalt
+            control_box -ewwopen
+            dunstify -r 888 "EWW" "Taskbar has been reloaded"
+        else
+            dunstify -u critical -r 888 "EWW" "Taskbar is not running"
+        fi
+        ;;
+    -polybres)
+        poly-reset
+        ;;
+    -kbres)
+        pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
+        ;;
+    -soundres)
+        systemctl --user restart pipewire.service pipewire-pulse.socket
+        control_box -ewwreload; dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
+        ;;
+    -wclass)
+        dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -sel c -f)"
+        ;;
+    -wallres)
+        nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
+        ;;
+    -record)
+        record() {
+            ffmpeg \
+                -f x11grab \
+                -framerate 60 \
+                -video_size 1920x1080 \
+                -i $DISPLAY \
+                -preset ultrafast \
+                /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
+        }
+        record
+        ;;
+    -monitor)
+        report "gnome-system-monitor"
+        ;;
+    -pavu_toggle)
+        report "pavucontrol"
+        ;;
+    -eww_idle)
+        close
+        ;;
+esac

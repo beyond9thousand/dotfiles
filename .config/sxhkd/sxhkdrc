@@ -17,8 +17,8 @@ super + Escape
 ~button3
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
 
-~button1
-  control_box -eww_idle &
+# ~button1
+#   control_box -eww_idle &
 
 # Cheatsheet, terminal
 super + {k,Return}
