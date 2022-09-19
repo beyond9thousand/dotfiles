@@ -7,7 +7,7 @@
    :onscroll "${mic_initial == false ? mic_scroll : ""}"
    (box 
      :space-evenly false :spacing 0
-           (label :class "${mic_initial == false ? "mic_box" : "mic_box_off"} glyph_awesome"
+           (label :class "${mic_initial == false ? "mic_box" : "mic_box_off"} awesome"
                   :text "${mic_initial == false ? "" : "" }")
            (label :class "${mic_initial == false ? "mic_box_text" : ""}"
                   :text "${mic_initial == false ? mic_vol_percent : ""}")
@@ -28,7 +28,7 @@
         (box 
           :spacing 0 :space-evenly false
             (label 
-              :class "${muted != "true" ? "vol_icon" : vol_icon_off} glyph_awesome"
+              :class "${muted != "true" ? "vol_icon" : vol_icon_off} awesome"
               :text "${muted != "true" && current_vol > 60 ? vol_max :
                        muted != "true" && current_vol > 25 ? vol_mid :
                        muted != "true" && current_vol >= 10 ? vol_min : 
@@ -64,7 +64,7 @@
            :onhoverlost "eww update net_hover=false"
             (box 
               :space-evenly false :spacing 0
-                         (label :class "${connect == "true" ? "wifi_icon glyph" : wifi_icon_off}" 
+                         (label :class "${connect == "true" ? "wifi_icon phosphor" : wifi_icon_off}" 
                                 :text "${connect == "true" ? "﹦" : "﹪"}")
               (revealer :reveal net_hover :transition "slideright" :duration "0.5s"
                 (box :space-evenly false :spacing 5
@@ -82,19 +82,19 @@
             :space-evenly false :spacing 8
           (box 
               :space-evenly false 
-            (label :class "cpu_usage glyph" :text "")
+            (label :class "cpu_usage phosphor" :text "")
             (label :class "cpu_usage_text" :text "${cpu_load}%"))
           (eventbox
               :onrightclick "control_box -monitor;eww update usage_hover=true &" 
               :cursor "pointer"
             (box 
               :space-evenly false 
-              (label :class "mem_usage glyph_awesome" :text "")
+              (label :class "mem_usage awesome" :text "")
               (label :class "mem_usage_text" :text "${mem_load}")))))
       (label 
         :text "${usage_hover == false ? "ﲹ" : ""}"
-        :class "${usage_hover == false ? "stat_bolt glyph" :
-                                         "stat_bolt_off glyph" }"))))
+        :class "${usage_hover == false ? "stat_bolt phosphor" :
+                                         "stat_bolt_off phosphor" }"))))
 
 (defwidget date [calendar_pop]
  (eventbox 

@@ -18,9 +18,9 @@ pack() {
         if bspc query -D -d focused --names | grep -q "$index"; then
             buffer+="$(wrap "bspc desktop -f $index" "" "focused_workspace"),"
         elif bspc query -D -d .occupied --names | grep -q "$index"; then
-            buffer+="$(wrap "bspc desktop -f $index" "" "occupied_workspace glyph"),"
+            buffer+="$(wrap "bspc desktop -f $index" "" "occupied_workspace phosphor"),"
         else
-            buffer+="$(wrap "bspc desktop -f $index" "" "empty_workspace glyph"),"
+            buffer+="$(wrap "bspc desktop -f $index" "" "empty_workspace phosphor"),"
         fi
     done
 

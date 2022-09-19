@@ -12,7 +12,7 @@
           :onhover "eww update launcher_hover=true &"
           :onhoverlost "eww update launcher_hover=false &"
           :onrightclick "control_box -ewwreload &" 
-          :class "launcher glyph_awesome" :width 30
+          :class "launcher awesome" :width 30
           (box "")))
 
 (defwidget work_space_box []
@@ -55,14 +55,14 @@
 
   (network 
     :wifi_text_off "wifi_text_off"
-    :wifi_icon_off "wifi_icon_off glyph")
+    :wifi_icon_off "wifi_icon_off phosphor")
 
   (eventbox 
     :onhover "eww update unit_hover=true"
     :onhoverlost "eww update unit_hover=false"
     (box :class "access" :orientation "h" :space-evenly false :spacing 0
      
-      (label :class "${unit_hover == "false" ? "unit_box" : "unit_box_on"} glyph" 
+      (label :class "${unit_hover == "false" ? "unit_box" : "unit_box_on"} phosphor" 
              :text "${unit_hover == "false" ? "ﴤ" : "懶"}")
       (revealer :reveal unit_hover :transition "slideright" :duration "0.5s"
         (box :class "generous_box" :space-evenly false :spacing 8

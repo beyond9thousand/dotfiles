@@ -11,7 +11,7 @@
   (box 
     :space-evenly false :spacing 0 :class "bat_bound"
     (label 
-      :class "bat_icon glyph" 
+      :class "bat_icon phosphor" 
       :text "${bat_status == "Charging" ? bat_charging : 
                    battery > 90 ? bat_full : 
                    battery > 50 ? bat_medium :
@@ -38,7 +38,7 @@
      (box 
        :space-evenly false :spacing 0
        (label 
-        :class "${cpu_temp >= 60 ? "cpu_hot glyph_awesome" : "cpu_normal glyph"}"
+        :class "${cpu_temp >= 60 ? "cpu_hot awesome" : "cpu_normal phosphor"}"
         :text "${cpu_temp >= 60 ? "" : "瑩"}")
        (revealer
             :transition "slideright"
@@ -50,13 +50,13 @@
 (defwidget layout_state []
   (box
     (label 
-      :limit-width 1 :class "window_state glyph"
+      :limit-width 1 :class "window_state phosphor"
       :text "${layout_var}")))
 
 (defwidget sticky_title []
   (box
     (label 
-      :limit-width 1 :class "window_state glyph"
+      :limit-width 1 :class "window_state phosphor"
       :text "${sticky_var}")))
 
 (defwidget title_bar []
@@ -88,14 +88,14 @@
           (box
             :orientation "h" :space-evenly false :spacing 0
             (label
-              :class "net_icon glyph_awesome" :text "")
+              :class "net_icon awesome" :text "")
             (label 
               :class "net_speed"
               :text "${u_speed}"))
           (box
             :orientation "h" :space-evenly false :spacing 0
             (label
-              :class "net_icon glyph_awesome" :text "")
+              :class "net_icon awesome" :text "")
             (label            
               :class "net_speed"
               :text "${d_speed}")))))))
@@ -106,5 +106,5 @@
     :onhover "eww update tray_hover=true &"
     :onhoverlost "eww update tray_hover=false &"
     (label
-      :class "system_tray glyph_awesome"
+      :class "system_tray awesome"
       :text "${tray_initial}")))

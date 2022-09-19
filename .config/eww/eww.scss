@@ -10,20 +10,35 @@
   all: unset;
 }
 
-.glyph {
+// .glyph {
+.phosphor {
   font-family: "Phosphor";
   font-size: 25px;
 }
 
-.glyph_awesome {
+// .glyph_awesome {
+.awesome {
   font-family: "Font Awesome 6 Free Solid";
   font-size: 22px;
   padding: 0px 1px;
 }
 
+.awesome_regular {
+  font-family: "Font Awesome 6 Free Regular";
+}
+
 .glyph_jet {
   font-family: "JetBrainsMonoNL Nerd Font";
   font-size: 24px;
+}
+
+.iosevka {
+  font-family: "Iosevka Nerd Font";
+  font-weight: 500;
+}
+
+.jetbrains {
+  font-family: "JetBrainsMonoNL Nerd Font";
 }
 
 // Predefined colors
