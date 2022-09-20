@@ -8,22 +8,25 @@
 
 (defwidget left_box []
   (box :orientation "h" :space-evenly false :halign "start" :spacing 0 
-     (launcher)
-     (work_space_box)
-     (usage_box)
-     (cpu_temp_text)))
+    (eventbox
+      :onhover "eww update left_hover=true" 
+      :onhoverlost "eww update left_hover=false"
+      (box :space-evenly false
+              (launcher)
+              (work_space_box)
+              (usage_box)
+              (cpu_temp_text)))))
 
 (defwidget center_box []
-  (box :orientation "h" :space-evenly false :spacing 0 :hexpand false :halign "center"
-    (revealer :reveal "${window_title != "" ? sticky_hover : "false" }" :transition "slideright" :duration "0.2s"
-        (box
-          (sticky_title)))
-    (revealer :reveal "${window_title != "" ? layout_hover : "false" }" :transition "slideright" :duration "0.2s"
-        (box
-          (layout_state)))
-    (title_bar)))
+  (box :orientation "h" :space-evenly false :spacing 0 :halign "center"
+        (revealer :reveal "${window_title != "" ? sticky_hover : "false" }" :transition "slideright" :duration "0.2s"
+            (box
+              (sticky_title)))
+        (revealer :reveal "${window_title != "" ? layout_hover : "false" }" :transition "slideright" :duration "0.2s"
+            (box
+              (layout_state)))
+        (title_bar)))
        
 (defwidget right_box []
   (box :orientation "h" :space-evenly false :halign "end" :spacing 0
-    
     (access)))

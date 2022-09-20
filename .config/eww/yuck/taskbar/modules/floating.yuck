@@ -71,13 +71,8 @@
   (box
     (revealer 
       :transition "slideleft"
-      :reveal "${net_hover == true ? "false" :
-                unit_hover == true ? "false" :
-                usage_hover == true ? "false" :
-                work_space_hover == true ? "false" : 
-                launcher_hover == true ? "false" :
-                calendar_hover == true ? "false" : 
-                tray_hover == true ? "false" : speed_hover }"
+      :reveal "${left_hover == true ? "false" :
+                 right_hover == true ? "false" : speed_hover }"
       (box
         :class "speed_box"
         :space-evenly false :spacing 0

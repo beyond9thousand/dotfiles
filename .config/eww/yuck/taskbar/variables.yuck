@@ -30,6 +30,8 @@
 (defvar usage_hover false)
 (defvar calendar_hover false)
 (defvar tray_hover false)
+(defvar left_hover false)
+(defvar right_hover false)
 
 ;Default window states
 (defvar calendar_check false)

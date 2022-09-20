@@ -40,51 +40,56 @@
 
   (network_speed)
 
-  (notif_bell
-    :notif_switch "./shell/notif_state.zsh -s &")
+  (eventbox
+      :onhover "eww update right_hover=true" 
+      :onhoverlost "eww update right_hover=false"
+   (box
+     :space-evenly false
+    (notif_bell
+      :notif_switch "./shell/notif_state.zsh -s &")
 
-  (bat_indicator 
-    :bat_critical "﫶"
-    :bat_low "﫹"
-    :bat_normal "﫺"
-    :bat_medium "﫸"
-    :bat_full "﫷"
-    :battery {EWW_BATTERY.BAT1.capacity}
-    :bat_status {EWW_BATTERY.BAT1.status}
-    :bat_charging "﫴")
+    (bat_indicator 
+      :bat_critical "﫶"
+      :bat_low "﫹"
+      :bat_normal "﫺"
+      :bat_medium "﫸"
+      :bat_full "﫷"
+      :battery {EWW_BATTERY.BAT1.capacity}
+      :bat_status {EWW_BATTERY.BAT1.status}
+      :bat_charging "﫴")
 
-  (network 
-    :wifi_text_off "wifi_text_off"
-    :wifi_icon_off "wifi_icon_off phosphor")
+    (network 
+      :wifi_text_off "wifi_text_off"
+      :wifi_icon_off "wifi_icon_off phosphor")
 
-  (eventbox 
-    :onhover "eww update unit_hover=true"
-    :onhoverlost "eww update unit_hover=false"
-    (box :class "access" :orientation "h" :space-evenly false :spacing 0
+    (eventbox 
+      :onhover "eww update unit_hover=true"
+      :onhoverlost "eww update unit_hover=false"
+      (box :class "access" :orientation "h" :space-evenly false :spacing 0
      
-      (label :class "${unit_hover == "false" ? "unit_box" : "unit_box_on"} phosphor" 
-             :text "${unit_hover == "false" ? "ﴤ" : "懶"}")
-      (revealer :reveal unit_hover :transition "slideright" :duration "0.5s"
-        (box :class "generous_box" :space-evenly false :spacing 8
-         (mic_box
-           :mic_vol_percent "${mic_current_vol}%"
-           :mic_scroll "[ {} = up ] && ./shell/sound_state.zsh -mic_up; \
+        (label :class "${unit_hover == "false" ? "unit_box" : "unit_box_on"} phosphor" 
+               :text "${unit_hover == "false" ? "ﴤ" : "懶"}")
+        (revealer :reveal unit_hover :transition "slideright" :duration "0.5s"
+          (box :class "generous_box" :space-evenly false :spacing 8
+           (mic_box
+             :mic_vol_percent "${mic_current_vol}%"
+             :mic_scroll "[ {} = up ] && ./shell/sound_state.zsh -mic_up; \
                         [ {} = down ] && ./shell/sound_state.zsh -mic_down"
-           :mic_toggle "./shell/sound_state.zsh -mt &")
-         (sound_box 
-           :vol_num_off "vol_num_off"
-           :vol_icon_off "vol_icon_off"
-           :vol_percent "${current_vol}%"
-           :vol_max ""
-           :vol_mid ""
-           :vol_min ""
-           :vol_scroll "[ {} = up ] && pamixer -i 5; [ {} = down ] && pamixer -d 5")
-         (nit_box)))))
+             :mic_toggle "./shell/sound_state.zsh -mt &")
+           (sound_box 
+             :vol_num_off "vol_num_off"
+             :vol_icon_off "vol_icon_off"
+             :vol_percent "${current_vol}%"
+             :vol_max ""
+             :vol_mid ""
+             :vol_min ""
+             :vol_scroll "[ {} = up ] && pamixer -i 5; [ {} = down ] && pamixer -d 5")
+           (nit_box)))))
   
-  (box 
-     :space-evenly false :spacing 0
-     (date
-       :calendar_pop "./shell/calendar.zsh -t &")
-     (box
-        (system_tray
-          :tray_toggle "./shell/system_tray.zsh -t &")))))
+    (box 
+       :space-evenly false :spacing 0
+       (date
+         :calendar_pop "./shell/calendar.zsh -t &")
+       (box
+          (system_tray
+            :tray_toggle "./shell/system_tray.zsh -t &")))))))
