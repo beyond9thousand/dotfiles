@@ -4,7 +4,7 @@
 (defwindow calendar_win
   :geometry 
     (geometry
-      :x "-7"
+      :x "-9"
       :y "63"
       :width "20%"
       :height "15%"

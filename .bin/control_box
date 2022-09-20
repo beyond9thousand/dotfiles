@@ -40,6 +40,16 @@ close(){
     done
 }
 
+record() {
+    ffmpeg \
+        -f x11grab \
+        -framerate $1 \
+        -video_size 1920x1080 \
+        -i $DISPLAY \
+        -preset ultrafast \
+        /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
+}
+
 case "$1" in
     -bspres)
         bspc wm -r &
@@ -53,7 +63,7 @@ case "$1" in
         fi
         ;;
     -ewwclose)
-        eww kill
+        pkill eww
         bspc config top_padding 0
         ;;
     -ewwhalt)
@@ -85,16 +95,7 @@ case "$1" in
         nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
         ;;
     -record)
-        record() {
-            ffmpeg \
-                -f x11grab \
-                -framerate 60 \
-                -video_size 1920x1080 \
-                -i $DISPLAY \
-                -preset ultrafast \
-                /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
-        }
-        record
+        record "60"
         ;;
     -monitor)
         report "gnome-system-monitor"

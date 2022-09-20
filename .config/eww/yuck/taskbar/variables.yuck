@@ -9,6 +9,7 @@
 (defvar sticky_var "")
 (defvar layout_var "")
 (defvar ssid "")
+(defvar net_device "")
 
 ; Dummy variables
 (defvar cpu_load "0")

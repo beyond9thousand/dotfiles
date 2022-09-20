@@ -1,11 +1,14 @@
 #!/usr/bin/env zsh
 
+device=$(eww get net_device)
+device_path="/sys/class/net/$device/statistics/"
+
 current_speed (){
-    rx1=$(cat /sys/class/net/wlo1/statistics/rx_bytes)
-    tx1=$(cat /sys/class/net/wlo1/statistics/tx_bytes)
+    rx1=$(cat ${device_path}rx_bytes)
+    tx1=$(cat ${device_path}tx_bytes)
     sleep 1
-    rx2=$(cat /sys/class/net/wlo1/statistics/rx_bytes)
-    tx2=$(cat /sys/class/net/wlo1/statistics/tx_bytes)
+    rx2=$(cat ${device_path}rx_bytes)
+    tx2=$(cat ${device_path}tx_bytes)
 
     d_speed=$(((rx2 - rx1) / 1024))
     u_speed=$(((tx2 - tx1) / 1024))
@@ -35,7 +38,7 @@ config_connection (){
         done
 
         echo "true"
-        eww update ssid=$ssid
+        eww update ssid=$ssid; eww update net_device=$device
     else
         echo "false"
     fi
