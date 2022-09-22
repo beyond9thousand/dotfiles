@@ -24,8 +24,8 @@ for i in "${web[@]}"; do
 done
 
 # workspace 3 (File Managers)
-declare -a filem=(Pcmanfm qBittorrent)
-for i in "${filem[@]}"; do
+declare -a files=(qBittorrent)
+for i in "${files[@]}"; do
 	bspc rule -a "$i" desktop='^3' follow=on focus=on
 done
 
@@ -37,13 +37,13 @@ done
 
 # workspace 5 (Media)
 declare -a media=(vlc obs instagram-live-streamer mplayer
-	lxmusic Gimp Gimp-2.10 "VirtualBox Manager")
+	lxmusic Gimp "Gimp-2.10" "VirtualBox Manager")
 for i in "${media[@]}"; do
 	bspc rule -a "$i" desktop='^5' follow=on focus=on
 done
 
 # workspace 7 (Settings)
-declare -a settings=(Lxappearance Lxtask Lxrandr Arandr
+declare -a settings=(Lxtask Lxrandr Arandr
 	Xfce4-settings-manager Xfce4-power-manager-settings
 	octopi)
 for i in "${settings[@]}"; do
@@ -62,12 +62,12 @@ declare -a floats=(Alafloat Lxappearance Arandr
 	Viewnior Nm-connection-editor Matplotlib
 	Yad Gnome-disks SimpleScreenRecorder PureRef
 	Font-manager Gnome-system-monitor Thunar
-	Gcolor3 flameshot Blueberry.py Pavucontrol
+	Gcolor3 flameshot "Blueberry.py" Pavucontrol
 	jamesdsp Nvidia-settings Nitrogen Peazip
 	Xfce4-appearance-settings Xfce4-mouse-settings
-	parsecd Galculator com.github.joseexposito.touche
+	parsecd Galculator "com.github.joseexposito.touche"
 	XVkbd usbguard-applet-qt instagram-live-streamer
-	Mumble qimgv Peek mpv)
+  Mumble qimgv Peek mpv "Kvantum Manager")
 for i in "${floats[@]}"; do
 	bspc rule -a "$i" manage=on state=floating follow=on focus=on center=true
 done
