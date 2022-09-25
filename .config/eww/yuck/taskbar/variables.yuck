@@ -38,7 +38,6 @@
 (defvar calendar_check false)
 
 ; Psuedo variables
-(defpoll cpu_temp :interval "15s" "./shell/cpu_state.zsh -t &")
 (defpoll time :interval "1s" `date '+%I:%M %p' &`)
 (defpoll usage_toggle
   :interval "0s"

@@ -5,6 +5,7 @@
 (deflisten mic_current_vol "./shell/sound_state.zsh -mic_vol")
 (deflisten window_title "./shell/window_title_fetch.zsh")
 (deflisten connect "./shell/network_manager.zsh -m") 
+(deflisten cpu_temp "./shell/cpu_state.zsh -t")
 
 ; Psuedo subscribers
 (deflisten muted "./shell/sound_state.zsh -s")

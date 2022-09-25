@@ -1,6 +1,7 @@
 #!/bin/bash
 
 lock="/tmp/light-toggle.lock"
+PID=$(pgrep -f "/bin/bash\ $XDG_CONFIG_HOME/bspwm/hooks/b9k-media-detect.sh")
 # on=00008c
 
 if [[ -e $lock ]]; then
@@ -14,6 +15,7 @@ else
 		sleep 1
 	done
 
+	kill -STOP "$PID"
 	dunstify -C 650
 	xbacklight -set 0
 	# msi-perkeyrgb -d
@@ -21,9 +23,10 @@ else
 	while true; do
 		sleep 1
 		if [[ $(xprintidle) -lt 1000 ]]; then
+			kill -CONT "$PID"
 			xbacklight -time 400 -set "$og"
 			# msi-perkeyrgb -s "$on"
-			dunstify -i screensaver "Screensaver" "Welcome back"
+			dunstify --replace=650 -i screensaver "Screensaver" "Welcome back"
 			rm "$lock"
 			exit
 		fi
