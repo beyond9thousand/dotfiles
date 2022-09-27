@@ -26,7 +26,7 @@ super + {k,Return}
 
 # GUI System monitor
 ctrl + shift + Escape
-  gnome-system-monitor
+  control_box -monitor &
 
 # Rofi app launcher
 alt + F1
@@ -34,7 +34,7 @@ alt + F1
 
 # Rofi menu launcher(s)
 super + {x,n,d}
-  {key-power,rofi-net,$(sh ~/Scripts/Modules/runmenu.sh)}
+  {key-power,rofi-net,$HOME/Scripts/Modules/runmenu.sh}
 
 # Launch Applications
 super + shift + {f,g,c,d,s,v}

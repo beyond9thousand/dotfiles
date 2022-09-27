@@ -32,6 +32,7 @@ while true; do
 	if [[ $stage2 = true && $idle = true && $idletime -gt $offtime ]]; then
 		if [[ ! -e $lock ]]; then
 			xbacklight -set 0
+      dunstify -C 650
 		fi
 		stage2=false
 	fi

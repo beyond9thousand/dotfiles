@@ -3,7 +3,7 @@
 monitor="/sys/class/backlight/intel_backlight/actual_brightness"
 nit_current=$(<"$monitor")
 
-function nit_percent () {
+nit_percent(){
     echo $((nit_current * 100 / 120000))
 }
 

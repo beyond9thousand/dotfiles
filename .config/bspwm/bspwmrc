@@ -18,14 +18,14 @@ nitrogen --restore &
 xsetroot -cursor_name left_ptr &
 
 # Set configurations
-for i in "$HOME"/.config/bspwm/configs/*.sh; do
+for i in "$XDG_CONFIG_HOME"/bspwm/configs/*.sh; do
 	{
 		eval "$i" &
 	}
 done
 
 # Set rules
-for i in "$HOME"/.config/bspwm/rules/*.sh; do
+for i in "$XDG_CONFIG_HOME"/bspwm/rules/*.sh; do
 	{
 		eval "$i" &
 	}
@@ -44,7 +44,7 @@ if [[ ! $(pidof xfce-polkit) ]]; then
 fi
 
 # Delete existing hooks and restart them
-for i in "$HOME"/.config/bspwm/hooks/*; do
+for i in "$XDG_CONFIG_HOME"/bspwm/hooks/*; do
 	{
 		pkill -9 -f "$i"
 		eval "$i" &
@@ -52,7 +52,7 @@ for i in "$HOME"/.config/bspwm/hooks/*; do
 done
 
 # Scripts required by eww-taskbar
-for i in "$HOME"/.config/bspwm/eww_startup/*; do
+for i in "$XDG_CONFIG_HOME"/bspwm/eww_startup/*; do
 	{
 		pkill -9 -f "$i"
 		eval "$i" &
@@ -60,4 +60,4 @@ for i in "$HOME"/.config/bspwm/eww_startup/*; do
 done
 
 # Autostart apps
-eval "$HOME/.config/bspwm/autostart.sh" &
+eval "$XDG_CONFIG_HOME/bspwm/autostart.sh" &

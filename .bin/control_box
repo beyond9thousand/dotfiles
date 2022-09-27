@@ -86,6 +86,7 @@ case "$1" in
         ;;
     -soundres)
         systemctl --user restart pipewire.service pipewire-pulse.socket
+        sleep 0.2
         control_box -ewwreload; dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
         ;;
     -wclass)
