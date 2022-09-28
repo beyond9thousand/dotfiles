@@ -51,13 +51,5 @@ for i in "$XDG_CONFIG_HOME"/bspwm/hooks/*; do
 	}
 done
 
-# Scripts required by eww-taskbar
-for i in "$XDG_CONFIG_HOME"/bspwm/eww_startup/*; do
-	{
-		pkill -9 -f "$i"
-		eval "$i" &
-	}
-done
-
 # Autostart apps
 eval "$XDG_CONFIG_HOME/bspwm/autostart.sh" &

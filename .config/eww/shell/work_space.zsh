@@ -11,13 +11,17 @@ wrap() {
     echo "{$onclick,$text,$class}"
 }
 
+query() {
+    bspc query -D -d $1 --names | grep -q "$index"
+}
+
 # Pack current values into the structure with json format
 pack() {
     buffer="["
     seq ${#workspaces} | while read -r index; do
-        if bspc query -D -d focused --names | grep -q "$index"; then
+        if query ".focused"; then
             buffer+="$(wrap "bspc desktop -f $index" "" "focused_workspace"),"
-        elif bspc query -D -d .occupied --names | grep -q "$index"; then
+        elif query ".occupied"; then
             buffer+="$(wrap "bspc desktop -f $index" "" "occupied_workspace phosphor"),"
         else
             buffer+="$(wrap "bspc desktop -f $index" "" "empty_workspace phosphor"),"

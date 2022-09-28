@@ -45,6 +45,9 @@
       :onhoverlost "eww update right_hover=false"
    (box
      :space-evenly false
+
+    (lock_indicator)
+
     (notif_bell
       :notif_switch "./shell/notif_state.zsh -s &")
 

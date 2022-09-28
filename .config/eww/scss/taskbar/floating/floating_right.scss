@@ -13,8 +13,14 @@
 }
 
 .speed_box {
-  padding: 0px 6px;
+  padding: 0px 0px;
   margin: 0px;
+}
+
+.lock_status {
+  font-size: 28px;
+  padding: 0px 6px;
+  color: $blue;
 }
 
 .notif_bell {

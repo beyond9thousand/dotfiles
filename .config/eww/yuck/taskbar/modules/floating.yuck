@@ -6,8 +6,19 @@
 ;                               /____/   
 ;
 
+(defwidget lock_indicator []
+  (revealer
+    :reveal "${lock_key.caps_lock == "on" ? "true" :
+               lock_key.num_lock == "off" ? "true" : "false" }"
+           (box
+             :space-evenly false :spacing 0 :class "phosphor lock_status"
+               (label
+                 :text "${lock_key.caps_lock == "on" ? "節" : "" }")
+               (label
+                 :text "${lock_key.num_lock == "off" ? "ﳌ" : "" }"))))
+
 (defwidget bat_indicator [bat_critical bat_low bat_normal bat_medium bat_full battery
-                          bat_status bat_charging]
+                                bat_status bat_charging]
   (box 
     :space-evenly false :spacing 0 :class "bat_bound"
     (label 

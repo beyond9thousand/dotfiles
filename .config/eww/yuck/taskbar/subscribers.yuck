@@ -4,6 +4,7 @@
 (deflisten nit_level "./shell/nit_state.zsh")
 (deflisten mic_current_vol "./shell/sound_state.zsh -mic_vol")
 (deflisten window_title "./shell/window_title_fetch.zsh")
+(deflisten lock_key "./shell/lock_key.zsh")
 (deflisten connect "./shell/network_manager.zsh -m") 
 (deflisten cpu_temp "./shell/cpu_state.zsh -t")
 
