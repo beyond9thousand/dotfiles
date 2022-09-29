@@ -2,7 +2,7 @@
 
 alias _update='eww update'
 
-eww_toggle(){
+eww_act(){
     local widgets=($(eww windows | grep -i '*' | tr -d '*'))
     seq ${#widgets} | while read -r index; do
         xdo $1 -N eww-"${widgets[$index]}"
@@ -17,14 +17,15 @@ current_state() {
         elif [[ $screen == "floating" && $state == "on" ]]; then
             _update layout_var="כּ"
             _update layout_hover=true
-        elif [[ $screen == "fullscreen" && $state == "on" ]]; then
-            xdo lower -N Plank
-            eww_toggle "lower"
-        elif [[ $screen == "fullscreen" && $state == "off" ]]; then
-            xdo raise -N Plank
-            eww_toggle "raise"
         else
             _update layout_hover=false
+        fi
+        if [[ $screen == "fullscreen" && $state == "on" ]]; then
+            xdo lower -N Plank
+            eww_act "lower"
+        elif [[ $screen == "fullscreen" && $state == "off" ]]; then
+            xdo raise -N Plank
+            eww_act "raise"
         fi
     done
 }
@@ -64,10 +65,10 @@ query_state() {
 query_screen() {
     if [[ ! $(bspc query -N -n focused.fullscreen) ]]; then
         xdo raise -N Plank
-        eww_toggle "raise"
+        eww_act "raise"
     else
         xdo lower -N Plank
-        eww_toggle "lower"
+        eww_act "lower"
     fi
 }
 

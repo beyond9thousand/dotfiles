@@ -2,8 +2,8 @@
 
 alias _update='eww update'
 
-device=$(eww get net_device)
-device_path="/sys/class/net/$device/statistics/"
+DEVICE=$(eww get net_device)
+device_path="/sys/class/net/$DEVICE/statistics/"
 
 current_speed (){
     rx1=$(cat ${device_path}rx_bytes)
@@ -35,12 +35,12 @@ config_connection (){
     if [[ $(nmcli | grep -i "connected to" | awk '{print$NF}') ]]; then
         net_config=($(nmcli device | grep -w connected | awk '{print$1" "$NF}'))
         seq ${#net_config} | while read -r index; do
-            device=$(print "${net_config[1]}")
-            ssid=$(print "${net_config[2]}")
+            DEVICE=$(print "${net_config[1]}")
+            SSID=$(print "${net_config[2]}")
         done
 
         echo "true"
-        _update ssid=$ssid; _update net_device=$device
+        _update ssid=$SSID; _update net_device=$DEVICE
     else
         echo "false"
     fi
@@ -51,7 +51,7 @@ monitor_net (){
         if [[ $line == "Connectivity is now 'full'" ]]; then
             echo "true"
             config_connection
-            _update ssid=$ssid
+            _update ssid=$SSID
         elif [[ $line == "Connectivity is now 'none'" ]]; then
             echo "false"
         fi

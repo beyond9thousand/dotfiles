@@ -7,15 +7,18 @@
 ;
 
 (defwidget lock_indicator []
-  (revealer
-    :reveal "${lock_key.caps_lock == "on" ? "true" :
-               lock_key.num_lock == "off" ? "true" : "false" }"
-           (box
-             :space-evenly false :spacing 0 :class "phosphor lock_status" 
-               (label
-                 :text "${lock_key.caps_lock == "on" ? "節" : "" }")
-               (label
-                 :text "${lock_key.num_lock == "off" ? "ﳌ" : "" }"))))
+  (box
+        :space-evenly false :spacing 0 :class "phosphor lock_status" 
+    (revealer
+      :transition "slideleft" :duration "0.2s"
+      :reveal "${lock_key.caps_lock == "on" ? "true" : "false" }"
+            (label
+              :text "節"))
+    (revealer
+      :transition "slideleft" :duration "0.2s"
+      :reveal "${lock_key.num_lock == "off" ? "true" : "false" }"
+              (label
+                :text "ﳌ"))))
 
 (defwidget bat_indicator [bat_critical bat_low bat_normal bat_medium bat_full battery
                                 bat_status bat_charging]
