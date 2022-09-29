@@ -6,10 +6,6 @@
 # /_/            /____/                
 #
 
-autoload -Uz compinit
-compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
-_comp_options+=(globdots) # lets you tab complete hidden files by default
-
 zinit for \
   light-mode \
   romkatv/powerlevel10k \
@@ -22,3 +18,9 @@ zinit for \
   MichaelAquilina/zsh-auto-notify \
   OMZP::git \
   OMZP::vi-mode 
+
+autoload -Uz compinit
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
+_comp_options+=(globdots) # lets you tab complete hidden files by default
+
+zinit cdreplay -q

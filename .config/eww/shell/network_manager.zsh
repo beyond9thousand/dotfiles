@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+alias _update='eww update'
+
 device=$(eww get net_device)
 device_path="/sys/class/net/$device/statistics/"
 
@@ -25,8 +27,8 @@ current_speed (){
         u_unit="MB/s"
     fi
 
-    eww update u_speed="$u_speed$u_unit"
-    eww update d_speed="$d_speed$d_unit"
+    _update u_speed="$u_speed$u_unit"
+    _update d_speed="$d_speed$d_unit"
 }
 
 config_connection (){
@@ -38,7 +40,7 @@ config_connection (){
         done
 
         echo "true"
-        eww update ssid=$ssid; eww update net_device=$device
+        _update ssid=$ssid; _update net_device=$device
     else
         echo "false"
     fi
@@ -49,7 +51,7 @@ monitor_net (){
         if [[ $line == "Connectivity is now 'full'" ]]; then
             echo "true"
             config_connection
-            eww update ssid=$ssid
+            _update ssid=$ssid
         elif [[ $line == "Connectivity is now 'none'" ]]; then
             echo "false"
         fi
@@ -65,3 +67,5 @@ case "$@" in
         current_speed
         ;;
 esac
+
+unalias _update
