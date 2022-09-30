@@ -35,7 +35,7 @@
 (defvar right_hover false)
 
 ;Default window states
-(defvar calendar_check false)
+(defvar calendar_win_check false)
 
 ; Psuedo variables
 (defpoll time :interval "1s" `date '+%I:%M %p' &`)

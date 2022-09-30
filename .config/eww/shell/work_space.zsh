@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+source $XDG_CONFIG_HOME/eww/init.zsh
+
 # Find and store total number of workspaces in an array
 workspaces=($(bspc query -D --names))
 
@@ -36,5 +38,5 @@ pack() {
 pack
 bspc subscribe desktop node_transfer | while read -r _; do
     pack
-    control_box -eww_idle &
+    _quit &
 done

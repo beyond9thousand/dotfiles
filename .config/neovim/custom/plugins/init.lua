@@ -5,7 +5,7 @@
 --  / .___/_/\__,_/\__, /_/_/ /_/____/
 -- /_/            /____/
 --
-local override = require "custom.plugins.override"
+local override = require("custom.plugins.override")
 
 return {
 	-- startup dashboard
@@ -43,19 +43,19 @@ return {
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
-    config = function()
-      vim.g["mkdp_browser"] = "firefox"
-    end,
+		config = function()
+			vim.g["mkdp_browser"] = "firefox"
+		end,
 	},
 
 	["williamboman/mason-lspconfig.nvim"] = {
 		after = "mason.nvim",
-    override_options = override.mason_lspconfig,
+		override_options = override.mason_lspconfig,
 	},
 
 	["williamboman/mason.nvim"] = {
 		event = "VimEnter",
-    override_options = override.mason,
+		override_options = override.mason,
 	},
 
 	["neovim/nvim-lspconfig"] = {

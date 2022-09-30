@@ -1,18 +1,6 @@
 #!/usr/bin/env zsh
 
-var="calendar_win"
-
-calendar_toggle() {
-    if [[ $(eww windows | grep "*$var") ]]; then
-        eww update calendar_check=false
-        xdo hide -N eww-calendar_win
-        sleep 0.2
-        eww close calendar_win
-    else
-        eww open calendar_win
-        eww update calendar_check=true
-    fi
-}
+source $XDG_CONFIG_HOME/eww/init.zsh
 
 calendar_close(){
     if [[ $(eww windows | grep "*$var") ]]; then
@@ -33,10 +21,10 @@ calendar_date(){
 
 case "$1" in
     -t | --toggle)
-        calendar_toggle
+        _pop "calendar_win"
         ;;
     -close)
-        calendar_close
+        _quit "calendar_win"
         ;;
     -day)
         calendar_day

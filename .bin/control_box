@@ -29,9 +29,6 @@ close(){
     for index in "${list[@]}"; do
         if [[ $(eww windows | grep "*$index" ) != '' ]]; then
             check_var="${index}_check"
-            if [[ $index == "calendar_win" ]]; then
-                check_var="${index::-4}_check"
-            fi
             eww update $check_var=false
             xdo hide -N eww-$index
             sleep 0.2

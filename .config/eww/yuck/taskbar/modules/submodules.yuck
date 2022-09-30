@@ -98,7 +98,7 @@
 
 (defwidget date [calendar_pop]
  (eventbox 
-   :class "${calendar_check == false ? "date" : "date_pressed" }" 
+   :class "${calendar_win_check == false ? "date" : "date_pressed" }" 
    :onclick calendar_pop :cursor "pointer" 
    :onhover "eww update calendar_hover=true &"
    :onhoverlost "eww update calendar_hover=false &"

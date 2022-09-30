@@ -8,3 +8,4 @@
 
 (include "./yuck/taskbar/init.yuck")
 (include "./yuck/calendar/init.yuck")
+(include "./yuck/slab/init.yuck")
