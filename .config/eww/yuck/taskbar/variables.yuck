@@ -41,7 +41,6 @@
 (defpoll time :interval "1s" `date '+%I:%M %p' &`)
 (defpoll usage_toggle
   :interval "0s"
-  :initial "./shell/usage_data.zsh &"
   :run-while usage_hover "./shell/usage_data.zsh &")
 (defpoll speed_toggle
   :interval "0s" 

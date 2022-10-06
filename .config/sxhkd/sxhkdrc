@@ -24,6 +24,9 @@ super + Escape
 super + {k,Return}
   {sxhkd-cheat,alacritty}
 
+super + backslash
+  control_box -sloppy
+
 # GUI System monitor
 ctrl + shift + Escape
   control_box -monitor &

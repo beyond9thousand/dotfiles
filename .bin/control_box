@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 
+
 report(){
+    alias _pid="ps o cmd p"
+
     if [[ ! $(pidof "$1") ]]; then
         dunstify -C 999
         $1 &
@@ -8,7 +11,7 @@ report(){
         node_focus=($(bspc query --desktop focused.focused --nodes))
         seq ${#node_focus} | while read -r index; do
             node_id=$(print "${node_focus[$index]}")
-            if [[ $(ps p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "$1" ]]; then
+            if [[ $(_pid $(xdo pid $node_id) 2>/dev/null | awk '(NR==2)') == "$1" ]]; then
                 bspc node $node_id -c
                 dunstify -r 999 -t 5000 -u critical "Report" "Closed $1"
                 exit
@@ -17,34 +20,20 @@ report(){
         node_total=($(bspc query --desktop '.!focused' --nodes))
         seq ${#node_total} | while read -r index; do
             node_id=$(print "${node_total[$index]}")
-            if [[ $(ps p $(xdo pid $node_id) -o cmd | awk '(NR==2)') == "$1" ]]; then
+            if [[ $(_pid $(xdo pid $node_id) 2>/dev/null | awk '(NR==2)') == "$1" ]]; then
                 bspc node $node_id --to-desktop focused.focused
             fi
         done
     fi
+
+    unalias _pid
 }
 
-close(){
-    list=(calendar_win)
-    for index in "${list[@]}"; do
-        if [[ $(eww windows | grep "*$index" ) != '' ]]; then
-            check_var="${index}_check"
-            eww update $check_var=false
-            xdo hide -N eww-$index
-            sleep 0.2
-            eww close "$index"
-        fi
-    done
-}
-
-record() {
-    ffmpeg \
-        -f x11grab \
-        -framerate $1 \
-        -video_size 1920x1080 \
-        -i $DISPLAY \
-        -preset ultrafast \
-        /tmp/Recordings/"$(date +%Y%m%d_%H%M%S)".mp4
+_terminal_float(){
+    _condition="$(slop 2>/dev/null)"
+    if [[ $_condition != "" ]]; then
+        bspc rule -a Alacritty -o state=floating rectangle="${_condition}" && alacritty
+    fi
 }
 
 case "$1" in
@@ -60,7 +49,7 @@ case "$1" in
         fi
         ;;
     -ewwclose)
-        pkill eww
+        killall eww
         bspc config top_padding 0
         ;;
     -ewwhalt)
@@ -92,16 +81,13 @@ case "$1" in
     -wallres)
         nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
         ;;
-    -record)
-        record "60"
-        ;;
     -monitor)
         report "gnome-system-monitor"
         ;;
     -pavu_toggle)
         report "pavucontrol"
         ;;
-    -eww_idle)
-        close
+    -sloppy)
+        _terminal_float
         ;;
 esac
