@@ -12,3 +12,4 @@ autocmd({ "BufEnter", "BufWinEnter" }, {
 	command = "setfiletype conf",
 })
 
+vim.api.nvim_command('set mousemodel=extend')

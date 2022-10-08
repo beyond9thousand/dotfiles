@@ -1,5 +1,34 @@
 #!/usr/bin/env zsh
 
+_total="/var/log/update_total.log"
+_user_dir="XDG_RUNTIME_DIR=/run/user/1000"
+_user="beyond9thousand"
+
+_check_total(){
+    eww update total=$(awk '{print}' $_total)
+}
+
+_update_count(){
+    declare -a _items=()
+    while read -r line; do
+        _items+=("$line")
+    done < <(checkupdates)
+
+    seq ${#_items} | while read -r index; do
+        _name="${_items[$index]}"
+        if [[ $(echo $_name | grep "zen") ]]; then
+            sudo -u $_user $_user_dir dunstctl close-all
+            sudo -u $_user $_user_dir dunstify -r 404 -u critical \
+                "Report" "Kernel updates available"
+        fi
+    done
+
+    if [[ ${#_items[@]} -gt 0 ]]; then
+        echo "${#_items[@]}" > $_total
+    else
+        echo "0" > $_total
+    fi
+}
 
 report(){
     alias _pid="ps o cmd p"
@@ -76,7 +105,8 @@ case "$1" in
         control_box -ewwreload; dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
         ;;
     -wclass)
-        dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' | xclip -sel c -f)"
+        dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' \
+          | xclip -sel c -f)"
         ;;
     -wallres)
         nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
@@ -89,5 +119,13 @@ case "$1" in
         ;;
     -sloppy)
         _terminal_float
+        ;;
+    -updates)
+        _update_count
+        ;;
+    *)
+        dunstctl close-all
+        dunstify -u critical -r 699 "Control Box" "Unknown option"
+        echo "Unknown option"
         ;;
 esac

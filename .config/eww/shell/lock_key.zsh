@@ -20,5 +20,5 @@ xkb -s1 | while read _ caps_lock num_lock; do
             paplay $_sound/device-removed.oga &
         fi
     fi
-    ((_count++))
+    _count=1
 done

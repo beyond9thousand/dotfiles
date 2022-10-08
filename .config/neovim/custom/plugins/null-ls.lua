@@ -43,7 +43,7 @@ M.setup = function()
 
 		-- format with keymap
 		on_attach = function(client)
-			if client.resolved_capabilities.document_formatting then
+			if client.supports_method("textDocument/formatting") then
 				vim.keymap.set(
 					"n",
 					"<space>fm",
