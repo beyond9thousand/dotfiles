@@ -8,24 +8,23 @@
 #           /_/
 #
 
+_config="$XDG_CONFIG_HOME/bspwm"
+
 # Restore wallpaper
 nitrogen --restore &
-
-# Launch polybar, NOT IN USE
-# bash "$HOME/.config/bspwm/polybar/launch.sh" &
 
 # Fix the pointer for BSPWM
 xsetroot -cursor_name left_ptr &
 
 # Set configurations
-for i in "$XDG_CONFIG_HOME"/bspwm/configs/*.sh; do
+for i in "$_config"/configs/*.sh; do
 	{
 		eval "$i" &
 	}
 done
 
 # Set rules
-for i in "$XDG_CONFIG_HOME"/bspwm/rules/*.sh; do
+for i in "$_config"/rules/*.sh; do
 	{
 		eval "$i" &
 	}
@@ -44,7 +43,7 @@ if [[ ! $(pidof xfce-polkit) ]]; then
 fi
 
 # Delete existing hooks and restart them
-for i in "$XDG_CONFIG_HOME"/bspwm/hooks/*; do
+for i in "$_config"/hooks/*; do
 	{
 		pkill -9 -f "$i"
 		eval "$i" &
@@ -52,4 +51,4 @@ for i in "$XDG_CONFIG_HOME"/bspwm/hooks/*; do
 done
 
 # Autostart apps
-eval "$XDG_CONFIG_HOME/bspwm/autostart.sh" &
+eval "$_config/autostart.sh" &

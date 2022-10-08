@@ -3,22 +3,31 @@
 _sound="/usr/share/sounds/Pop/stereo/notification"
 _count=0
 
-xkb -s1 | while read _ caps_lock num_lock; do
-    old_val=$num_lock
-    if [[ $num_lock == "off" && $old_val != $new_val ]]; then
-        new_val=$old_val
-        dunstify -r 696 -t 5000 -u critical "Report" "Numlock was turned OFF"
-    elif [[ $num_lock == "on" ]]; then
-        new_val=$old_val
-        dunstify -C 696
-    fi
-    echo "{\"caps_lock\":\"$caps_lock\",\"num_lock\":\"$num_lock\"}"
-    if [[ $_count != 0 ]]; then
-        if [[ $caps_lock == "on" || $num_lock == "off" ]]; then
-            paplay $_sound/device-added.oga &
+xkb -s1 | while read _ CAPS NUM; do
+    num_old=$NUM
+    caps_old=$CAPS
+
+
+    if [[ $num_old != $num_new || $caps_old != $caps_new ]]; then
+        num_new=$num_old
+        caps_new=$caps_old
+
+        if [[ $NUM == "off" ]]; then
+            dunstify -r 696 -t 5000 -u critical "Report" "Numlock was turned OFF"
         else
-            paplay $_sound/device-removed.oga &
+            dunstify -C 696
+        fi
+
+        echo "{\"caps_lock\":\"$CAPS\",\"num_lock\":\"$NUM\"}"
+
+        if [[ $_count != 0 ]]; then
+            if [[ $CAPS == "on" || $NUM == "off" ]]; then
+                paplay $_sound/device-added.oga &
+            else
+                paplay $_sound/device-removed.oga &
+            fi
         fi
     fi
+
     _count=1
 done

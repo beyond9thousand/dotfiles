@@ -1,6 +1,11 @@
 #!/usr/bin/env zsh
 
 monitor="/sys/class/backlight/intel_backlight/actual_brightness"
+
+_watchdog(){
+    inotifywait -q -m -e modify "$monitor" --format "%e"
+}
+
 nit_current=$(<"$monitor")
 
 nit_percent(){
@@ -9,7 +14,7 @@ nit_percent(){
 
 nit_percent
 
-inotifywait -q -m -e modify "$monitor" --format "%e" | while read -r _; do
+_watchdog | while read -r _; do
     nit_current=$(<"$monitor")
     nit_percent
 done

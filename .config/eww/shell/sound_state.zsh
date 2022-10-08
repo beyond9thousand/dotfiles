@@ -38,14 +38,16 @@ mic_volume (){
     done
 }
 
+_filter(){
+    stdbuf -oL -eL uniq | cat
+}
+
 case "$1" in
     -v | --volume)
-        vol_master "--get-volume" "sink" | \
-            stdbuf -oL -eL uniq | cat
+        vol_master "--get-volume" "sink" | _filter
         ;;
     -s | --state)
-        vol_master "--get-mute" "sink" | \
-            stdbuf -oL -eL uniq | cat
+        vol_master "--get-mute" "sink" | _filter
         ;;
     -mc|--mic_check)
         mic_state
@@ -60,6 +62,6 @@ case "$1" in
         pamixer --source $mic_source -d 5
         ;;
     -mic_vol)
-        mic_volume | stdbuf -oL -eL uniq | cat
+        mic_volume | _filter
         ;;
 esac
