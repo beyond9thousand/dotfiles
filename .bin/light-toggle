@@ -25,10 +25,10 @@ else
 		sleep 1
 		if [[ $(xprintidle) -lt 1000 ]]; then
 			kill -CONT "$PID"
-			xbacklight -time 400 -set "$og"
-			# msi-perkeyrgb -s "$on"
 			dunstctl set-paused false
 			dunstify --replace=650 -i screensaver "Screensaver" "Welcome back"
+			xbacklight -time 400 -set "$og"
+			# msi-perkeyrgb -s "$on"
 			rm "$lock"
 			exit
 		fi

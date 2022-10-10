@@ -17,9 +17,6 @@ super + Escape
 ~button3
   xqp 0 $(xdo id -N Bspwm -n root) && jgmenu_run 
 
-# ~button1
-#   control_box -eww_idle &
-
 # Cheatsheet, terminal
 super + {k,Return}
   {sxhkd-cheat,alacritty}
@@ -38,14 +35,6 @@ alt + F1
 # Rofi menu launcher(s)
 super + {x,n,d}
   {key-power,rofi-net,$HOME/Scripts/Modules/runmenu.sh}
-
-# Launch Applications
-super + shift + {f,g,c,d,s,v}
-  {thunar,geany,code,discord,spotify,virtualbox}
-
-# Launch firefox
-super + {w}
-  {firefox}
 
 # Randomize wallpaper
 super + shift + w

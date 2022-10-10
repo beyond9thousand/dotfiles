@@ -67,7 +67,7 @@ font:
 
   bold:
     family: JetBrainsMono Nerd Font
-    style: ExtraBold
+    style: Extra Bold
 
   italic:
     family: JetBrainsMono Nerd Font
@@ -75,7 +75,7 @@ font:
 
   bold_italic:
     family: JetBrainsMono Nerd Font
-    style: ExtraBold Italic
+    style: Extra Bold Italic
 
   size: 7.5
 
