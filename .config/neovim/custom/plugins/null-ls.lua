@@ -48,7 +48,7 @@ M.setup = function()
 					"n",
 					"<space>fm",
 					vim.schedule_wrap(function()
-						vim.lsp.buf.formatting_sync()
+						vim.lsp.buf.format()
 					end),
 					{ desc = "lsp formatting" }
 				)
