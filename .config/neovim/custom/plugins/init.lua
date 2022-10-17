@@ -39,6 +39,10 @@ return {
 
 	["ggandor/lightspeed.nvim"] = {},
 
+	["nvim-telescope/telescope.nvim"] = {
+		override_options = override.telescope,
+	},
+
 	["iamcco/markdown-preview.nvim"] = {
 		run = function()
 			vim.fn["mkdp#util#install"]()
