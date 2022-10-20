@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-mic_source=$(pactl info | grep "Default Source" | awk '{print$3}')
+_MIC=$(pactl info | grep "Default Source" | awk '{print$3}')
 
 vol_master(){
     pamixer ${1}
@@ -12,15 +12,13 @@ vol_master(){
 }
 
 mic_state(){
-    if [[ $(amixer get Capture | grep -i "\[on]") ]]; then
-        echo "false" | awk '{print}'
-    else
-        echo "true" | awk '{print}'
-    fi
+    pamixer --source $_MIC --get-mute | awk '{print}'
 }
 
 mic_toggle() {
-    if [[ $(amixer get Capture | grep -i "\[on]") ]]; then
+    _PASS=$(mic_state)
+
+    if [[ $_PASS == "false" ]]; then
         eww update mic_initial="true"
         pactl set-source-mute @DEFAULT_SOURCE@ true
     else
@@ -30,11 +28,11 @@ mic_toggle() {
 }
 
 mic_volume (){
-    pamixer --source $mic_source --get-volume
+    pamixer --source $_MIC --get-volume
     pactl subscribe |
     grep --line-buffered "Event 'change' on source " |
     while read -r _; do
-        pamixer --source $mic_source --get-volume
+        pamixer --source $_MIC --get-volume
     done
 }
 
@@ -56,10 +54,10 @@ case "$1" in
         mic_toggle
         ;;
     -mic_up)
-        pamixer --source $mic_source -i 5
+        pamixer --source $_MIC -i 5
         ;;
     -mic_down)
-        pamixer --source $mic_source -d 5
+        pamixer --source $_MIC -d 5
         ;;
     -mic_vol)
         mic_volume | _filter

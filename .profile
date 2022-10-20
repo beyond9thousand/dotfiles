@@ -52,6 +52,7 @@ export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export MYPY_CACHE_DIR="$XDG_CACHE_HOME"/mypy
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export ANDROID_HOME="$XDG_DATA_HOME"/android
 
 # Set default mime types
 export TERMINAL="alacritty"
