@@ -1,6 +1,6 @@
 <!-- BADGES -->
 
-<div align="center">
+< div align="center">
 
 [![issues](https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=%23f87070&style=for-the-badge)](https://github.com/beyond9thousand/dotfiles/issues)
 [![size](https://img.shields.io/github/repo-size/beyond9thousand/dotfiles?color=c386c0&style=for-the-badge)](github.com/beyond9thousand/dotfiles)
