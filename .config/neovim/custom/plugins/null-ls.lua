@@ -26,12 +26,10 @@ local sources = {
 	b.diagnostics.markdownlint.with({
 		extra_args = { "--disable MD002 MD006" },
 	}),
-	-- b.diagnostics.shellcheck,
 	b.diagnostics.zsh,
 	b.diagnostics.flake8,
 	b.diagnostics.mypy,
 	b.diagnostics.stylint,
-	-- b.code_actions.shellcheck,
 }
 
 local M = {}
