@@ -1,0 +1,14 @@
+(defwindow slab
+  :geometry
+  (geometry
+    :x "0" :y "0" :width "15%" :height "15%"
+    :anchor "center")
+  (slab_center))
+
+(defwidget slab_center []
+  (box
+    :orientation "h" :class "calendar_box"
+      (progress
+        :class "bat_slab"
+        :width 180
+        :value 50)))

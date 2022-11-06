@@ -46,7 +46,7 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 
 # Brightness controls
 XF86MonBrightness{Up,Down}
-  brightness{ --up, --down}
+  xbacklight -time 0 {+,-} 5
 
 # Flameshot screenshot launcher
 Print
