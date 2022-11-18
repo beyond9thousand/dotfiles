@@ -1,5 +1,6 @@
 <!-- BADGES -->
 
+<base target="_blank" rel="noopener">
 <div align="center">
 
 [![issues](https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=%23f87070&style=for-the-badge)](https://github.com/beyond9thousand/dotfiles/issues)

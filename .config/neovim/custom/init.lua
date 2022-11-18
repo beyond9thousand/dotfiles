@@ -14,17 +14,21 @@ autocmd({ "BufEnter", "BufWinEnter" }, {
 
 vim.opt.mousemodel = "extend"
 
-vim.api.nvim_create_user_command("HtmlPreviewToggle", function(items)
-	local path = vim.fn.fnamemodify(items.args, ":p:h")
-	vim.fn.chdir(path)
+vim.api.nvim_create_user_command("BuildPreview", function()
+	local filename = vim.fn.bufname()
+	local path = vim.fn.fnamemodify(filename, ":h")
 
-	if vim.fn.system("pgrep --full live-server") == "" then
-		vim.api.nvim_command("!live-server --quiet & disown")
-	else
-		vim.fn.system("pgrep --full live-server | xargs kill")
+	if vim.fn.system("pgrep --full retype") ~= "" then
+		vim.fn.system("pgrep --full retype | xargs kill")
 	end
-end, {
-	complete = "file",
-	desc = "Please.",
-	nargs = "?",
-})
+
+	if filename:match("^.+/(.+)$") == "retype.yml" then
+		if vim.fn.getcwd() ~= path then
+			vim.fn.chdir(path)
+		end
+
+		if vim.fn.system("pgrep --full retype") == "" then
+			vim.api.nvim_command("!retype watch & disown")
+		end
+	end
+end, {})

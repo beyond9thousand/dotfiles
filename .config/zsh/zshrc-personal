@@ -20,6 +20,8 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias configr='config rm --cached'
 
 alias god="bash ~/Scripts/Backup/githubgod.sh"
+alias update="bash ~/Scripts/Update/githubsend.sh"
+alias webb="retype watch"
 alias pflix="bspc node -t floating && peerflix -k"
 
 # Quick open neovim
@@ -58,7 +60,7 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -25 | nl" #Re
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -50 | nl"
 alias rm='rm -i'
 alias sxiv='devour sxiv'
-alias update='sudo pacman -Syyu'
+# alias update='sudo pacman -Syyu'
 alias updatefonts='sudo fc-cache -fv'
 alias vlc='devour vlc'
 alias wget=wget -c --hsts-file="$XDG_DATA_HOME/wget-hsts" # continue the download
