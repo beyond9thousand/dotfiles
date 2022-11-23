@@ -28,3 +28,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=fg+:#7aa2f7,bg+:#1a1b26,hl+:#7bc5e4
 --color=info:#afaf87,prompt:#d7005f,pointer:#7aa2f7
 --color=marker:#caaa6a,spinner:#af5fff,header:#659b82'
+
+if [ -d "$HOME/.local/share/yarn/global/node_modules/retypeapp/platforms/linux-x64" ]; then
+  export PATH="$PATH:$HOME/.local/share/yarn/global/node_modules/retypeapp/platforms/linux-x64"
+fi
