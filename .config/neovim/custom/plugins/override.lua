@@ -14,11 +14,18 @@ M.mason = {
 	},
 }
 
+M.treesitter = {
+	ensure_installed = {
+		"typescript",
+	},
+}
+
 M.mason_lspconfig = {
 	ensure_installed = {
 		"sumneko_lua",
 		"bashls",
 	},
+	automatic_installation = true,
 }
 
 M.telescope = {
@@ -26,7 +33,7 @@ M.telescope = {
 		vimgrep_arguments = {
 			"rg",
 			"-L",
-      "--hidden",
+			"--hidden",
 			"--color=never",
 			"--no-heading",
 			"--with-filename",

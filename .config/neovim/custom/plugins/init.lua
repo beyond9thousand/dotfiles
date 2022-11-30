@@ -52,6 +52,10 @@ return {
 		end,
 	},
 
+	["nvim-treesitter/nvim-treesitter"] = {
+		override_options = override.treesitter,
+	},
+
 	["williamboman/mason-lspconfig.nvim"] = {
 		after = "mason.nvim",
 		override_options = override.mason_lspconfig,
