@@ -4,11 +4,11 @@ _total="/var/log/update_total.log"
 _user_dir="XDG_RUNTIME_DIR=/run/user/1000"
 _user="beyond9thousand"
 
-_check_total(){
+_check_total() {
     eww update total=$(awk '{print}' $_total)
 }
 
-_update_count(){
+_update_count() {
     declare -a _items=()
     while read -r line; do
         _items+=("$line")
@@ -24,13 +24,13 @@ _update_count(){
     done
 
     if [[ ${#_items[@]} -gt 0 ]]; then
-        echo "${#_items[@]}" > $_total
+        echo "${#_items[@]}" >$_total
     else
-        echo "0" > $_total
+        echo "0" >$_total
     fi
 }
 
-report(){
+report() {
     alias _pid="ps o cmd p"
 
     if [[ ! $(pidof "$1") ]]; then
@@ -58,7 +58,7 @@ report(){
     unalias _pid
 }
 
-_terminal_float(){
+_terminal_float() {
     _condition="$(slop 2>/dev/null)"
     if [[ $_condition != "" ]]; then
         bspc rule -a Alacritty -o state=floating rectangle="${_condition}" && alacritty
@@ -66,66 +66,67 @@ _terminal_float(){
 }
 
 case "$1" in
-    -bspres)
-        bspc wm -r &
-        ;;
-    -ewwopen)
-        if [[ ! $(pidof eww) ]]; then
-            eww daemon
-        fi
-        if [[ ! $(eww windows | grep "*taskbar") ]]; then
-            eww open taskbar
-        fi
-        ;;
-    -ewwclose)
-        killall eww
-        bspc config top_padding 0
-        ;;
-    -ewwhalt)
-        eww close-all
-        ;;
-    -ewwreload)
-        if [[ $(pidof eww) ]]; then
-            control_box -ewwhalt
-            control_box -ewwopen
-            dunstify -r 888 "EWW" "Taskbar has been reloaded"
-        else
-            dunstify -u critical -r 888 "EWW" "Taskbar is not running"
-        fi
-        ;;
-    -polybres)
-        poly-reset
-        ;;
-    -kbres)
-        pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
-        ;;
-    -soundres)
-        systemctl --user restart pipewire.service pipewire-pulse.socket
-        sleep 0.2
-        control_box -ewwreload; dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
-        ;;
-    -wclass)
-        dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' \
-          | xclip -sel c -f)"
-        ;;
-    -wallres)
-        nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
-        ;;
-    -monitor)
-        report "gnome-system-monitor"
-        ;;
-    -pavu_toggle)
-        report "pavucontrol"
-        ;;
-    -sloppy)
-        _terminal_float
-        ;;
-    -updates)
-        _update_count
-        ;;
-    *)
-        dunstctl close-all
-        dunstify -u critical -r 699 "Control Box" "Unknown option"
-        echo "Unknown option"
-        ;;
+-bspres)
+    bspc wm -r &
+    ;;
+-ewwopen)
+    if [[ ! $(pidof eww) ]]; then
+        eww daemon
+    fi
+    if [[ ! $(eww windows | grep "*taskbar") ]]; then
+        eww open taskbar
+    fi
+    ;;
+-ewwclose)
+    killall eww
+    bspc config top_padding 0
+    ;;
+-ewwhalt)
+    eww close-all
+    ;;
+-ewwreload)
+    if [[ $(pidof eww) ]]; then
+        control_box -ewwhalt
+        control_box -ewwopen
+        dunstify -r 888 "EWW" "Taskbar has been reloaded"
+    else
+        dunstify -u critical -r 888 "EWW" "Taskbar is not running"
+    fi
+    ;;
+-polybres)
+    poly-reset
+    ;;
+-kbres)
+    pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
+    ;;
+-soundres)
+    systemctl --user restart pipewire.service pipewire-pulse.socket
+    sleep 0.2
+    control_box -ewwreload
+    dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
+    ;;
+-wclass)
+    dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' |
+        xclip -sel c -f)"
+    ;;
+-wallres)
+    nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
+    ;;
+-monitor)
+    report "gnome-system-monitor"
+    ;;
+-pavu_toggle)
+    report "pavucontrol"
+    ;;
+-sloppy)
+    _terminal_float
+    ;;
+-updates)
+    _update_count
+    ;;
+*)
+    dunstctl close-all
+    dunstify -u critical -r 699 "Control Box" "Unknown option"
+    echo "Unknown option"
+    ;;
 esac

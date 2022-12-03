@@ -1,7 +1,7 @@
 {
   "security.workspace.trust.untrustedFiles": "open",
   "window.zoomLevel": 1,
-  "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'monospace', monospace",
 
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
@@ -16,9 +16,63 @@
   "editor.wordWrap": "on",
   "vim.handleKeys": {
     "<C-d>": true,
+    "<C-w>": false,
     "<C-s>": false,
-    "<C-z>": false
+    "<C-z>": false,
+    "<C-b>": false
   },
+
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<tab>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<S-tab>"],
+      "commands": ["workbench.action.previousEditor"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "after": [">", "g", "v"]
+    },
+    {
+      "before": ["<"],
+      "after": ["<", "g", "v"]
+    }
+  ],
+  // "vim.leader": "<space>",
+
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -28,5 +82,6 @@
 
   // Color scheme
   "workbench.colorTheme": "One Dark Pro Darker",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "window.confirmBeforeClose": "always"
 }
