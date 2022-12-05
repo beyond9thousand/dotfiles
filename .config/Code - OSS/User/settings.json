@@ -1,6 +1,5 @@
 {
   "security.workspace.trust.untrustedFiles": "open",
-  "window.zoomLevel": 1,
   "editor.fontFamily": "'JetBrainsMono Nerd Font', 'monospace', monospace",
 
   "git.enableSmartCommit": true,
@@ -15,10 +14,13 @@
   },
   "editor.wordWrap": "on",
   "vim.handleKeys": {
-    "<C-d>": true,
+    "<C-d>": false,
     "<C-w>": false,
     "<C-s>": false,
     "<C-z>": false,
+    "<C-j>": false,
+    "<C-k>": false,
+    "<C-q>": false,
     "<C-b>": false
   },
 
@@ -59,6 +61,14 @@
       "before": ["K"],
       "commands": ["lineBreakInsert"],
       "silent": true
+    },
+    {
+      "after": ["leader", "leader", "w"],
+      "before": ["s"]
+    },
+    {
+      "after": ["leader", "leader", "b"],
+      "before": ["<S-s>"]
     }
   ],
   "vim.visualModeKeyBindings": [
@@ -80,8 +90,33 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  // Color scheme
-  "workbench.colorTheme": "One Dark Pro Darker",
+  // eslint configuration
+  "eslint.options": {
+    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
+  },
+  "eslint.validate": [
+    "markdown",
+    // "mdx",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "workbench.startupEditor": "none",
-  "window.confirmBeforeClose": "always"
+  "window.confirmBeforeClose": "always",
+  "workbench.colorTheme": "Material Theme Palenight High Contrast",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.commandPalette.history": 25,
+  "workbench.localHistory.maxFileEntries": 25,
+  "terminal.integrated.shellIntegration.history": 50,
+  "vim.history": 25,
+  "[mdx]": {},
+  "auto-close-tag.SublimeText3Mode": true,
+  "auto-close-tag.fullMode": true,
+  "window.zoomLevel": 1
 }
