@@ -15,9 +15,10 @@
   "editor.wordWrap": "on",
   "vim.handleKeys": {
     "<C-d>": false,
+    "<C-f>": false,
     "<C-w>": false,
     "<C-s>": false,
-    "<C-z>": false,
+    "<C-z>": true,
     "<C-j>": false,
     "<C-k>": false,
     "<C-q>": false,
@@ -28,7 +29,17 @@
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
+
+  // custom vim keybinds
   "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "c", "w"],
+      "commands": ["editor.action.changeAll"]
+    },
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"]
+    },
     {
       "before": ["<leader>", "d"],
       "after": ["d", "d"]
@@ -52,10 +63,6 @@
     {
       "before": ["<leader>", "d"],
       "after": ["d", "d"]
-    },
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
     },
     {
       "before": ["K"],
@@ -118,5 +125,7 @@
   "[mdx]": {},
   "auto-close-tag.SublimeText3Mode": true,
   "auto-close-tag.fullMode": true,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "diffEditor.ignoreTrimWhitespace": false
 }

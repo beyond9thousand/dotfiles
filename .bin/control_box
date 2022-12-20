@@ -66,67 +66,67 @@ _terminal_float() {
 }
 
 case "$1" in
--bspres)
-    bspc wm -r &
-    ;;
--ewwopen)
-    if [[ ! $(pidof eww) ]]; then
-        eww daemon
-    fi
-    if [[ ! $(eww windows | grep "*taskbar") ]]; then
-        eww open taskbar
-    fi
-    ;;
--ewwclose)
-    killall eww
-    bspc config top_padding 0
-    ;;
--ewwhalt)
-    eww close-all
-    ;;
--ewwreload)
-    if [[ $(pidof eww) ]]; then
-        control_box -ewwhalt
-        control_box -ewwopen
-        dunstify -r 888 "EWW" "Taskbar has been reloaded"
-    else
-        dunstify -u critical -r 888 "EWW" "Taskbar is not running"
-    fi
-    ;;
--polybres)
-    poly-reset
-    ;;
--kbres)
-    pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
-    ;;
--soundres)
-    systemctl --user restart pipewire.service pipewire-pulse.socket
-    sleep 0.2
-    control_box -ewwreload
-    dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
-    ;;
--wclass)
-    dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' |
+    -bspres)
+        bspc wm -r &
+        ;;
+    -ewwopen)
+        if [[ ! $(pidof eww) ]]; then
+            eww daemon
+        fi
+        if [[ ! $(eww windows | grep "*taskbar") ]]; then
+            eww open taskbar
+        fi
+        ;;
+    -ewwclose)
+        killall eww
+        bspc config top_padding 0
+        ;;
+    -ewwhalt)
+        eww close-all
+        ;;
+    -ewwreload)
+        if [[ $(pidof eww) ]]; then
+            control_box -ewwhalt
+            control_box -ewwopen
+            dunstify -r 888 "EWW" "Taskbar has been reloaded"
+        else
+            dunstify -u critical -r 888 "EWW" "Taskbar is not running"
+        fi
+        ;;
+    -polybres)
+        poly-reset
+        ;;
+    -kbres)
+        pkill -USR1 -x sxhkd && dunstify --replace=69 -i keyboard "Restarted SXHKD"
+        ;;
+    -soundres)
+        systemctl --user restart pipewire.service pipewire-pulse.socket
+        sleep 0.2
+        control_box -ewwreload
+        dunstify --replace=699 -i audio-speakers "Restarted Pipewire"
+        ;;
+    -wclass)
+        dunstify -i window_list "Find Window Class" "$(xprop WM_CLASS | tr -d '\n' |
         xclip -sel c -f)"
-    ;;
--wallres)
-    nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
-    ;;
--monitor)
-    report "gnome-system-monitor"
-    ;;
--pavu_toggle)
-    report "pavucontrol"
-    ;;
--sloppy)
-    _terminal_float
-    ;;
--updates)
-    _update_count
-    ;;
-*)
-    dunstctl close-all
-    dunstify -u critical -r 699 "Control Box" "Unknown option"
-    echo "Unknown option"
-    ;;
+        ;;
+    -wallres)
+        nitrogen --set-zoom-fill --save --random Pictures/Wallpapers
+        ;;
+    -monitor)
+        report "gnome-system-monitor"
+        ;;
+    -pavu_toggle)
+        report "pavucontrol"
+        ;;
+    -sloppy)
+        _terminal_float
+        ;;
+    -updates)
+        _update_count
+        ;;
+    *)
+        dunstctl close-all
+        dunstify -u critical -r 699 "Control Box" "Unknown option"
+        echo "Unknown option"
+        ;;
 esac

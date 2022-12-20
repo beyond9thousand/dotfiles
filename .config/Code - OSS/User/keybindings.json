@@ -1,16 +1,17 @@
 // Place your key bindings in this file to override the defaults
 [
-    {
-     "key": "shift+alt+j",
-     "command": "editor.action.moveLinesDownAction"
-    },
-    {
-        "key": "shift+alt+k",
-      "command": "editor.action.moveLinesUpAction",
-      "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-      "key": "ctrl+o",
-      "command": "file-browser.open"
-    }
+  {
+    "key": "shift+alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "file-browser.open"
+  },
 ]
