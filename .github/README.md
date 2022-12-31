@@ -9,8 +9,6 @@
 
 </div>
 
-:warning: 'taskbar' setup is in the midst of being migrated to eww. In the mean time, you will find my polybar config located in [`$HOME/.config/not_in_use/`](https://github.com/beyond9thousand/dotfiles/tree/master/.config/not_in_use/polybar) Sorry for the inconvenience caused
-
 # beyond9thousand dotfiles
 
 You are expected to have a basic understanding of the unix system. If you are new to linux, please visit [here](https://linuxjourney.com/lesson/the-shell) or look for similar resources online. Do **NOT** proceed
@@ -48,15 +46,6 @@ My configuration is personalized to utilize keyboard shortcuts as well as mouse 
 
 <img src="assets/1-pre.png">
 
-<details close>
-  <summary><b>Demonstration video</b></summary>
-
-<video controls>
-  <source src="assets/demo.mp4" type="video/mp4">
-</video>
-
-</details>
-
 ## :mag: Specifications
 
 | Feature              | Package                                                 |
@@ -66,7 +55,7 @@ My configuration is personalized to utilize keyboard shortcuts as well as mouse 
 | Terminal             | [`alacritty`](https://github.com/alacritty/alacritty)   |
 | Shell                | [`zsh`](https://www.zsh.org/)                           |
 | Editor               | [`neovim`](https://github.com/neovim/neovim)            |
-| Panel                | [`polybar`](https://github.com/polybar/polybar)         |
+| Panel                | [`eww`](https://github.com/elkowar/eww)                 |
 | System Tray          | [`stalonetray`](https://github.com/kolbusa/stalonetray) |
 | Dock                 | [`plank`](https://github.com/ricotz/plank)              |
 | Notification Manager | [`dunst`](https://github.com/dunst-project/dunst)       |
@@ -168,7 +157,7 @@ Install an [AUR helper](https://wiki.archlinux.org/title/AUR_helpers) of your ch
 
 ```bash
 yay -S --needed \
-sxhkd bspwm alacritty zsh neovim polybar stalonetray \
+sxhkd bspwm alacritty zsh neovim stalonetray \
 plank dunst rofi jgmenu xprintidle i3lock-color zathura \
 broot fzf mpv neofetch ranger ueberzug xdo perl cava \
 xbanish xss-lock pavucontrol nitrogen flameshot exa bat copyq \
@@ -177,11 +166,15 @@ papirus-icon-theme kvantum pacman-contrib xorg-xbacklight \
 imagemagick
 ```
 
+- Install eww by following the instructions [here](https://elkowar.github.io/eww/eww.html?highlight=install#how-to-install-eww)
+
 #### Miscellaneous
 
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k) as a prompt theme for zsh
 
-## :question: Troubleshooting
+## :rotating_light: Troubleshooting
+
+Topics mentioned in this section may not necessarily be relevant to the ricing setup. It includes obscure erros that I have run into in my time using linux.
 
 #### Backlight
 
@@ -192,12 +185,13 @@ To allow users in the video group to change the brightness, a udev rule such as 
 ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
 ```
 
-- Refer to [Backlight](https://wiki.archlinux.org/title/Backlight#Udev_rule) for more info
+- Refer to [Backlight](https://wiki.archlinux.org/title/Backlight#Udev_rule) for better coverage on the subject
 
 ## :sparkles: Credits
 
+- [pagankeymaster](https://github.com/pagankeymaster) for his extensive research on bspwm & eww
+- [elkowar](https://github.com/elkowar) for his fantastic work on the eww widget framework
 - Excellent neovim config by [NvChad](https://github.com/NvChad/NvChad)
-- [pagankeymaster](https://github.com/pagankeymaster) for helping with various
   bspwm scripts
 - Beautiful wallpaper artwork created by [BisBiswas](https://www.deviantart.com/bisbiswas/art/Scattered-Lights-898482741)
 - Some configs have been derived from [axyl-os](https://github.com/axyl-os)
