@@ -2,10 +2,18 @@
 
 <div align="center">
 
-[![issues](https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=%23f87070&style=for-the-badge)](https://github.com/beyond9thousand/dotfiles/issues)
-[![size](https://img.shields.io/github/repo-size/beyond9thousand/dotfiles?color=c386c0&style=for-the-badge)](github.com/beyond9thousand/dotfiles)
-[![stars](https://img.shields.io/github/stars/beyond9thousand/dotfiles?color=79dcaa&style=for-the-badge)](https://github.com/beyond9thousand/dotfiles/stargazers)
-[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fbeyond9thousand%2Fdotfiles&label=visitors&countColor=%237bc5e4)](https://github.com/beyond9thousand/dotfiles)
+![Github stargazers](https://img.shields.io/github/stars/beyond9thousand/dotfiles?color=555555&label=Stargazers&logo=github&labelColor=70a5eb)
+&ensp;
+![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/beyond9thousand/dotfiles?color=555555&label=Last%20commit&logo=git&labelColor=79dcaa&logoColor=ffffff)
+&ensp;
+![GitHub open issues](https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=555555&label=Issues&logo=gnubash&labelColor=e05f65&logoColor=ffffff)
+&ensp;
+![GitHub forks](https://img.shields.io/github/forks/beyond9thousand/dotfiles?style=social)
+
+<!-- [![issues](https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=%23f87070&style=for-the-badge)](https://github.com/beyond9thousand/dotfiles/issues) -->
+<!-- [![size](https://img.shields.io/github/repo-size/beyond9thousand/dotfiles?color=c386c0&style=for-the-badge)](github.com/beyond9thousand/dotfiles) -->
+<!-- [![stars](https://img.shields.io/github/stars/beyond9thousand/dotfiles?color=79dcaa&style=for-the-badge)](https://github.com/beyond9thousand/dotfiles/stargazers) -->
+<!-- [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fbeyond9thousand%2Fdotfiles&label=visitors&countColor=%237bc5e4)](https://github.com/beyond9thousand/dotfiles) -->
 
 </div>
 
