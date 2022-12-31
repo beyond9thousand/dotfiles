@@ -46,7 +46,16 @@ My configuration is personalized to utilize keyboard shortcuts as well as mouse 
 
 </details>
 
-<img src="assets/1-pre.jpg">
+<img src="assets/1-pre.png">
+
+<details close>
+  <summary><b>Demonstration video</b></summary>
+
+<video controls>
+  <source src="assets/demo.mp4" type="video/mp4">
+</video>
+
+</details>
 
 ## :mag: Specifications
 
@@ -72,7 +81,7 @@ My configuration is personalized to utilize keyboard shortcuts as well as mouse 
 
 Tokyo night colorscheme ported from [zatchheems](https://github.com/zatchheems/tokyo-night-alacritty-theme) for alacritty
 
-<img src="assets/2.jpg">
+<img src="assets/2.png">
 
 ##### Application Launcher
 
@@ -92,15 +101,15 @@ The menu is spawned with the help of [xqp](https://github.com/baskerville/xqp) (
 
 ##### Notifications
 
-Dunst for a simple notification daemon. eww notification history panel coming soon
+Dunst for a simple notification daemon.
 
-<img src="assets/dunst.jpg" width="400">
+<img src="assets/dunst.png" width="400">
 
 ##### Drop-down Systray
 
 <div align="left">
 
-Stalonetray is run at bootup and hid right after using [xdo](https://github.com/baskerville/xdo). [`systray`](https://github.com/beyond9thousand/dotfiles/blob/master/.local/bin/systray) local binary is run via a custom ipc module defined in [`modules.ini`](https://github.com/beyond9thousand/dotfiles/tree/master/.config/not_in_use/polybar) which hides or unhides the tray as necessary.
+Stalonetray is run at bootup and hid right after using [xdo](https://github.com/baskerville/xdo). [`system_tray.zsh`](https://github.com/beyond9thousand/dotfiles/blob/master/.config/eww/shell/system_tray.zsh) is integrated into the eww bar to hide or unhide the tray icons on demand.
 
 </div>
 

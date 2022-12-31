@@ -127,5 +127,9 @@
   "auto-close-tag.fullMode": true,
   "window.zoomLevel": 1,
   "terminal.integrated.persistentSessionReviveProcess": "never",
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "eslint.packageManager": "yarn",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

@@ -22,6 +22,6 @@
     "geometry": null,
     "screen": 0,
     "start_disabled": false,
-    "mouse": false,
+    "mouse": true,
     "button_hide_duration": 1
 }
