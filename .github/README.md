@@ -2,15 +2,15 @@
 
 <div align="center">
 
-![Github stargazers](https://img.shields.io/github/stars/beyond9thousand/dotfiles?color=e3b341&label=Stargazers&logo=github)
+[![Github stargazers](https://img.shields.io/github/stars/beyond9thousand/dotfiles?color=e3b341&label=Stargazers&logo=github)](https://github.com/beyond9thousand/dotfiles/stargazers)
 &ensp;
-![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/beyond9thousand/dotfiles?color=79dcaa&label=Last%20commit&logo=git&logoColor=ffffff)
+[![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/beyond9thousand/dotfiles?color=79dcaa&label=Last%20commit&logo=git&logoColor=ffffff)](https://github.com/beyond9thousand/dotfiles/commits/master)
 &ensp;
-![GitHub open issues](https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=e05f65&label=Issues&logo=flatpak&logoColor=ffffff)
+[![GitHub open issues](https://img.shields.io/github/issues/beyond9thousand/dotfiles?color=e05f65&label=Issues&logo=flatpak&logoColor=ffffff)](https://github.com/beyond9thousand/dotfiles/issues)
 &ensp;
-![Discord](https://img.shields.io/discord/892782865727750144?label=Discord&color=5865f2&logo=discord&logoColor=white)
+[![Discord](https://img.shields.io/discord/892782865727750144?label=Discord&color=5865f2&logo=discord&logoColor=white)](https://discord.gg/wtNzY6U7GK)
 &ensp;
-![GitHub forks](https://img.shields.io/github/forks/beyond9thousand/dotfiles?style=social)
+[![GitHub forks](https://img.shields.io/github/forks/beyond9thousand/dotfiles?style=social)](https://github.com/beyond9thousand/dotfiles/network/members)
 
 </div>
 
