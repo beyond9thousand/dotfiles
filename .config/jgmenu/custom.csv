@@ -8,6 +8,7 @@ Critical,^checkout(critical),gtk-dialog-warning
 ^sep()
 
 Find Window Class,control_box -wclass,window_list
+Change wallpaper,nitrogen,nitrogen
 Randomize Wallpaper,control_box -wallres,phototonic
 ^sep()
 
